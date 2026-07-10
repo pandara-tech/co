@@ -205,65 +205,99 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
 .sec-arrow:hover { border-color: var(--ink); color: var(--ink); }
 
 /* Product list */
-.product-list {
+/* Product grid cards */
+.product-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  max-width: 700px;
+  max-width: 880px;
   margin: 0 auto;
-  text-align: left;
 }
-.product-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  padding: 20px 24px;
+.product-card {
+  position: relative;
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
+  cursor: pointer;
 }
-.product-item:hover { background: var(--surface); border-color: var(--accent); }
-.product-item-icon {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  object-fit: cover;
+.product-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
 }
-.product-item-icon--svg {
-  background: var(--surface-2);
+.product-card-front {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 32px 20px 24px;
+  text-align: center;
 }
-.product-item h3 {
+.product-card-icon {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+.product-card-name {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
 }
-.product-item p {
-  font-size: 14px;
+.product-card-back {
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  transform: translateY(16px);
+  border-radius: 16px;
+}
+.product-card:hover .product-card-back {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.product-card-back p {
+  font-size: 13.5px;
   color: var(--ink-soft);
   line-height: 1.7;
-  margin-bottom: 8px;
+  margin: 0;
 }
-.download-link {
+.product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  gap: 12px;
+}
+.download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-family: var(--font-display);
   font-size: 12px;
-  font-weight: 700;
-  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: color 0.25s var(--ease);
+  border: none;
+  cursor: pointer;
+  background: var(--ink);
+  color: var(--paper);
+  transition: all 0.3s var(--ease);
+  white-space: nowrap;
 }
-.download-link:hover { color: var(--accent-ink); }
-.download-link::after { content: ' \2193'; }
+.download-btn:hover { background: var(--accent-ink); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.download-btn.disabled { background: var(--surface-2); color: var(--muted); cursor: default; pointer-events: none; }
+html.rtl .product-card-back { text-align: right; }
 .badge {
   display: inline-block;
   font-family: var(--font-body);
@@ -386,8 +420,7 @@ html.rtl .splash-title { font-family: 'Azonix', 'Raleway', sans-serif !important
 html.rtl .sec-label { letter-spacing: 1px; font-weight: 700; }
 html.rtl .sec-title { font-weight: 700; }
 html.rtl .splash-sub { letter-spacing: 1px; font-family: 'BoutrosDinkum', 'Cairo', sans-serif; }
-html.rtl .product-item { text-align: right; }
-html.rtl .product-item h3 { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif !important; }
+html.rtl .product-card-name { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif !important; }
 html.rtl .why-card.outlined { text-align: right; }
 html.rtl .why-card.outlined h3 { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif; }
 html.rtl .sec-quote { font-family: 'BoutrosDinkum', 'Cairo', 'Inter', sans-serif; }
@@ -398,7 +431,8 @@ html.rtl .splash-btn { font-family: 'BoutrosDinkum', 'Cairo', 'Inter', sans-seri
 
 @media (max-width: 700px) {
   .why-grid { grid-template-columns: 1fr; }
-  .product-item { padding: 16px; }
+  .product-card-back { padding: 20px 16px; }
+  .product-card-front { padding: 24px 16px 18px; }
   .splash-logo { width: 80px; height: 80px; }
 }
 
