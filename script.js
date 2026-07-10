@@ -186,11 +186,10 @@ const appData = {
 (function() {
   const listItems = document.querySelectorAll('.app-list-item');
   const preview = document.getElementById('appPreview');
+  const explorer = document.getElementById('appExplorer');
   let currentApp = null;
-  let hideTimeout = null;
 
   function showApp(appId) {
-    if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
     const data = appData[appId];
     if (!data) return;
     currentApp = appId;
@@ -220,29 +219,19 @@ const appData = {
   }
 
   function hideApp() {
-    hideTimeout = setTimeout(function() {
-      preview.classList.remove('open');
-      listItems.forEach(function(el) { el.classList.remove('active'); });
-      currentApp = null;
-    }, 200);
+    preview.classList.remove('open');
+    listItems.forEach(function(el) { el.classList.remove('active'); });
+    currentApp = null;
   }
 
   listItems.forEach(function(item) {
-    var appId = item.dataset.app;
-    item.addEventListener('mouseenter', function() { showApp(appId); });
-    item.addEventListener('mouseleave', function(e) {
-      if (!preview.contains(e.relatedTarget) && !item.contains(e.relatedTarget)) hideApp();
-    });
-    item.addEventListener('focus', function() { showApp(appId); });
-    item.addEventListener('blur', function(e) {
-      if (!preview.contains(e.relatedTarget)) hideApp();
-    });
     item.addEventListener('click', function() {
       if (currentApp === this.dataset.app && preview.classList.contains('open')) hideApp();
       else showApp(this.dataset.app);
     });
   });
 
-  preview.addEventListener('mouseenter', function() { if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; } });
-  preview.addEventListener('mouseleave', hideApp);
+  document.addEventListener('click', function(e) {
+    if (preview.classList.contains('open') && !explorer.contains(e.target)) hideApp();
+  });
 })();
