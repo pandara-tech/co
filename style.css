@@ -210,11 +210,11 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 32px 48px;
-  max-width: 800px;
+  gap: 36px 56px;
+  max-width: 860px;
   margin: 0 auto;
   position: relative;
-  padding-bottom: 200px;
+  padding-bottom: 280px;
 }
 .app-cell {
   display: flex;
@@ -225,12 +225,12 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
   cursor: pointer;
 }
 .app-icon {
-  width: 56px; height: 56px;
-  border-radius: 14px;
+  width: 60px; height: 60px;
+  border-radius: 16px;
   object-fit: cover;
   transition: transform 0.3s var(--ease);
 }
-.app-cell:hover .app-icon { transform: scale(1.1); }
+.app-cell:hover .app-icon { transform: scale(1.12); }
 .app-label {
   font-family: var(--font-display);
   font-size: 12px;
@@ -241,19 +241,21 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
 }
 .app-popup {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 16px);
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 20px 22px;
-  width: 280px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  transform: translateX(-50%) translateY(12px);
+  width: 320px;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 18px;
+  padding: 24px 24px 20px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5) inset;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
-  z-index: 10;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  z-index: 20;
   text-align: left;
 }
 .app-cell:hover .app-popup {
@@ -261,17 +263,45 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
-.app-popup p {
+.app-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.app-popup-version {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+.app-popup-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brass);
+}
+.app-popup-desc {
   font-size: 13px;
   color: var(--ink-soft);
   line-height: 1.7;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+}
+.app-popup-meta {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 .app-popup-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
 .dl-btn {
   display: inline-flex;
@@ -294,6 +324,11 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
 .dl-btn:hover { background: var(--accent-ink); transform: translateY(-1px); }
 .dl-btn.disabled { background: var(--surface-2); color: var(--muted); cursor: default; pointer-events: none; }
 html.rtl .app-popup { text-align: right; }
+
+@media (max-width: 700px) {
+  .app-popup { width: 260px; padding: 18px; }
+  .apps-grid { gap: 28px 36px; padding-bottom: 220px; }
+}
 .badge {
   display: inline-block;
   font-family: var(--font-body);
