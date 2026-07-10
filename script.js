@@ -186,7 +186,6 @@ const appData = {
 (function() {
   const listItems = document.querySelectorAll('.app-list-item');
   const preview = document.getElementById('appPreview');
-  const bgOverlay = document.querySelector('.app-explorer-bg');
   let currentApp = null;
   let hideTimeout = null;
 
@@ -218,16 +217,14 @@ const appData = {
     document.getElementById('pvCtaSecondary').href = data.cta2 || '#';
     listItems.forEach(function(el) { el.classList.toggle('active', el.dataset.app === appId); });
     preview.classList.add('open');
-    bgOverlay.classList.add('active');
   }
 
   function hideApp() {
     hideTimeout = setTimeout(function() {
       preview.classList.remove('open');
-      bgOverlay.classList.remove('active');
       listItems.forEach(function(el) { el.classList.remove('active'); });
       currentApp = null;
-    }, 150);
+    }, 200);
   }
 
   listItems.forEach(function(item) {
@@ -248,5 +245,4 @@ const appData = {
 
   preview.addEventListener('mouseenter', function() { if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; } });
   preview.addEventListener('mouseleave', hideApp);
-  if (bgOverlay) bgOverlay.addEventListener('click', hideApp);
 })();
