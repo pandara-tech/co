@@ -368,7 +368,7 @@ html.rtl h1, html.rtl h2, html.rtl h3 {
   font-weight: 700;
   letter-spacing: 0;
 }
-html.rtl .splash-title { font-family: 'Azonix', 'Raleway', sans-serif; letter-spacing: 4px; }
+html.rtl .splash-title { font-family: 'Azonix', 'Raleway', sans-serif !important; letter-spacing: 4px; }
 html.rtl .sec-label { letter-spacing: 1px; font-weight: 700; }
 html.rtl .sec-title { font-weight: 700; }
 html.rtl .splash-sub { letter-spacing: 1px; font-family: 'BoutrosDinkum', 'Cairo', sans-serif; }
