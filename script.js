@@ -142,3 +142,111 @@ document.getElementById('contactForm')?.addEventListener('submit', async e => {
   submitBtn.disabled = false;
   submitBtn.textContent = t['form-send'];
 });
+
+// App Explorer
+const appData = {
+  pandaraword: {
+    img: 'pandaraword.png', title: 'PandaraWord', badge: 'Desktop App',
+    version: '1.0.6', updated: '2026', size: '85 MB',
+    desc: 'Integrated word processor that lets you edit, create, and format text documents with ease. Supports multiple formats and integrates with your favorite office tools. Built for speed, reliability, and modern document workflows.',
+    features: ['Fast', 'Offline', 'Windows', 'Secure', 'Modern UI', 'Multi-language'],
+    rating: true, ratingNum: '5.0', ratingCount: '\u2014',
+    cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'Download',
+    cta2: '#'
+  },
+  pandaraexcel: {
+    img: 'pandaraexcel.png', title: 'PandaraExcel', badge: 'Data & Analytics',
+    version: '1.0.0', updated: '\u2014', size: '\u2014',
+    desc: 'Professional spreadsheet application for data analysis, calculations, and report generation. Features an easy interface with advanced tools suited for professionals and beginners.',
+    features: ['Fast', 'Offline', 'Windows', 'AI Powered'],
+    rating: false,
+    cta: 'soon', ctaLabel: 'Coming soon',
+    cta2: '#'
+  },
+  mentis: {
+    img: 'mentis.png', title: 'Mentis', badge: 'Productivity',
+    version: '1.0.0', updated: '\u2014', size: '\u2014',
+    desc: 'Smart business and task management application. Helps you organize projects, track progress, and manage teams efficiently. Designed to be your digital assistant in the workplace.',
+    features: ['Smart', 'Offline', 'Windows', 'Multi-language'],
+    rating: false,
+    cta: 'request', ctaLink: '#contact', ctaLabel: 'Request app',
+    cta2: 'mentis.html'
+  },
+  file2img: {
+    img: 'file2img.png', title: 'File2Img', badge: 'Utility',
+    version: '1.0.0', updated: '\u2014', size: '\u2014',
+    desc: 'Smart tool for converting files to high-quality images. Supports converting documents, presentations, and spreadsheets to multiple image formats.',
+    features: ['Fast', 'Offline', 'Windows', 'Multi-format'],
+    rating: false,
+    cta: 'soon', ctaLabel: 'Coming soon',
+    cta2: '#'
+  }
+};
+
+(function() {
+  const listItems = document.querySelectorAll('.app-list-item');
+  const preview = document.getElementById('appPreview');
+  const bgOverlay = document.querySelector('.app-explorer-bg');
+  let currentApp = null;
+  let hideTimeout = null;
+
+  function showApp(appId) {
+    if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
+    const data = appData[appId];
+    if (!data) return;
+    currentApp = appId;
+    document.getElementById('previewImg').src = data.img;
+    document.getElementById('previewImg').alt = data.title;
+    document.getElementById('previewTitle').textContent = data.title;
+    document.getElementById('previewBadge').textContent = data.badge;
+    document.getElementById('pvVersion').textContent = data.version;
+    document.getElementById('pvUpdated').textContent = data.updated;
+    document.getElementById('pvSize').textContent = data.size;
+    document.getElementById('previewDesc').textContent = data.desc;
+    document.getElementById('previewFeatures').innerHTML = data.features.map(function(f) { return '<span class="pf"><span class="pf-c">\u2713</span> ' + f + '</span>'; }).join('');
+    var ratingEl = document.getElementById('previewRating');
+    if (data.rating) {
+      ratingEl.style.display = 'flex';
+      document.getElementById('pvRatingNum').textContent = data.ratingNum;
+      document.getElementById('pvRatingCount').textContent = data.ratingCount;
+    } else {
+      ratingEl.style.display = 'none';
+    }
+    var primary = document.getElementById('pvCtaPrimary');
+    if (data.cta === 'soon') { primary.className = 'pv-cta primary disabled'; primary.href = '#'; primary.textContent = data.ctaLabel; }
+    else { primary.className = 'pv-cta primary'; primary.href = data.ctaLink || '#'; primary.textContent = data.ctaLabel; }
+    document.getElementById('pvCtaSecondary').href = data.cta2 || '#';
+    listItems.forEach(function(el) { el.classList.toggle('active', el.dataset.app === appId); });
+    preview.classList.add('open');
+    bgOverlay.classList.add('active');
+  }
+
+  function hideApp() {
+    hideTimeout = setTimeout(function() {
+      preview.classList.remove('open');
+      bgOverlay.classList.remove('active');
+      listItems.forEach(function(el) { el.classList.remove('active'); });
+      currentApp = null;
+    }, 150);
+  }
+
+  listItems.forEach(function(item) {
+    var appId = item.dataset.app;
+    item.addEventListener('mouseenter', function() { showApp(appId); });
+    item.addEventListener('mouseleave', function(e) {
+      if (!preview.contains(e.relatedTarget) && !item.contains(e.relatedTarget)) hideApp();
+    });
+    item.addEventListener('focus', function() { showApp(appId); });
+    item.addEventListener('blur', function(e) {
+      if (!preview.contains(e.relatedTarget)) hideApp();
+    });
+    item.addEventListener('click', function() {
+      if (currentApp === this.dataset.app && preview.classList.contains('open')) hideApp();
+      else showApp(this.dataset.app);
+    });
+  });
+
+  preview.addEventListener('mouseenter', function() { if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; } });
+  preview.addEventListener('mouseleave', hideApp);
+  if (bgOverlay) bgOverlay.addEventListener('click', hideApp);
+})();
