@@ -205,88 +205,84 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
 .sec-arrow:hover { border-color: var(--ink); color: var(--ink); }
 
 /* Product list */
-/* Product grid cards */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 880px;
+/* Apps grid */
+.apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 48px;
+  max-width: 800px;
   margin: 0 auto;
-}
-.product-card {
   position: relative;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
-  cursor: pointer;
+  padding-bottom: 200px;
 }
-.product-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-  transform: translateY(-4px);
-}
-.product-card-front {
+.app-cell {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 32px 20px 24px;
-  text-align: center;
-}
-.product-card-icon {
-  width: 64px; height: 64px;
-  border-radius: 16px;
-  object-fit: cover;
-  margin-bottom: 14px;
-}
-.product-card-name {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-.product-card-back {
-  position: absolute;
-  inset: 0;
-  background: var(--surface);
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-  transform: translateY(16px);
-  border-radius: 16px;
-}
-.product-card:hover .product-card-back {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-.product-card-back p {
-  font-size: 13.5px;
-  color: var(--ink-soft);
-  line-height: 1.7;
-  margin: 0;
-}
-.product-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 18px;
-  gap: 12px;
-}
-.download-btn {
-  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 22px;
-  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.app-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  object-fit: cover;
+  transition: transform 0.3s var(--ease);
+}
+.app-cell:hover .app-icon { transform: scale(1.1); }
+.app-label {
   font-family: var(--font-display);
   font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.app-popup {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  width: 280px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  z-index: 10;
+  text-align: left;
+}
+.app-cell:hover .app-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.app-popup p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+.app-popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -295,9 +291,9 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
   transition: all 0.3s var(--ease);
   white-space: nowrap;
 }
-.download-btn:hover { background: var(--accent-ink); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-.download-btn.disabled { background: var(--surface-2); color: var(--muted); cursor: default; pointer-events: none; }
-html.rtl .product-card-back { text-align: right; }
+.dl-btn:hover { background: var(--accent-ink); transform: translateY(-1px); }
+.dl-btn.disabled { background: var(--surface-2); color: var(--muted); cursor: default; pointer-events: none; }
+html.rtl .app-popup { text-align: right; }
 .badge {
   display: inline-block;
   font-family: var(--font-body);
@@ -420,7 +416,7 @@ html.rtl .splash-title { font-family: 'Azonix', 'Raleway', sans-serif !important
 html.rtl .sec-label { letter-spacing: 1px; font-weight: 700; }
 html.rtl .sec-title { font-weight: 700; }
 html.rtl .splash-sub { letter-spacing: 1px; font-family: 'BoutrosDinkum', 'Cairo', sans-serif; }
-html.rtl .product-card-name { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif !important; }
+html.rtl .app-popup { text-align: right; }
 html.rtl .why-card.outlined { text-align: right; }
 html.rtl .why-card.outlined h3 { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif; }
 html.rtl .sec-quote { font-family: 'BoutrosDinkum', 'Cairo', 'Inter', sans-serif; }
@@ -431,8 +427,7 @@ html.rtl .splash-btn { font-family: 'BoutrosDinkum', 'Cairo', 'Inter', sans-seri
 
 @media (max-width: 700px) {
   .why-grid { grid-template-columns: 1fr; }
-  .product-card-back { padding: 20px 16px; }
-  .product-card-front { padding: 24px 16px 18px; }
+  .app-popup { width: 240px; padding: 16px; }
   .splash-logo { width: 80px; height: 80px; }
 }
 
