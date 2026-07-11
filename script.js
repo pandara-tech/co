@@ -55,7 +55,7 @@ const lang = {
   }
 };
 
-let currentLang = localStorage.getItem('pandara-lang') || 'en';
+let currentLang = localStorage.getItem('pandara-lang') || 'ar';
 
 function applyLang(l) {
   currentLang = l;
@@ -144,55 +144,107 @@ document.getElementById('contactForm')?.addEventListener('submit', async e => {
 });
 
 // App Explorer
-let hideTimer = null;
-
-const appData = {
-  pandaraword: {
-    img: 'pandaraword.png', title: 'PandaraWord', badge: 'Desktop App',
-    version: '1.0.6', updated: '2026', size: '85 MB',
-    desc: 'Integrated word processor that lets you edit, create, and format text documents with ease. Supports multiple formats and integrates with your favorite office tools. Built for speed, reliability, and modern document workflows.',
-    features: ['Fast', 'Offline', 'Windows', 'Secure', 'Modern UI', 'Multi-language'],
-    rating: true, ratingNum: '5.0', ratingCount: '\u2014',
-    cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'Download',
-    cta2: '#'
+var appData = {
+  en: {
+    pandaraword: {
+      img: 'pandaraword.png', title: 'PandaraWord', badge: 'Desktop App',
+      version: '1.0.6', updated: '2026', size: '85 MB',
+      desc: 'Integrated word processor that lets you edit, create, and format text documents with ease. Supports multiple formats and integrates with your favorite office tools. Built for speed, reliability, and modern document workflows.',
+      features: ['Fast', 'Offline', 'Windows', 'Secure', 'Modern UI', 'Multi-language'],
+      rating: true, ratingNum: '5.0', ratingCount: '\u2014',
+      cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'Download',
+      cta2: null
+    },
+    pandaraexcel: {
+      img: 'pandaraexcel.png', title: 'PandaraExcel', badge: 'Data & Analytics',
+      version: '1.0.0', updated: '\u2014', size: '\u2014',
+      desc: 'Professional spreadsheet application for data analysis, calculations, and report generation. Features an easy interface with advanced tools suited for professionals and beginners.',
+      features: ['Fast', 'Offline', 'Windows', 'AI Powered'],
+      rating: false,
+      cta: 'soon', ctaLabel: 'Coming soon',
+      cta2: null
+    },
+    mentis: {
+      img: 'mentis.png', title: 'Mentis', badge: 'Productivity',
+      version: '1.0.7', updated: '2026', size: '\u2014',
+      desc: 'Mentis is an integrated administrative system for educational institutions, enabling the creation of official correspondence, documents, and administrative records quickly and professionally, with management and organization of student, employee, and faculty data in a unified database. It also provides saving and archiving of outgoing documents with a complete record, along with automatic backup and continuous updates to ensure data security and business continuity.',
+      features: ['Smart', 'Offline', 'Windows', 'Multi-language'],
+      rating: false,
+      cta: 'request', ctaLink: '#contact', ctaLabel: 'Request app',
+      cta2: null
+    },
+    file2img: {
+      img: 'file2img.png', title: 'File2Img', badge: 'Utility',
+      version: '1.0.0', updated: '\u2014', size: '\u2014',
+      desc: 'Smart tool for converting files to high-quality images. Supports converting documents, presentations, and spreadsheets to multiple image formats.',
+      features: ['Fast', 'Offline', 'Windows', 'Multi-format'],
+      rating: false,
+      cta: 'soon', ctaLabel: 'Coming soon',
+      cta2: null
+    }
   },
-  pandaraexcel: {
-    img: 'pandaraexcel.png', title: 'PandaraExcel', badge: 'Data & Analytics',
-    version: '1.0.0', updated: '\u2014', size: '\u2014',
-    desc: 'Professional spreadsheet application for data analysis, calculations, and report generation. Features an easy interface with advanced tools suited for professionals and beginners.',
-    features: ['Fast', 'Offline', 'Windows', 'AI Powered'],
-    rating: false,
-    cta: 'soon', ctaLabel: 'Coming soon',
-    cta2: '#'
-  },
-  mentis: {
-    img: 'mentis.png', title: 'Mentis', badge: 'Productivity',
-    version: '1.0.0', updated: '\u2014', size: '\u2014',
-    desc: 'Smart business and task management application. Helps you organize projects, track progress, and manage teams efficiently. Designed to be your digital assistant in the workplace.',
-    features: ['Smart', 'Offline', 'Windows', 'Multi-language'],
-    rating: false,
-    cta: 'request', ctaLink: '#contact', ctaLabel: 'Request app',
-    cta2: 'mentis.html'
-  },
-  file2img: {
-    img: 'file2img.png', title: 'File2Img', badge: 'Utility',
-    version: '1.0.0', updated: '\u2014', size: '\u2014',
-    desc: 'Smart tool for converting files to high-quality images. Supports converting documents, presentations, and spreadsheets to multiple image formats.',
-    features: ['Fast', 'Offline', 'Windows', 'Multi-format'],
-    rating: false,
-    cta: 'soon', ctaLabel: 'Coming soon',
-    cta2: '#'
+  ar: {
+    pandaraword: {
+      img: 'pandaraword.png', title: 'PandaraWord', badge: 'تطبيق مكتبي',
+      version: '1.0.6', updated: '2026', size: '85 ميغابايت',
+      desc: 'معالج نصوص متكامل يتيح لك تحرير وإنشاء وتنسيق المستندات النصية بسهولة. يدعم تنسيقات متعددة ويتكامل مع أدواتك المكتبية المفضلة. صمم للسرعة والموثوقية وسير العمل الحديث.',
+      features: ['سريع', 'بدون إنترنت', 'ويندوز', 'آمن', 'واجهة حديثة', 'متعدد اللغات'],
+      rating: true, ratingNum: '5.0', ratingCount: '\u2014',
+      cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'تحميل',
+      cta2: null
+    },
+    pandaraexcel: {
+      img: 'pandaraexcel.png', title: 'PandaraExcel', badge: 'بيانات وتحليلات',
+      version: '1.0.0', updated: '\u2014', size: '\u2014',
+      desc: 'تطبيق جداول بيانات احترافي لتحليل البيانات وإجراء الحسابات وإنشاء التقارير. يتميز بواجهة سهلة وأدوات متقدمة تناسب المحترفين والمبتدئين.',
+      features: ['سريع', 'بدون إنترنت', 'ويندوز', 'مدعوم بالذكاء'],
+      rating: false,
+      cta: 'soon', ctaLabel: 'قريباً',
+      cta2: null
+    },
+    mentis: {
+      img: 'mentis.png', title: 'Mentis', badge: 'نظام إداري',
+      version: '1.0.7', updated: '2026', size: '\u2014',
+      desc: 'Mentis هو نظام إداري متكامل للمؤسسات التعليمية، يتيح إنشاء المخاطبات والوثائق الرسمية والسجلات الإدارية بسرعة واحترافية، مع إدارة وتنظيم بيانات الطلبة والموظفين وأعضاء الهيئة التدريسية في قاعدة بيانات موحدة. كما يوفر حفظًا وأرشفةً للمستندات الصادرة، وسجلًا متكاملًا لها، إلى جانب النسخ الاحتياطي التلقائي والتحديثات المستمرة لضمان أمان البيانات واستمرارية العمل.',
+      features: ['ذكي', 'بدون إنترنت', 'ويندوز', 'متعدد اللغات'],
+      rating: false,
+      cta: 'request', ctaLink: '#contact', ctaLabel: 'طلب التطبيق',
+      cta2: null
+    },
+    file2img: {
+      img: 'file2img.png', title: 'File2Img', badge: 'أداة',
+      version: '1.0.0', updated: '\u2014', size: '\u2014',
+      desc: 'أداة ذكية لتحويل الملفات إلى صور بجودة عالية. يدعم تحويل المستندات والعروض التقديمية والجداول إلى صيغ صور متعددة.',
+      features: ['سريع', 'بدون إنترنت', 'ويندوز', 'متعدد الصيغ'],
+      rating: false,
+      cta: 'soon', ctaLabel: 'قريباً',
+      cta2: null
+    }
   }
 };
 
 (function() {
-  const listItems = document.querySelectorAll('.app-list-item');
-  const preview = document.getElementById('appPreview');
-  const explorer = document.getElementById('appExplorer');
-  let currentApp = null;
+  var listItems = document.querySelectorAll('.app-list-item');
+  var preview = document.getElementById('appPreview');
+  var explorer = document.getElementById('appExplorer');
+  var currentApp = null;
+  var autoCloseTimer = null;
+
+  function clearAutoClose() {
+    if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
+  }
+
+  function startAutoClose() {
+    clearAutoClose();
+    autoCloseTimer = setTimeout(function() {
+      if (preview.classList.contains('open') && !preview.matches(':hover')) {
+        hideApp();
+      }
+    }, 1500);
+  }
 
   function showApp(appId) {
-    const data = appData[appId];
+    var data = appData[currentLang] && appData[currentLang][appId] ? appData[currentLang][appId] : appData.en[appId];
     if (!data) return;
     currentApp = appId;
     document.getElementById('previewImg').src = data.img;
@@ -215,37 +267,45 @@ const appData = {
     var primary = document.getElementById('pvCtaPrimary');
     if (data.cta === 'soon') { primary.className = 'pv-cta primary disabled'; primary.href = '#'; primary.textContent = data.ctaLabel; }
     else { primary.className = 'pv-cta primary'; primary.href = data.ctaLink || '#'; primary.textContent = data.ctaLabel; }
-    document.getElementById('pvCtaSecondary').href = data.cta2 || '#';
+    var secondary = document.getElementById('pvCtaSecondary');
+    if (data.cta2) { secondary.style.display = 'inline-flex'; secondary.href = data.cta2; }
+    else { secondary.style.display = 'none'; }
     listItems.forEach(function(el) { el.classList.toggle('active', el.dataset.app === appId); });
     preview.classList.add('open');
+    startAutoClose();
   }
 
   function hideApp() {
+    clearAutoClose();
     preview.classList.remove('open');
     listItems.forEach(function(el) { el.classList.remove('active'); });
     currentApp = null;
   }
 
-  preview.addEventListener('mouseenter', function() {
-    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
-  });
-
-  preview.addEventListener('mouseleave', function() {
-    if (preview.classList.contains('open')) {
-      hideTimer = setTimeout(function() { hideApp(); }, 1500);
-    }
-  });
+  preview.addEventListener('mouseenter', clearAutoClose);
+  preview.addEventListener('mouseleave', startAutoClose);
 
   listItems.forEach(function(item) {
-    item.addEventListener('mouseenter', function() {
-      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
-      showApp(this.dataset.app);
+    item.addEventListener('mouseenter', function() { showApp(item.dataset.app); });
+    item.addEventListener('click', function() {
+      if (currentApp === this.dataset.app && preview.classList.contains('open')) hideApp();
+      else showApp(this.dataset.app);
     });
   });
 
-  explorer.addEventListener('mouseleave', function(e) {
-    if (preview.classList.contains('open') && !preview.contains(e.relatedTarget)) {
-      hideTimer = setTimeout(function() { hideApp(); }, 1500);
-    }
+  preview.addEventListener('mouseenter', clearAutoClose);
+  preview.addEventListener('mouseleave', startAutoClose);
+
+  document.addEventListener('click', function(e) {
+    if (preview.classList.contains('open') && !explorer.contains(e.target)) hideApp();
   });
+
+  // Re-show current app on language change
+  var origApply = window.applyLang;
+  if (origApply) {
+    window.applyLang = function(l) {
+      origApply(l);
+      if (currentApp && preview.classList.contains('open')) showApp(currentApp);
+    };
+  }
 })();

@@ -448,6 +448,7 @@ html.rtl .app-list-arrow { transform: rotate(180deg); }
 html.rtl .app-list-item.active .app-list-arrow { transform: rotate(-90deg); }
 html.rtl .app-preview { transform: translateX(20px); }
 html.rtl .app-preview.open { transform: translateX(0); }
+html.rtl .app-preview-inner { direction: rtl; }
 html.rtl .app-preview-right { text-align: right; }
 html.rtl .app-preview-header { flex-direction: row-reverse; }
 html.rtl .app-preview-features { justify-content: flex-end; }
