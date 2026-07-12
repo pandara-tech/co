@@ -1,5 +1,5 @@
-const BOT_TOKEN = '8895001344:AAF2RQVtFtMvDLjltnsMkqXbzEiZ87fPi_c';
-const CHAT_ID = '8285149338';
+const BOT_TOKEN = 'YOUR_BOT_TOKEN';
+const CHAT_ID = 'YOUR_CHAT_ID';
 
 const lang = {
   en: {
@@ -144,6 +144,8 @@ document.getElementById('contactForm')?.addEventListener('submit', async e => {
 });
 
 // App Explorer
+let hideTimer = null;
+
 const appData = {
   pandaraword: {
     img: 'pandaraword.png', title: 'PandaraWord', badge: 'Desktop App',
@@ -224,14 +226,26 @@ const appData = {
     currentApp = null;
   }
 
+  preview.addEventListener('mouseenter', function() {
+    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+  });
+
+  preview.addEventListener('mouseleave', function() {
+    if (preview.classList.contains('open')) {
+      hideTimer = setTimeout(function() { hideApp(); }, 1500);
+    }
+  });
+
   listItems.forEach(function(item) {
-    item.addEventListener('click', function() {
-      if (currentApp === this.dataset.app && preview.classList.contains('open')) hideApp();
-      else showApp(this.dataset.app);
+    item.addEventListener('mouseenter', function() {
+      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+      showApp(this.dataset.app);
     });
   });
 
-  document.addEventListener('click', function(e) {
-    if (preview.classList.contains('open') && !explorer.contains(e.target)) hideApp();
+  explorer.addEventListener('mouseleave', function(e) {
+    if (preview.classList.contains('open') && !preview.contains(e.relatedTarget)) {
+      hideTimer = setTimeout(function() { hideApp(); }, 1500);
+    }
   });
 })();
