@@ -402,3 +402,132 @@ var appData = {
   // Pre-select the first app so the preview panel is never empty on load
   if (listItems.length) showApp(listItems[0].dataset.app);
 })();
+
+/* ===================== MATRIX DIGITAL RAIN ===================== */
+(function () {
+  const canvas = document.getElementById('matrixRain');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { canvas.style.display = 'none'; return; }
+
+  // Classic Matrix katakana + numerals/symbols
+  const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+  const latin = '0123456789:.=*+-<>¦｜╌zZ';
+  const glyphs = (katakana + latin).split('');
+
+  const fontSize = 16;
+  const hero = canvas.parentElement;
+
+  // Per-column stream state. We keep a faded trail by NOT clearing hard:
+  // each cell has its own alpha that eases toward its target, so glyphs
+  // fade in as the head arrives and fade out as the tail passes.
+  let cols, rows;
+  let col = [];   // array of column objects
+
+  function accentColor() {
+    const v = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    return v || '#00FF66';
+  }
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  function glyph() { return glyphs[(Math.random() * glyphs.length) | 0]; }
+
+  function newColumn() {
+    return {
+      head: -Math.floor(rand(4, rows + 8)),  // start somewhere above/within
+      trail: Math.floor(rand(8, 30)),       // long-ish streak (random)
+      speed: rand(0.12, 0.42),              // slow fall
+      gap: Math.floor(rand(60, 320)),       // random idle frames before next stream
+      phase: 'fall',                        // 'fall' -> 'wait'
+      // per-row glyph + current alpha (for smooth fade), keyed by row index
+      ch: {}, a: {}
+    };
+  }
+
+  function resize() {
+    const w = hero.clientWidth, h = hero.clientHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.font = fontSize + "px 'Share Tech Mono', 'MS Gothic', monospace";
+    ctx.textBaseline = 'top';
+    cols = Math.floor(w / fontSize);
+    rows = Math.ceil(h / fontSize) + 2;
+    col = new Array(cols).fill(0).map(() => {
+      const c = newColumn();
+      if (Math.random() < 0.55) { c.phase = 'wait'; c.gap = Math.floor(rand(60, 420)); }
+      return c;
+    });
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  let running = true;
+  function draw() {
+    if (!running) return;
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    // gentle global fade so old trails dissolve smoothly (no hard pop)
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.20)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.font = fontSize + "px 'Share Tech Mono', 'MS Gothic', monospace";
+
+    for (let i = 0; i < cols; i++) {
+      const c = col[i];
+      const x = i * fontSize;
+
+      if (c.phase === 'wait') {
+        c.gap--;
+        if (c.gap <= 0) { col[i] = newColumn(); col[i].phase = 'fall'; }
+        continue;
+      }
+
+      // ease the head downward
+      c.head += c.speed;
+      const headRow = Math.floor(c.head);
+
+      // determine which rows are lit this frame (head + trailing cells)
+      const litFrom = headRow - c.trail;
+      const litTo = headRow;
+      for (let ry = litFrom; ry <= litTo; ry++) {
+        if (ry < 0 || ry >= rows) continue;
+        const dist = headRow - ry;             // 0 = head
+        // target alpha: bright head, long bright-ish fading tail
+        let target = dist === 0 ? 1
+                   : dist < 4 ? 0.85
+                   : Math.max(0.12, 0.7 * (1 - dist / c.trail));
+        if (!c.ch[ry]) c.ch[ry] = glyph();
+        // assign a glyph as the head reaches it, then let it age/flicker
+        if (dist === 0 || Math.random() < 0.03) c.ch[ry] = glyph();
+        // ease current alpha toward target (smooth fade, never instant pop)
+        const cur = c.a[ry] || 0;
+        c.a[ry] = cur + (target - cur) * 0.25;
+        const a = c.a[ry];
+        if (a < 0.02) continue;
+        const y = ry * fontSize;
+        if (dist === 0) ctx.fillStyle = 'rgba(205,255,220,' + a.toFixed(3) + ')';
+        else ctx.fillStyle = 'rgba(0,255,102,' + a.toFixed(3) + ')';
+        ctx.fillText(c.ch[ry], x, y);
+      }
+
+      // after the whole streak leaves the bottom, go idle for a random gap
+      if (headRow - c.trail > rows) c.phase = 'wait';
+    }
+    requestAnimationFrame(draw);
+  }
+
+  // Pause when hero scrolled out of view to save CPU
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      const vis = entries[0].isIntersecting;
+      if (vis && !running) { running = true; requestAnimationFrame(draw); }
+      else if (!vis) running = false;
+    }, { threshold: 0 }).observe(hero);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(draw);
+})();
