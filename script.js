@@ -233,8 +233,8 @@ var appData = {
     pandaraword: {
       img: 'pandaraword.png', title: 'PandaraWord', badge: 'Desktop App',
       version: '1.0.6', updated: '2026', size: '85 MB',
-      desc: 'PandaraWord is a modern Windows desktop application (.NET 10 / WPF, MVVM) for managing Microsoft Word documents with high efficiency. It offers a Fluent-inspired interface with a ribbon toolbar, folder navigation, instant search, and a virtualized file list. Powerful batch operations let you scan, filter, copy, move, rename, delete, convert (DOC to DOCX / to PDF via OpenXML), duplicate, and bulk-format thousands of documents while preserving layout. It runs fully offline, switches between light and dark themes, and supports Arabic and English out of the box with progress tracking, detailed logging, and automatic updates.',
-      features: ['Fast', 'Offline', 'Windows', '.NET 10', 'Batch Ops', 'Multi-language'],
+      desc: 'PandaraWord is a smart desktop app for managing Microsoft Word documents with high efficiency. It helps you organize thousands of files, search them instantly, and perform batch operations like copying, moving, renaming, deleting, converting to PDF, and bulk-formatting — all while preserving the original layout. With its modern interface, light and dark themes, and full Arabic and English support, it makes document work faster and simpler.',
+      features: ['Fast', 'Offline', 'Windows', 'Batch Ops', 'PDF Convert', 'Multi-language'],
       rating: true, ratingNum: '5.0', ratingCount: '\u2014',
       cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'Download',
       cta2: null
@@ -251,8 +251,8 @@ var appData = {
     mentis: {
       img: 'mentis.png', title: 'Mentis', badge: 'Productivity',
       version: '1.0.6', updated: '2026', size: '\u2014',
-      desc: 'Mentis is an integrated administrative system for schools and educational institutions, built on .NET Framework 4.7.2 (WinForms). It generates official correspondence and administrative documents from dynamic Word templates in Arabic, English, and Kurdish, and manages student, employee, and faculty data in a unified local database. It archives every outgoing document with a full history, converts and prints to PDF, and keeps your data secure with encryption and local storage. Built-in auto-update (GitHub) and optional Google Drive sync/backup keep everything current and safe.',
-      features: ['Templates', 'Offline', 'Windows', 'Multi-language', 'Encrypted', 'Auto-update'],
+      desc: 'Mentis is an integrated administrative system for schools and educational institutions. It creates official correspondence and administrative documents from ready-made templates in Arabic, English, and Kurdish, and organizes student, employee, and faculty data in one unified workspace. Every outgoing document is saved and archived with its full history, can be converted and printed to PDF, and your data stays on your device for privacy and continuity.',
+      features: ['Templates', 'Offline', 'Windows', 'Multi-language', 'Archiving', 'PDF & Print'],
       rating: false,
       cta: 'request', ctaLink: '#contact', ctaLabel: 'Request app',
       cta2: null
@@ -271,8 +271,8 @@ var appData = {
     pandaraword: {
       img: 'pandaraword.png', title: 'PandaraWord', badge: 'تطبيق مكتبي',
       version: '1.0.6', updated: '2026', size: '85 ميغابايت',
-      desc: 'PandaraWord تطبيق سطح مكتبي حديث لنظام Windows مبني على .NET 10 / WPF وبنمط MVVM لإدارة مستندات Microsoft Word بكفاءة عالية. يوفر واجهة مستوحاة من Fluent تضم شريط أدوات، وتنقلًا بين المجلدات، وبحثًا فوريًا، وقائمة ملفات افتراضية. وتتيح عملياته الجماعية القوية المسح، والترشيح، والنسخ، والنقل، وإعادة التسمية، والحذف، والتحويل (DOC إلى DOCX أو PDF عبر OpenXML)، والاستنساخ، والتنسيق الجماعي لآلاف المستندات مع الحفاظ الكامل على التصميم. يعمل دون اتصال بالإنترنت، ويدعم تبديل السمة بين الفاتح والداكن، والعربية والإنجليزية بشكل كامل، مع تتبع التقدم وتسجيل التفاصيل والتحديثات التلقائية.',
-      features: ['سريع', 'بدون إنترنت', 'ويندوز', '.NET 10', 'عمليات جماعية', 'متعدد اللغات'],
+      desc: 'PandaraWord تطبيق ذكي لسطح المكتب لإدارة مستندات Microsoft Word بكفاءة عالية. يساعدك على تنظيم آلاف الملفات والبحث عنها فورًا، وإجراء عمليات جماعية مثل النسخ والنقل وإعادة التسمية والحذف والتحويل إلى PDF والتنسيق الجماعي — مع الحفاظ الكامل على التصميم الأصلي. وبفضل واجهته الحديثة ودعمه للسمة الفاتحة والداكنة والعربية والإنجليزية، يجعل العمل على المستندات أسرع وأبسط.',
+      features: ['سريع', 'بدون إنترنت', 'ويندوز', 'عمليات جماعية', 'تحويل PDF', 'متعدد اللغات'],
       rating: true, ratingNum: '5.0', ratingCount: '\u2014',
       cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'تحميل',
       cta2: null
@@ -289,8 +289,8 @@ var appData = {
     mentis: {
       img: 'mentis.png', title: 'Mentis', badge: 'نظام إداري',
       version: '1.0.6', updated: '2026', size: '\u2014',
-      desc: 'Mentis نظام إداري متكامل للمدارس والمؤسسات التعليمية، مبني على .NET Framework 4.7.2 (WinForms). يولّد المراسلات والوثائق الإدارية من قوالب Word ديناميكية بالعربية والإنجليزية والكردية، ويدير بيانات الطلبة والموظفين وأعضاء الهيئة التدريسية في قاعدة بيانات محلية موحدة. يُرشف كل مستند صادر بسجل كامل، ويحوّله ويطبعه إلى PDF، ويحفظ بياناتك آمنة عبر التشفير والتخزين المحلي. يتضمن تحديثًا تلقائيًا (عبر GitHub) ومزامنة ونسخًا احتياطيًا اختياريًا على Google Drive لإبقاء كل شيء محدّثًا وآمنًا.',
-      features: ['قوالب', 'بدون إنترنت', 'ويندوز', 'متعدد اللغات', 'مشفّر', 'تحديث تلقائي'],
+      desc: 'Mentis نظام إداري متكامل للمدارس والمؤسسات التعليمية يُنشئ المراسلات والوثائق الإدارية من قوالب جاهزة بالعربية والإنجليزية والكردية، وينظم بيانات الطلبة والموظفين وأعضاء الهيئة التدريسية في مساحة عمل موحدة. ويُحفظ كل مستند صادر ويرشف بسجله الكامل، ويمكن تحويله وطباعته إلى PDF، وتبقى بياناتك على جهازك لخصوصية واستمرارية العمل.',
+      features: ['قوالب', 'بدون إنترنت', 'ويندوز', 'متعدد اللغات', 'أرشفة', 'PDF وطباعة'],
       rating: false,
       cta: 'request', ctaLink: '#contact', ctaLabel: 'طلب التطبيق',
       cta2: null
