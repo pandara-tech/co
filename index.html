@@ -7,7 +7,7 @@
 <meta name="description" content="Pandara Tech — Smart Solutions for Smart Applications" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,41 +49,23 @@
 
 <main class="stage">
 
-  <canvas id="starfield"></canvas>
-  <div class="sky-glow"></div>
-
-  <!-- FLOATING ISLAND HERO -->
-  <section class="isle-hero" id="splash">
-    <div class="mtn mtn--back"></div>
-    <div class="mtn mtn--mid"></div>
-    <div class="isle isle--hero">
-      <div class="isle-top">
-        <span class="hero-eyebrow" data-i18n="hero-eyebrow">Pandara Tech</span>
-        <h1 class="hero-title">
-          <span class="line" data-i18n="hero-l1">Smarter software</span>
-          <span class="line accent" data-i18n="hero-l2">for the work</span>
-          <span class="line" data-i18n="hero-l3">that matters</span>
-        </h1>
-        <a href="#about" class="hero-cta">
-          <span data-i18n="hero-cta">Explore</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-      <div class="isle-roots"></div>
+  <section class="hero" id="splash">
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow" data-i18n="hero-eyebrow">Pandara Tech</span>
+      <h1 class="hero-title">
+        <span class="line" data-i18n="hero-l1">Smarter software</span>
+        <span class="line accent" data-i18n="hero-l2">for the work</span>
+        <span class="line" data-i18n="hero-l3">that matters</span>
+      </h1>
+      <a href="#about" class="hero-cta">
+        <span data-i18n="hero-cta">Explore</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
-    <div class="mtn mtn--front"></div>
-    <div class="hero-foot"><span class="dot"></span> <span data-i18n="hero-foot">Build · Simplify · Empower</span></div>
-  </section>
-
-  <div class="islands" id="islands">
-
-  <section class="hud sec sec--about" id="about">
-    <div class="sec-inner reveal">
-      <span class="sec-label" data-i18n="about-eyebrow">About</span>
-      <h2 class="sec-title" data-i18n="about-title">Pandara Tech</h2>
-      <p class="sec-quote" data-i18n="about-quote">At Pandara Tech, we don't ask "how do we build an app?" We ask: "how do we make life and work simpler and smarter?"</p>
-      <p class="sec-text" data-i18n="about-p1">A technology company specialized in delivering smart solutions and developing innovative applications. We believe technology should be a tool to simplify life and enhance productivity, which is why we build products that combine high performance with elegant design to deliver an exceptional experience to our users.</p>
-      <p class="sec-text" data-i18n="about-p2">Our engineering philosophy centers on building fast, lightweight applications that respect your privacy. All data stays on your device, and we never share it with third parties. We continuously update and improve our applications to meet the evolving needs of our users.</p>
+    <div class="hero-foot">
+      <span class="dot"></span> <span data-i18n="hero-foot">Build · Simplify · Empower</span>
     </div>
   </section>
 
@@ -97,7 +79,7 @@
     </div>
   </section>
 
-  <section class="hud sec sec--products" id="products">
+  <section class="sec sec--products" id="products">
     <div class="sec-inner reveal">
       <span class="sec-label" data-i18n="products-eyebrow">Products</span>
       <h2 class="sec-title" data-i18n="products-title">What we've built</h2>
@@ -180,7 +162,7 @@
     </div>
   </section>
 
-  <section class="hud sec sec--why" id="why">
+  <section class="sec sec--why" id="why">
     <div class="sec-inner reveal">
       <span class="sec-label" data-i18n="why-eyebrow">Why</span>
       <h2 class="sec-title" data-i18n="why-title">What sets us apart</h2>
@@ -209,7 +191,7 @@
     </div>
   </section>
 
-  <section class="hud sec sec--contact" id="contact">
+  <section class="sec sec--contact" id="contact">
     <div class="sec-inner reveal">
       <span class="sec-label" data-i18n="cta-eyebrow">Contact</span>
       <h2 class="sec-title" data-i18n="cta-title">Let's talk</h2>
@@ -227,8 +209,6 @@
       <a href="https://instagram.com/pandaratech" target="_blank" rel="noopener">@pandaratech</a>
     </div>
   </section>
-
-  </div><!-- /islands -->
 
 </main>
 
