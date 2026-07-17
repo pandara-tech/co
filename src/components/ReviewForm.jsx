@@ -28,8 +28,15 @@ export default function ReviewForm({ productId, onSubmitted, isOpen, onClose }) 
   useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape' && isOpen) onClose?.(); };
     document.addEventListener('keydown', handler);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => { document.removeEventListener('keydown', handler); document.body.style.overflow = ''; };
+    if (isOpen) {
+      const sbw = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = sbw + 'px';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+    return () => { document.removeEventListener('keydown', handler); document.body.style.overflow = ''; document.body.style.paddingRight = ''; };
   }, [isOpen, onClose]);
 
   const validate = () => {
