@@ -413,40 +413,46 @@ var appData = {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let stars = [], w = 0, h = 0, dpr = 1;
+  const palette = ['#2fe6d6', '#7df9ff', '#b98bff', '#5fd0d8', '#9affd6'];
   function resize() {
     w = window.innerWidth; h = window.innerHeight;
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = w * dpr; canvas.height = h * dpr;
     canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.floor((w * h) / 6000);
+    const count = Math.floor((w * h) / 5200);
     stars = new Array(count).fill(0).map(() => ({
       x: Math.random() * w, y: Math.random() * h,
-      z: Math.random() * 0.8 + 0.2, r: Math.random() * 1.4 + 0.3,
-      tw: Math.random() * Math.PI * 2
+      z: Math.random() * 0.8 + 0.2, r: Math.random() * 1.5 + 0.3,
+      tw: Math.random() * Math.PI * 2,
+      col: palette[(Math.random() * palette.length) | 0],
+      spore: Math.random() < 0.06
     }));
   }
 
   function accent() {
     const v = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
-    return v || '#00FF66';
+    return v || '#2fe6d6';
   }
 
   let launched = false;
   function draw() {
     ctx.clearRect(0, 0, w, h);
-    const col = accent();
     for (const s of stars) {
-      s.y -= (launched ? 0.6 + s.z * 1.6 : 0.15 + s.z * 0.3);
-      if (s.y < -2) { s.y = h + 2; s.x = Math.random() * w; }
+      s.y -= (launched ? 0.6 + s.z * 1.6 : 0.12 + s.z * 0.28);
+      if (s.y < -4) { s.y = h + 4; s.x = Math.random() * w; }
       s.tw += 0.05;
-      const a = (0.4 + 0.6 * Math.abs(Math.sin(s.tw))) * s.z;
+      const a = (0.35 + 0.65 * Math.abs(Math.sin(s.tw))) * s.z;
+      const rad = s.r * (launched ? 1 + s.z : 1) * (s.spore ? 1.8 : 1);
       ctx.beginPath();
-      ctx.fillStyle = col;
+      ctx.fillStyle = s.col;
+      ctx.shadowColor = s.col;
+      ctx.shadowBlur = s.spore ? 10 : 4;
       ctx.globalAlpha = a;
-      ctx.arc(s.x, s.y, s.r * (launched ? 1 + s.z : 1), 0, Math.PI * 2);
+      ctx.arc(s.x, s.y, rad, 0, Math.PI * 2);
       ctx.fill();
     }
+    ctx.shadowBlur = 0;
     ctx.globalAlpha = 1;
     requestAnimationFrame(draw);
   }
@@ -454,38 +460,27 @@ var appData = {
   resize();
   if (!reduce) requestAnimationFrame(draw);
   else {
-    for (const s of stars) { ctx.fillStyle = accent(); ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); }
+    for (const s of stars) { ctx.fillStyle = s.col; ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); }
     ctx.globalAlpha = 1;
   }
   window.addEventListener('resize', resize);
 
-  // ---- Launch sequence ----
-  const html = document.documentElement;
-  const rocket = document.getElementById('rocket');
-  const igniteBtn = document.getElementById('igniteBtn');
-  const relaunchBtn = document.getElementById('relaunchBtn');
-
-  function launch() {
-    if (html.classList.contains('igniting') || html.classList.contains('blast')) return;
-    html.classList.add('igniting');
-    setTimeout(() => {
-      html.classList.remove('igniting');
-      html.classList.add('blast');
-      launched = true;
-      setTimeout(() => {
-        html.classList.remove('blast');
-        html.classList.add('launched');
-        window.scrollTo(0, 0);
-      }, 1150);
-    }, 1100);
+  // ---- Calm Pandora drift (no launch) ----
+  launched = true; // spores drift in the arrived state
+  const hero = document.querySelector('.isle-hero');
+  const island = document.querySelector('.isle--hero');
+  if (hero && island) {
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    hero.addEventListener('pointermove', e => {
+      const r = hero.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - 0.5;
+      ty = (e.clientY - r.top) / r.height - 0.5;
+    });
+    hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+    (function loop() {
+      cx += (tx - cx) * 0.06; cy += (ty - cy) * 0.06;
+      island.style.transform = 'translate(' + (cx * 18) + 'px,' + (cy * 14) + 'px)';
+      requestAnimationFrame(loop);
+    })();
   }
-
-  function relaunch() {
-    html.classList.remove('launched');
-    window.scrollTo(0, 0);
-  }
-
-  if (rocket) rocket.addEventListener('click', launch);
-  if (igniteBtn) igniteBtn.addEventListener('click', launch);
-  if (relaunchBtn) relaunchBtn.addEventListener('click', relaunch);
 })();
