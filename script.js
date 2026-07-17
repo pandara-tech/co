@@ -233,8 +233,8 @@ var appData = {
     pandaraword: {
       img: 'pandaraword.png', title: 'PandaraWord', badge: 'Desktop App',
       version: '1.0.6', updated: '2026', size: '85 MB',
-      desc: 'PandaraWord is the ideal solution for managing Microsoft Word documents with high efficiency. It provides powerful tools for batch processing thousands of files, including smart scanning, organization, bulk formatting, copying, moving, renaming, deleting, and converting documents to PDF while fully preserving layout and formatting. With its modern interface built on latest Windows technologies, full Arabic and English support, and automatic updates, it delivers a professional experience combining speed, simplicity, and productivity.',
-      features: ['Fast', 'Offline', 'Windows', 'Secure', 'Modern UI', 'Multi-language'],
+      desc: 'PandaraWord is a modern Windows desktop application (.NET 10 / WPF, MVVM) for managing Microsoft Word documents with high efficiency. It offers a Fluent-inspired interface with a ribbon toolbar, folder navigation, instant search, and a virtualized file list. Powerful batch operations let you scan, filter, copy, move, rename, delete, convert (DOC to DOCX / to PDF via OpenXML), duplicate, and bulk-format thousands of documents while preserving layout. It runs fully offline, switches between light and dark themes, and supports Arabic and English out of the box with progress tracking, detailed logging, and automatic updates.',
+      features: ['Fast', 'Offline', 'Windows', '.NET 10', 'Batch Ops', 'Multi-language'],
       rating: true, ratingNum: '5.0', ratingCount: '\u2014',
       cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'Download',
       cta2: null
@@ -271,8 +271,8 @@ var appData = {
     pandaraword: {
       img: 'pandaraword.png', title: 'PandaraWord', badge: 'تطبيق مكتبي',
       version: '1.0.6', updated: '2026', size: '85 ميغابايت',
-      desc: 'PandaraWord هو الحل الأمثل لإدارة مستندات Microsoft Word بكفاءة عالية. يوفر أدوات قوية لمعالجة آلاف الملفات دفعةً واحدة، بما في ذلك المسح الذكي، والتنظيم، والتنسيق الجماعي، والنسخ، والنقل، وإعادة التسمية، والحذف، وتحويل المستندات إلى PDF مع الحفاظ الكامل على التصميم والتنسيق. وبفضل واجهته الحديثة المبنية على تقنيات Windows الحديثة، ودعمه الكامل للعربية والإنجليزية، والتحديثات التلقائية، يمنح المستخدمين تجربة احترافية تجمع بين السرعة والبساطة والإنتاجية.',
-      features: ['سريع', 'بدون إنترنت', 'ويندوز', 'آمن', 'واجهة حديثة', 'متعدد اللغات'],
+      desc: 'PandaraWord تطبيق سطح مكتبي حديث لنظام Windows مبني على .NET 10 / WPF وبنمط MVVM لإدارة مستندات Microsoft Word بكفاءة عالية. يوفر واجهة مستوحاة من Fluent تضم شريط أدوات، وتنقلًا بين المجلدات، وبحثًا فوريًا، وقائمة ملفات افتراضية. وتتيح عملياته الجماعية القوية المسح، والترشيح، والنسخ، والنقل، وإعادة التسمية، والحذف، والتحويل (DOC إلى DOCX أو PDF عبر OpenXML)، والاستنساخ، والتنسيق الجماعي لآلاف المستندات مع الحفاظ الكامل على التصميم. يعمل دون اتصال بالإنترنت، ويدعم تبديل السمة بين الفاتح والداكن، والعربية والإنجليزية بشكل كامل، مع تتبع التقدم وتسجيل التفاصيل والتحديثات التلقائية.',
+      features: ['سريع', 'بدون إنترنت', 'ويندوز', '.NET 10', 'عمليات جماعية', 'متعدد اللغات'],
       rating: true, ratingNum: '5.0', ratingCount: '\u2014',
       cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'تحميل',
       cta2: null
