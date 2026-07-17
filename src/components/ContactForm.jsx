@@ -5,6 +5,13 @@ import { submitContact } from '../api/contact.js';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[\d\s\-+()]{7,20}$/;
 
+const icons = {
+  name: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>,
+  contact: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>,
+  subject: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>,
+  message: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+};
+
 export default function ContactForm() {
   const { lang, t } = useI18n();
   const [form, setForm] = useState({ fullName: '', contact: '', subject: '', message: '' });
@@ -36,7 +43,7 @@ export default function ContactForm() {
     }
   };
 
-  const fieldCls = (bad) => `form-input${bad ? ' invalid' : ''}`;
+  const fieldCls = (bad) => `contact-input${bad ? ' invalid' : ''}`;
   const L = {
     fullName: { en: 'Full Name', ar: 'الاسم الكامل' },
     fullNamePh: { en: 'Your full name', ar: 'اسمك الكامل' },
@@ -49,48 +56,62 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="contact-form glass" onSubmit={handleSubmit} noValidate>
-      <div className="contact-grid">
-        <label className="form-label">
-          {t(L.fullName)}
-          <input className={fieldCls(errors.fullName)} value={form.fullName} onChange={set('fullName')} placeholder={t(L.fullNamePh)} />
-          {errors.fullName && <span className="form-error">{t({ en: 'Full name is required', ar: 'الاسم الكامل مطلوب' })}</span>}
+    <form className="contact-card" onSubmit={handleSubmit} noValidate>
+      <div className="contact-row">
+        <label className="contact-field">
+          <span className="contact-label">{t(L.fullName)}</span>
+          <span className={fieldCls(errors.fullName)}>
+            <span className="contact-icon">{icons.name}</span>
+            <input value={form.fullName} onChange={set('fullName')} placeholder={t(L.fullNamePh)} />
+          </span>
+          {errors.fullName && <span className="contact-error">{t({ en: 'Full name is required', ar: 'الاسم الكامل مطلوب' })}</span>}
         </label>
-
-        <label className="form-label">
-          {t(L.email)}
-          <input className={fieldCls(errors.contact)} type="text" value={form.contact} onChange={set('contact')} placeholder={t(L.emailPh)} dir="ltr" />
-          {errors.contact && <span className="form-error">{t({ en: 'Enter a valid email or phone number', ar: 'أدخل بريداً صالحاً أو رقم هاتف' })}</span>}
+        <label className="contact-field">
+          <span className="contact-label">{t(L.email)}</span>
+          <span className={fieldCls(errors.contact)}>
+            <span className="contact-icon">{icons.contact}</span>
+            <input type="text" value={form.contact} onChange={set('contact')} placeholder={t(L.emailPh)} dir="ltr" />
+          </span>
+          {errors.contact && <span className="contact-error">{t({ en: 'Enter a valid email or phone', ar: 'أدخل بريداً صالحاً أو رقم هاتف' })}</span>}
         </label>
       </div>
 
-      <label className="form-label">
-        {t(L.subject)}
-        <input className={fieldCls(errors.subject)} value={form.subject} onChange={set('subject')} placeholder={t(L.subjectPh)} />
-        {errors.subject && <span className="form-error">{t({ en: 'Subject is required', ar: 'الموضوع مطلوب' })}</span>}
+      <label className="contact-field">
+        <span className="contact-label">{t(L.subject)}</span>
+        <span className={fieldCls(errors.subject)}>
+          <span className="contact-icon">{icons.subject}</span>
+          <input value={form.subject} onChange={set('subject')} placeholder={t(L.subjectPh)} />
+        </span>
+        {errors.subject && <span className="contact-error">{t({ en: 'Subject is required', ar: 'الموضوع مطلوب' })}</span>}
       </label>
 
-      <label className="form-label">
-        {t(L.message)}
-        <textarea className={fieldCls(errors.message)} rows={5} value={form.message} onChange={set('message')} placeholder={t(L.messagePh)} />
-        {errors.message && <span className="form-error">{t({ en: 'Message is required', ar: 'الرسالة مطلوبة' })}</span>}
+      <label className="contact-field">
+        <span className="contact-label">{t(L.message)}</span>
+        <span className={fieldCls(errors.message)}>
+          <span className="contact-icon">{icons.message}</span>
+          <textarea value={form.message} onChange={set('message')} placeholder={t(L.messagePh)} />
+        </span>
+        {errors.message && <span className="contact-error">{t({ en: 'Message is required', ar: 'الرسالة مطلوبة' })}</span>}
       </label>
 
-      <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
-        {status === 'submitting' ? t({ en: 'Sending…', ar: 'جارٍ الإرسال…' }) : t({ en: 'Send message', ar: 'إرسال الرسالة' })}
+      <button type="submit" className="contact-submit" disabled={status === 'submitting'}>
+        {status === 'idle' && t({ en: 'Send Message', ar: 'إرسال الرسالة' })}
+        {status === 'submitting' && (
+          <span className="contact-spinner">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10" opacity="0.3"/><path d="M12 2a10 10 0 019.95 9" strokeLinecap="round"/></svg>
+            {t({ en: 'Sending…', ar: 'جارٍ الإرسال…' })}
+          </span>
+        )}
+        {status === 'done' && (
+          <span className="contact-checkmark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            {t({ en: 'Sent!', ar: 'أُرسلت!' })}
+          </span>
+        )}
       </button>
 
-      {status === 'done' && (
-        <div className="form-success-box">
-          <span className="form-success-icon">✓</span>
-          <div>
-            <strong>{t({ en: 'Message sent!', ar: 'تم إرسال الرسالة!' })}</strong>
-            <p>{t({ en: 'We will get back to you shortly.', ar: 'سنتواصل معك قريباً.' })}</p>
-          </div>
-        </div>
-      )}
       {status === 'error' && (
-        <p className="form-error-block">{t({ en: 'Could not send. Please try again.', ar: 'تعذر الإرسال. حاول مرة أخرى.' })}</p>
+        <p className="contact-error-block">{t({ en: 'Could not send. Please try again.', ar: 'تعذر الإرسال. حاول مرة أخرى.' })}</p>
       )}
     </form>
   );
