@@ -5,7 +5,6 @@ const lang = {
   en: {
     'page-title': 'Pandara Tech',
     'nav-about': 'About', 'nav-products': 'Products', 'nav-why': 'Why', 'nav-contact': 'Contact',
-    'splash-sub': 'Smart solutions for smart applications',
     'about-eyebrow': 'About',     'about-title': 'Pandara Tech',
     'about-quote': 'At Pandara Tech, we don\'t ask "how do we build an app?" We ask: "how do we make life and work simpler and smarter?"',
     'about-p1': 'A technology company specialized in delivering smart solutions and developing innovative applications. We believe technology should be a tool to simplify life and enhance productivity, which is why we build products that combine high performance with elegant design to deliver an exceptional experience to our users.',
@@ -17,21 +16,31 @@ const lang = {
     'product-4-badge': 'In development', 'product-4-desc': 'Smart tool for converting files to high-quality images. Supports documents, presentations, and spreadsheets.',
     'product-1-action': 'Request app', 'product-2-action': 'Download', 'product-3-action': 'Soon', 'product-4-action': 'Soon',
     'why-eyebrow': 'Why', 'why-title': "What sets us apart",
-    'why-1-title': 'High performance', 'why-1-desc': 'Fast, lightweight applications that work efficiently across all devices and operating environments.',
-    'why-2-title': 'Security & privacy', 'why-2-desc': 'Your data is stored locally on your device, and we do not share it with any third party.',
-    'why-3-title': 'Elegant design', 'why-3-desc': 'Modern, easy-to-use interfaces carefully crafted for an exceptional user experience.',
-    'why-4-title': 'Continuous development', 'why-4-desc': 'We continuously update and improve our applications to meet the evolving needs of our users.',
+    'why-1-title': 'Engineered for speed', 'why-1-desc': 'Lightweight, native applications that stay fast on every device — no bloat, no lag, no compromise.',
+    'why-2-title': 'Private by design', 'why-2-desc': 'Your data never leaves your device. We build software that respects you, with zero tracking and zero third parties.',
+    'why-3-title': 'Crafted to feel effortless', 'why-3-desc': 'Interfaces shaped by intent and restraint — modern, intuitive, and a pleasure to use every day.',
+    'why-4-title': 'Always evolving', 'why-4-desc': 'We ship continuous improvements driven by real user needs, so the tools you rely on only get better.',
     'form-name': 'Your name', 'form-contact': 'Email or phone', 'form-message': 'Your message', 'form-send': 'Send',
     'form-sending': 'Sending...', 'form-success': 'Message sent! We\'ll get back to you soon.', 'form-error': 'Something went wrong. Try again.',
     'cta-eyebrow': 'Contact', 'cta-title': "Let's talk",
     'cta-desc': 'Have a question about any of our products? Reach out and we\'ll get back to you.',
     'footer-copyright': '\u00a9 2026 Pandara Tech',
-    'lang-btn': 'AR'
+    'lang-btn': 'AR',
+    'hero-eyebrow': 'Pandara Tech',
+    'hero-l1': 'Smarter software',
+    'hero-l2': 'for the work',
+    'hero-l3': 'that matters',
+    'hero-cta': 'Explore',
+    'hero-foot': 'Build \u00b7 Simplify \u00b7 Empower',
+    'cat-desktop': 'Desktop App',
+    'cat-data': 'Data & Analytics',
+    'cat-prod': 'Productivity',
+    'cat-util': 'Utility',
+    'preview-learn': 'Learn more'
   },
   ar: {
     'page-title': 'Pandara Tech',
     'nav-about': 'عن الشركة', 'nav-products': 'التطبيقات', 'nav-why': 'لماذا', 'nav-contact': 'اتصل',
-    'splash-sub': 'حلول ذكية لتطبيقات ذكية',
     'about-eyebrow': 'عن الشركة',     'about-title': 'Pandara Tech',
     'about-quote': 'في Pandara Tech، لا نسأل: "كيف نبني تطبيقا؟" بل نسأل: "كيف نجعل الحياة والعمل أكثر بساطة وذكاء؟"',
     'about-p1': 'باندارا تك شركة متخصصة في تطوير البرمجيات والحلول الذكية، تجمع بين التفكير الإبداعي، والتصميم المتقن، والتقنيات الحديثة لبناء منتجات رقمية تصنع فرقا حقيقيا.',
@@ -42,20 +51,31 @@ const lang = {
     'product-3-badge': 'قيد التطوير', 'product-3-desc': 'تطبيق جداول بيانات احترافي لتحليل البيانات، إجراء الحسابات، وإنشاء التقارير.', 'product-3-action': 'قريباً',
     'product-4-badge': 'قيد التطوير', 'product-4-desc': 'أداة ذكية لتحويل الملفات إلى صور بجودة عالية. يدعم المستندات والعروض والجداول.', 'product-4-action': 'قريباً',
     'why-eyebrow': 'لماذا', 'why-title': 'ما يميزنا',
-    'why-1-title': 'أداء عالٍ', 'why-1-desc': 'تطبيقات سريعة وخفيفة تعمل بكفاءة على جميع الأجهزة والبيئات التشغيلية.',
-    'why-2-title': 'أمان وخصوصية', 'why-2-desc': 'بياناتك محفوظة محلياً على جهازك، ونحن لا نشاركها مع أي طرف ثالث.',
-    'why-3-title': 'تصميم أنيق', 'why-3-desc': 'واجهات مستخدم عصرية وسهلة الاستخدام تصمم بعناية لتجربة مستخدم استثنائية.',
-    'why-4-title': 'تطوير مستمر', 'why-4-desc': 'نقوم بتحديث وتحسين تطبيقاتنا باستمرار لتلبية احتياجات المستخدمين المتطورة.',
+    'why-1-title': 'مهندسة للسرعة', 'why-1-desc': 'تطبيقات أصلية خفيفة تبقى سريعة على كل الأجهزة — بلا ثقل، بلا تأخير، بلا تنازل.',
+    'why-2-title': 'خاصة بطبيعتها', 'why-2-desc': 'بياناتك لا تغادر جهازك أبداً. نبني برمجيات تحترمك: بلا تتبّع وبلا أطراف ثالثة.',
+    'why-3-title': 'مصممة لتشعريها سهلة', 'why-3-desc': 'واجهات صُممت بقصد واقتضاب — عصرية وبديهية ومتعة في الاستخدام يومياً.',
+    'why-4-title': 'في تطور مستمر', 'why-4-desc': 'نطلق تحسينات متواصلة تحرّكها احتياجات المستخدمين الحقيقية، فتزداد أدواتك كفاءةً مع الوقت.',
     'form-name': 'اسمك', 'form-contact': 'البريد أو الهاتف', 'form-message': 'رسالتك', 'form-send': 'إرسال',
     'form-sending': 'جارٍ الإرسال...', 'form-success': 'تم إرسال الرسالة! سنعود إليك قريباً.', 'form-error': 'حدث خطأ. حاول مرة أخرى.',
     'cta-eyebrow': 'اتصل', 'cta-title': 'دعنا نتحدث',
     'cta-desc': 'هل لديك سؤال حول أي من منتجاتنا؟ تواصل معنا وسنعود إليك.',
     'footer-copyright': '\u00a9 2026 Pandara Tech',
-    'lang-btn': 'EN'
+    'lang-btn': 'EN',
+    'hero-eyebrow': 'باندارا تك',
+    'hero-l1': 'برمجيات أذكى',
+    'hero-l2': 'للعمل',
+    'hero-l3': 'الذي يهم',
+    'hero-cta': 'استكشف',
+    'hero-foot': 'نبني · نبسط · نمكّن',
+    'cat-desktop': 'تطبيق مكتبي',
+    'cat-data': 'بيانات وتحليلات',
+    'cat-prod': 'نظام إداري',
+    'cat-util': 'أداة',
+    'preview-learn': 'اعرف المزيد'
   }
 };
 
-let currentLang = localStorage.getItem('pandara-lang') || 'ar';
+let currentLang = 'ar';
 
 function applyLang(l) {
   currentLang = l;
@@ -78,13 +98,48 @@ function applyLang(l) {
   });
 }
 
+function switchLang() {
+  const next = currentLang === 'en' ? 'ar' : 'en';
+  const root = document.documentElement;
+  root.classList.add('lang-morph');
+  setTimeout(() => {
+    applyLang(next);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => root.classList.remove('lang-morph'));
+    });
+  }, 300);
+}
+
 ['langToggle', 'langToggleMobile'].forEach(id => {
-  document.getElementById(id)?.addEventListener('click', () => {
-    applyLang(currentLang === 'en' ? 'ar' : 'en');
-  });
+  document.getElementById(id)?.addEventListener('click', switchLang);
 });
 
 applyLang(currentLang);
+
+// Theme toggle (dark default, light optional, persisted)
+function applyTheme(theme) {
+  const isLight = theme === 'light';
+  document.documentElement.classList.toggle('theme-light', isLight);
+  ['themeToggle', 'themeToggleMobile'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+  });
+  const logoSrc = isLight ? 'logo black.png' : 'logo white.png';
+  ['brandLogo', 'brandLogoMobile'].forEach(id => {
+    const img = document.getElementById(id);
+    if (img) img.src = logoSrc;
+  });
+  try { localStorage.setItem('pandara-theme', theme); } catch (e) {}
+}
+let currentTheme = 'dark';
+try { currentTheme = localStorage.getItem('pandara-theme') || 'dark'; } catch (e) {}
+applyTheme(currentTheme);
+['themeToggle', 'themeToggleMobile'].forEach(id => {
+  document.getElementById(id)?.addEventListener('click', () => {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(currentTheme);
+  });
+});
 
 // Sticky nav state on scroll
 const siteNav = document.getElementById('siteNav');
