@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "copy /y dist\\index.html dist\\404.html >nul",
     "preview": "vite preview"
   },
   "dependencies": {
