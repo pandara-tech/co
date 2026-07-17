@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="theme-light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Use — Mentis | Pandara Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .legal-doc { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+  .clause { padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+  .clause h3 { font-family: var(--font-display); font-size: 16px; font-weight: 800; margin-bottom: 10px; color: var(--paper); }
+  .clause p, .clause li { font-size: 14px; color: var(--ink-soft); line-height: 1.85; }
+  .clause ul, .clause ol { padding-left: 20px; margin-top: 6px; }
+  .clause ul li, .clause ol li { margin-bottom: 4px; }
+  .legal-footer { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .legal-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 13px 26px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: transparent; color: var(--paper); font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; transition: all 0.3s var(--ease); }
+  .legal-back:hover { border-color: var(--accent); color: var(--accent); }
+  html.rtl .legal-back svg { transform: scaleX(-1); }
+  .sec { animation: legalFade 0.7s var(--ease) both; }
+  @keyframes legalFade { from { opacity: 0; } to { opacity: 1; } }
+  html.lang-morph .sec-inner > * { filter: blur(6px); opacity: 0.25; transform: translateY(8px); transition: none; }
+  html:not(.lang-morph) .sec-inner > * { transition: filter 0.4s var(--ease), opacity 0.4s var(--ease), transform 0.4s var(--ease); }
+  @media (max-width: 760px) { .legal-back { width: 100%; justify-content: center; } }
+</style>
+</head>
+<body>
+<aside class="rail">
+  <a href="https://pandaratech.online" class="rail-brand" aria-label="Pandara Tech home">
+    <img src="logo white.png" alt="Pandara Tech" class="brand-logo" id="brandLogo">
+  </a>
+  <nav class="rail-links">
+    <a href="https://pandaratech.online#about" data-i18n="nav-about" data-num="01">About</a>
+    <a href="https://pandaratech.online#products" data-i18n="nav-products" data-num="02">Products</a>
+    <a href="https://pandaratech.online#why" data-i18n="nav-why" data-num="03">Why</a>
+    <a href="https://pandaratech.online#contact" data-i18n="nav-contact" data-num="04">Contact</a>
+  </nav>
+  <div class="rail-actions">
+    <button class="rail-theme" id="themeToggle" aria-label="Switch theme">
+      <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4 1.4"/></svg>
+      <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+    </button>
+    <button class="rail-lang" id="langToggle" aria-label="Switch language">EN</button>
+  </div>
+</aside>
+<header class="topbar">
+  <a href="https://pandaratech.online" class="topbar-brand">
+    <img src="logo white.png" alt="Pandara Tech" class="brand-logo" id="brandLogoMobile">
+    <span>Pandara Tech</span>
+  </a>
+  <div class="topbar-actions">
+    <button class="topbar-theme" id="themeToggleMobile" aria-label="Switch theme">
+      <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4 1.4"/></svg>
+      <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+    </button>
+    <button class="topbar-lang" id="langToggleMobile">EN</button>
+  </div>
+</header>
+<main class="stage">
+  <section class="sec" id="legal">
+    <div class="sec-inner">
+      <span class="sec-label" id="labelEl">Legal</span>
+      <h2 class="sec-title" id="titleEl">Privacy Policy</h2>
+      <p class="sec-text" style="margin-bottom:40px;" id="metaEl">Mentis &middot; Version 1.0.6</p>
+      <div class="legal-doc" id="docContainer"></div>
+      <div class="legal-footer" id="footerEl"></div>
+      <a href="https://pandaratech.online" class="legal-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        <span data-i18n="back">Back to Pandara Tech</span>
+      </a>
+    </div>
+  </section>
+</main>
+<script>
+const fullText = {
+  ar: {
+    label: 'قانوني', title: 'شروط الاستخدام', meta: 'Mentis &middot; الإصدار 1.0.6 &middot; آخر تحديث: 10/07/2026',
+    preamble: ['مرحبًا بك في Mentis.', 'تنظم شروط الاستخدام هذه ("الشروط") العلاقة القانونية بين Pandara Tech ("الشركة") وبين أي شخص طبيعي أو اعتباري يستخدم برنامج Mentis أو أي من الخدمات أو المواقع أو المنتجات المرتبطة به ("المستخدم").', 'يرجى قراءة هذه الشروط بعناية قبل تثبيت البرنامج أو تشغيله أو استخدامه.', 'يُعد تثبيت البرنامج أو تشغيله أو استخدامه أو الضغط على زر "أوافق" أو الاستمرار في استخدامه موافقةً صريحة ونهائية على جميع أحكام هذه الشروط.', 'إذا لم توافق على هذه الشروط، فيجب عليك عدم استخدام البرنامج أو أي من خدماته.'],
+    chapters: [
+      {t:'المادة الأولى: التعاريف',i:['لأغراض هذه الشروط يقصد بالمصطلحات الآتية المعاني المبينة إزاء كل منها ما لم يقتض السياق خلاف ذلك.','الشركة: شركة Pandara Tech، المطور والناشر والمرخص الرسمي لبرنامج Mentis.','البرنامج: برنامج Mentis بجميع إصداراته، ومكوناته، ووحداته البرمجية، وخدماته، وتحديثاته، وملحقاته.','المستخدم: كل شخص طبيعي أو اعتباري يستخدم البرنامج أو أي خدمة مرتبطة به.','الخدمات: جميع الخدمات الإلكترونية أو التقنية أو المستقبلية التي تقدمها الشركة والمتعلقة ببرنامج Mentis.','الموقع الإلكتروني: الموقع الرسمي لشركة Pandara Tech وأي مواقع أو صفحات إلكترونية تابعة لها.']},
+      {t:'المادة الثانية: نطاق التطبيق',i:['تسري هذه الشروط على: برنامج Mentis، الموقع الإلكتروني، خدمات الدعم الفني، خدمات التحديث، الخدمات الإلكترونية، الخدمات المستقبلية التي تطورها الشركة.','كما تعتبر هذه الشروط مكملة لاتفاقية ترخيص المستخدم النهائي (EULA) وسياسة الخصوصية.']},
+      {t:'المادة الثالثة: الأهلية القانونية',i:['يقر المستخدم بأنه:','يتمتع بالأهلية القانونية الكاملة.','يمتلك الصلاحية القانونية لاستخدام البرنامج إذا كان يمثل مؤسسة أو شركة.','سيلتزم بجميع القوانين والأنظمة السارية.','ويتحمل المستخدم المسؤولية الكاملة عن أي استخدام يتم بواسطة حسابه أو ترخيصه.']},
+      {t:'المادة الرابعة: قبول الشروط',i:['يعتبر المستخدم موافقًا على هذه الشروط بمجرد:','تثبيت البرنامج.','تشغيل البرنامج.','استخدام أي خدمة.','إنشاء حساب (إن وجد).','إدخال مفتاح التفعيل.','الاستمرار باستخدام البرنامج بعد تحديث هذه الشروط.','ويعد هذا القبول ملزمًا قانونًا.']},
+      {t:'المادة الخامسة: استخدام البرنامج',i:['يجوز للمستخدم استخدام البرنامج فقط للأغراض المشروعة التي صُمم من أجلها.','ويتعهد المستخدم بعدم استخدام البرنامج بما يؤدي إلى: مخالفة القوانين، الإضرار بالشركة، الإضرار بالمستخدمين الآخرين، تعطيل البرنامج، إساءة استخدام الخدمات.']},
+      {t:'المادة السادسة: الاستخدام المقبول',i:['يمنح البرنامج للمستخدم حق استخدامه وفقًا للغرض الذي صُمم من أجله، وبما يتوافق مع أحكام هذه الشروط واتفاقية ترخيص المستخدم النهائي (EULA) والقوانين والأنظمة النافذة.','ويجوز للمستخدم استخدام البرنامج من أجل: إنشاء وإدارة الكتب والمخاطبات الرسمية، إعداد النماذج والمستندات، إدارة البيانات والسجلات، تنظيم الأعمال الإدارية، أي استخدام آخر تسمح به الشركة.','ولا يجوز تفسير أي من هذه الشروط على أنها تمنح المستخدم حقًا في امتلاك البرنامج أو أي من مكوناته أو حقوقه الفكرية.']},
+      {t:'المادة السابعة: القيود على الاستخدام',i:['يلتزم المستخدم بعدم القيام بأي من الأفعال الآتية:','استخدام البرنامج بطريقة تخالف القوانين أو الأنظمة.','استخدام البرنامج في أي نشاط احتيالي أو غير مشروع.','محاولة تعطيل البرنامج أو خوادمه أو خدماته.','محاولة الوصول غير المصرح به إلى الأنظمة أو الخدمات التابعة للشركة.','استخدام البرنامج للإضرار بالشركة أو بالمستخدمين الآخرين.','نشر أي برمجيات ضارة أو فيروسات أو أدوات تخريبية من خلال البرنامج.','استخدام البرنامج بطريقة قد تؤثر على استقراره أو أدائه أو أمنه.','ويتحمل المستخدم المسؤولية الكاملة عن أي استخدام مخالف لهذه الشروط.']},
+      {t:'المادة الثامنة: الحسابات (إن وجدت)',i:['قد تتطلب بعض الخدمات إنشاء حساب للمستخدم.','وفي هذه الحالة يلتزم المستخدم بما يأتي:','تقديم معلومات صحيحة وحديثة.','المحافظة على سرية بيانات تسجيل الدخول.','عدم مشاركة الحساب مع أي شخص آخر.','تحديث بياناته عند تغيرها.','ويتحمل المستخدم المسؤولية الكاملة عن جميع الأنشطة التي تتم من خلال حسابه.','ويجب عليه إخطار الشركة فورًا عند الاشتباه بأي استخدام غير مصرح به.']},
+      {t:'المادة التاسعة: الاشتراكات والمدفوعات',i:['إذا قدمت الشركة خدمات مدفوعة أو اشتراكات مستقبلًا، فإنها تخضع للشروط الآتية:','يلتزم المستخدم بسداد الرسوم المستحقة في مواعيدها.','قد تختلف الأسعار بحسب نوع الترخيص أو الخدمة.','تحتفظ الشركة بحق تعديل الأسعار مستقبلًا، على ألا يؤثر ذلك في الاشتراكات السارية إلا عند التجديد.','لا تعتبر الرسوم المدفوعة قابلة للاسترداد إلا إذا نصت الشركة أو القانون على خلاف ذلك.']},
+      {t:'المادة العاشرة: التحديثات والتطوير',i:['تعمل الشركة باستمرار على تطوير البرنامج وتحسينه.','ولذلك يجوز لها:','إصدار تحديثات.','إضافة مزايا جديدة.','تعديل أو إزالة بعض الوظائف.','تحسين واجهة المستخدم.','إصلاح الأخطاء.','تعزيز الأمان.','ويقر المستخدم بأن استمرار استخدام البرنامج قد يتطلب تثبيت بعض التحديثات الأساسية.']},
+      {t:'المادة الحادية عشرة: الخدمات الإلكترونية',i:['قد يوفر البرنامج بعض الخدمات التي تتطلب الاتصال بالإنترنت، ومنها:','التحقق من التراخيص.','تنزيل التحديثات.','خدمات الدعم الفني.','الخدمات السحابية (إن وجدت).','الخدمات المستقبلية التي تضيفها الشركة.','ولا تضمن الشركة استمرار توفر جميع الخدمات بصورة دائمة، ويجوز تعديلها أو إيقافها أو استبدالها وفقًا لمقتضيات التشغيل أو التطوير.']},
+      {t:'المادة الثانية عشرة: الدعم الفني',i:['يجوز للشركة تقديم خدمات الدعم الفني وفقًا لسياستها الداخلية.','ولا يشمل الدعم الفني الحالات الناتجة عن: تعديل البرنامج، استخدام نسخة غير أصلية، كسر الحماية، استخدام البرنامج بطريقة مخالفة لهذه الشروط، أعطال الأجهزة أو أنظمة التشغيل.','وللشركة الحق في تعديل أو تعليق أو إنهاء خدمات الدعم الفني في أي وقت.']},
+      {t:'المادة الثالثة عشرة: المحتوى المقدم من المستخدم',i:['يظل المستخدم المالك الوحيد للمحتوى والبيانات والمستندات التي يقوم بإنشائها باستخدام البرنامج.','ويتحمل وحده المسؤولية الكاملة عن: دقة المعلومات، قانونية المحتوى، سلامة المستندات، أي آثار قانونية أو إدارية أو مالية تترتب على استخدامه.','ولا تقوم الشركة بمراجعة أو اعتماد أو ضمان صحة أي محتوى ينشئه المستخدم.']},
+      {t:'المادة الرابعة عشرة: الملكية الفكرية',i:['جميع حقوق الملكية الفكرية المتعلقة ببرنامج Mentis، بما في ذلك الشفرة المصدرية، والتصميم، والواجهات، والقوالب المرفقة، والشعارات، والأسماء التجارية، والوثائق، والرسومات، والتحديثات، مملوكة حصريًا لشركة Pandara Tech.','ولا يجوز للمستخدم نسخها أو تعديلها أو إعادة توزيعها أو استغلالها بأي صورة دون موافقة كتابية مسبقة من الشركة.']},
+      {t:'المادة الخامسة عشرة: مدة توفر الخدمة',i:['تبذل الشركة جهودًا معقولة لضمان إتاحة البرنامج والخدمات المرتبطة به بصورة مستقرة وموثوقة.','ومع ذلك، لا تضمن الشركة أن يكون البرنامج أو الخدمات متاحة دون انقطاع أو خالية من الأعطال أو الأخطاء في جميع الأوقات.','ويجوز للشركة تعليق البرنامج أو الخدمات مؤقتًا أو كليًا لإجراء أعمال الصيانة أو التحديث أو التطوير أو لأسباب أمنية أو تشغيلية دون أن يترتب على ذلك أي مسؤولية.']},
+      {t:'المادة السادسة عشرة: التعديلات على البرنامج',i:['تحتفظ الشركة بحقها، وفقًا لتقديرها، في:','تطوير البرنامج.','تعديل خصائصه.','إضافة أو إزالة ميزات.','تحسين الأداء.','تعديل واجهة المستخدم.','إيقاف بعض الوظائف.','دمج خدمات جديدة.','ولا يترتب على هذه التعديلات أي التزام على الشركة بالإبقاء على جميع المزايا أو الخصائص السابقة.']},
+      {t:'المادة السابعة عشرة: تعليق أو إنهاء الخدمات',i:['يجوز للشركة تعليق أو تقييد أو إنهاء وصول المستخدم إلى البرنامج أو أي من خدماته إذا تبين لها، وفقًا لتقديرها المعقول، أن المستخدم:','خالف هذه الشروط.','خالف اتفاقية ترخيص المستخدم النهائي (EULA).','استخدم البرنامج بطريقة غير مشروعة.','حاول تجاوز نظام الحماية أو التفعيل.','استخدم البرنامج للإضرار بالشركة أو بمستخدميها.','قدم معلومات مضللة أو غير صحيحة.','ولا يمنع إنهاء الخدمة الشركة من المطالبة بأي حقوق أو تعويضات يجيزها القانون.']},
+      {t:'المادة الثامنة عشرة: إخلاء المسؤولية',i:['يُقدم برنامج Mentis وجميع الخدمات المرتبطة به "كما هو" (As Is) و"حسب توفره" (As Available).','ورغم التزام الشركة بتطوير البرنامج وتحسينه باستمرار، فإنها لا تضمن:','خلو البرنامج من جميع الأخطاء.','عمل البرنامج دون انقطاع.','توافق البرنامج مع جميع الأجهزة أو أنظمة التشغيل.','تحقيق نتائج أو أغراض معينة للمستخدم.','توافق البرنامج مع جميع المتطلبات الخاصة بكل مؤسسة.','ويتحمل المستخدم مسؤولية تقييم مدى ملاءمة البرنامج لاحتياجاته قبل استخدامه.']},
+      {t:'المادة التاسعة عشرة: حدود المسؤولية',i:['إلى أقصى حد يسمح به القانون، لا تتحمل الشركة أو موظفوها أو مديروها أو شركاؤها أو وكلاؤها أي مسؤولية عن:','فقدان البيانات.','توقف الأعمال.','خسارة الأرباح.','فقدان الفرص التجارية.','الأضرار غير المباشرة.','الأضرار العرضية.','الأضرار الخاصة.','الأضرار التبعية.','أي خسائر ناتجة عن استخدام البرنامج أو عدم القدرة على استخدامه.','وفي جميع الأحوال، لا تتجاوز المسؤولية الإجمالية للشركة، إن ثبتت قانونًا، قيمة الترخيص أو الاشتراك الذي دفعه المستخدم عن البرنامج محل النزاع.']},
+      {t:'المادة العشرون: التعويض',i:['يلتزم المستخدم بتعويض شركة Pandara Tech والدفاع عنها وإبراء ذمتها، وكذلك مسؤوليها وموظفيها ووكلائها وشركائها، عن أي مطالبات أو أضرار أو خسائر أو مسؤوليات أو نفقات أو رسوم أو أتعاب محاماة تنشأ نتيجة:','مخالفته لهذه الشروط.','مخالفته للقوانين النافذة.','إساءة استخدام البرنامج.','انتهاكه لحقوق الغير.','انتهاكه لحقوق الملكية الفكرية.','ويظل هذا الالتزام نافذًا حتى بعد انتهاء استخدام البرنامج.']},
+      {t:'المادة الحادية والعشرون: القوة القاهرة',i:['لا تتحمل الشركة أي مسؤولية عن أي تأخير أو إخفاق في تنفيذ التزاماتها إذا كان ذلك ناشئًا عن ظروف خارجة عن إرادتها، بما في ذلك على سبيل المثال لا الحصر:','الكوارث الطبيعية.','الحروب.','الاضطرابات الأمنية.','القرارات الحكومية.','الهجمات الإلكترونية.','انقطاع الإنترنت.','انقطاع الكهرباء.','أعطال مزودي الخدمات.','الجوائح.','أي ظروف مماثلة لا يمكن توقعها أو السيطرة عليها.']},
+      {t:'المادة الثانية والعشرون: الروابط والخدمات الخارجية',i:['قد يحتوي البرنامج أو الموقع الإلكتروني على روابط أو خدمات أو منتجات تابعة لجهات خارجية.','ولا تتحمل الشركة أي مسؤولية عن: محتوى تلك المواقع، سياسات الخصوصية الخاصة بها، الخدمات التي تقدمها، أي تعامل يتم بين المستخدم وتلك الجهات.','ويكون استخدام تلك الخدمات على مسؤولية المستخدم وحده.']},
+      {t:'المادة الثالثة والعشرون: التعديلات على شروط الاستخدام',i:['يجوز للشركة تعديل أو تحديث هذه الشروط في أي وقت إذا اقتضت الحاجة القانونية أو التقنية أو التشغيلية ذلك.','وتقوم الشركة بإشعار المستخدم بالتعديلات الجوهرية عبر إحدى الوسائل الآتية: داخل البرنامج، الموقع الإلكتروني، البريد الإلكتروني (إن وجد)، صفحة التحديثات، أي وسيلة إلكترونية أخرى تعتمدها الشركة.','ويُعد استمرار المستخدم في استخدام البرنامج بعد نفاذ التعديلات موافقةً عليها.']},
+      {t:'المادة الرابعة والعشرون: القانون الواجب التطبيق',i:['تخضع هذه الشروط وتُفسر وفقًا لقوانين جمهورية العراق، بما في ذلك القوانين المنظمة للعقود الإلكترونية، والملكية الفكرية، والمعاملات الإلكترونية، وأي تشريعات أخرى ذات صلة.','ولا يؤثر اختلاف مكان استخدام البرنامج أو إقامة المستخدم على سريان القانون العراقي، ما لم يفرض القانون واجب التطبيق خلاف ذلك.']},
+      {t:'المادة الخامسة والعشرون: تسوية النزاعات',i:['في حال نشوء أي نزاع يتعلق بهذه الشروط أو باستخدام برنامج Mentis، يلتزم الطرفان بالسعي أولًا إلى تسويته وديًا من خلال التواصل المباشر.','وفي حال تعذر التوصل إلى حل خلال ثلاثين (30) يومًا من تاريخ إخطار أحد الطرفين للطرف الآخر بوجود النزاع، يحق لأي من الطرفين اللجوء إلى المحاكم المختصة في جمهورية العراق.']},
+      {t:'المادة السادسة والعشرون: الاختصاص القضائي',i:['تختص محاكم جمهورية العراق دون غيرها بالنظر والفصل في أي نزاع ينشأ عن هذه الشروط أو يتعلق باستخدام البرنامج أو الخدمات المرتبطة به.','ويكون الاختصاص المكاني للمحكمة المختصة في المحافظة التي يقع فيها المقر الرئيسي لشركة Pandara Tech، ما لم ينص القانون على خلاف ذلك.']},
+      {t:'المادة السابعة والعشرون: استقلالية الأحكام',i:['إذا قضت محكمة أو جهة قضائية مختصة ببطلان أو عدم قابلية تنفيذ أي حكم من أحكام هذه الشروط، فإن ذلك لا يؤثر على صحة أو نفاذ باقي الأحكام، والتي تظل سارية وملزمة إلى أقصى حد يسمح به القانون.','ويُستعاض عن الحكم غير القابل للتنفيذ بحكم قانوني يحقق الغرض المقصود منه بأقرب صورة ممكنة.']},
+      {t:'المادة الثامنة والعشرون: عدم التنازل عن الحقوق',i:['إن عدم ممارسة الشركة لأي حق من حقوقها أو تأخرها في ممارسته أو عدم اتخاذها أي إجراء تجاه أي مخالفة لهذه الشروط، لا يُعد تنازلًا عن ذلك الحق، ولا يمنعها من ممارسته في أي وقت لاحق.','ولا يكون أي تنازل عن أي حق نافذًا إلا إذا كان صادرًا كتابةً عن الشركة.']},
+      {t:'المادة التاسعة والعشرون: التنازل عن الاتفاقية',i:['لا يجوز للمستخدم التنازل عن أي من حقوقه أو التزاماته الناشئة عن هذه الشروط أو نقلها إلى أي شخص أو جهة دون موافقة كتابية مسبقة من الشركة.','ويجوز للشركة نقل أو إحالة أو دمج أو بيع أو التنازل عن حقوقها والتزاماتها أو عن البرنامج أو أي من أصوله أو علاماته التجارية إلى أي شخص طبيعي أو اعتباري أو خلف قانوني، دون الحاجة إلى الحصول على موافقة المستخدم، شريطة ألا يؤثر ذلك في الحقوق الأساسية الممنوحة له بموجب هذه الشروط.']},
+      {t:'المادة الثلاثون: العلاقة بين الوثائق القانونية',i:['تُعد هذه الشروط جزءًا من الإطار القانوني المنظم لاستخدام برنامج Mentis، وتُقرأ وتُفسر مع الوثائق الآتية: اتفاقية ترخيص المستخدم النهائي (EULA)، سياسة الخصوصية (Privacy Policy).','وفي حال وجود تعارض بين هذه الوثائق، يكون ترتيب الأولوية على النحو الآتي: اتفاقية ترخيص المستخدم النهائي (EULA)، سياسة الخصوصية، شروط الاستخدام.','ويسري كل مستند في نطاق الموضوع الذي ينظمه.']},
+      {t:'المادة الحادية والثلاثون: التواصل مع الشركة',i:['يمكن للمستخدم التواصل مع شركة Pandara Tech بشأن أي استفسار أو ملاحظة أو شكوى تتعلق بالبرنامج أو هذه الشروط من خلال وسائل الاتصال الرسمية التي تعلنها الشركة عبر موقعها الإلكتروني أو داخل البرنامج.','وتبذل الشركة جهدًا معقولًا للرد على الطلبات خلال مدة مناسبة، دون أن يشكل ذلك التزامًا بزمن محدد ما لم ينص القانون على خلاف ذلك.']},
+      {t:'المادة الثانية والثلاثون: اللغة المعتمدة',i:['قد توفر الشركة ترجمات لهذه الشروط بلغات أخرى لتسهيل استخدامها.','وفي حال وجود أي اختلاف أو تعارض بين النسخة العربية وأي نسخة مترجمة، تكون النسخة العربية هي النسخة الرسمية والمعتمدة في التفسير والتطبيق، ما لم يفرض القانون واجب التطبيق خلاف ذلك.']},
+      {t:'المادة الثالثة والثلاثون: سريان شروط الاستخدام',i:['تدخل هذه الشروط حيز النفاذ اعتبارًا من تاريخ نشرها أو إتاحتها داخل البرنامج أو على الموقع الإلكتروني.','ويُعد استمرار المستخدم في استخدام برنامج Mentis أو أي من خدماته بعد ذلك التاريخ قبولًا بجميع أحكامها.','وتظل المواد المتعلقة بالملكية الفكرية، والسرية، وحدود المسؤولية، والتعويض، وتسوية النزاعات، وأي أحكام بطبيعتها تستمر بعد انتهاء الاستخدام، نافذة حتى بعد إنهاء العلاقة بين المستخدم والشركة.']},
+      {t:'المادة الرابعة والثلاثون: أحكام عامة',i:['تشكل هذه الشروط الاتفاق الكامل بين المستخدم وشركة Pandara Tech فيما يتعلق باستخدام برنامج Mentis، وتحل محل جميع التفاهمات أو المراسلات أو الاتفاقات السابقة المتعلقة بالموضوع ذاته.','وإذا تعارض أي نص في هذه الشروط مع قانون واجب التطبيق، فيُفسر النص بالقدر الذي يجعله متوافقًا مع ذلك القانون دون المساس بصحة باقي الأحكام.','وجميع الحقوق التي لم تُمنح للمستخدم صراحةً بموجب هذه الشروط تبقى محفوظة بالكامل لشركة Pandara Tech.']},
+      {t:'المادة الخامسة والثلاثون: جميع الحقوق محفوظة',i:['جميع حقوق الملكية الفكرية وحقوق المؤلف والعلامات التجارية والأسماء التجارية والتصاميم والوثائق والقوالب والأكواد البرمجية والمحتوى والمواد المتعلقة ببرنامج Mentis مملوكة حصريًا لشركة Pandara Tech.','ولا يجوز نسخ أو إعادة إنتاج أو توزيع أو تعديل أو استغلال أي جزء من البرنامج أو محتواه أو وثائقه أو مواده بأي وسيلة كانت دون موافقة كتابية مسبقة من الشركة، باستثناء ما تسمح به القوانين النافذة أو اتفاقية الترخيص.']}
+    ],
+    footer: 'انتهت شروط الاستخدام<br>البرنامج: Mentis &middot; الشركة: Pandara Tech &middot; الإصدار: 1.0.6<br>&copy; جميع الحقوق محفوظة لشركة Pandara Tech.',
+    back: 'العودة إلى Pandara Tech',
+    btn: 'EN'
+  },
+  en: {
+    label: 'Legal', title: 'Terms of Use', meta: 'Mentis &middot; Version 1.0.6 &middot; Last updated: 10/07/2026',
+    preamble: ['Welcome to Mentis.', 'These Terms of Use ("Terms") govern the legal relationship between Pandara Tech ("Company") and any natural or legal person who uses Mentis or any related services, websites, or products ("User").', 'Please read these Terms carefully before installing, running, or using the Software.', 'Installing, running, using the Software, clicking "I Agree," or continuing to use it constitutes explicit and final acceptance of all provisions of these Terms.', 'If you do not agree to these Terms, you must not use the Software or any of its services.'],
+    chapters: [
+      {t:'Article 1: Definitions',i:['For the purposes of these Terms, the following terms shall have the meanings ascribed below, unless the context otherwise requires.','Company: Pandara Tech, the developer, publisher, and official licensor of Mentis.','Software: Mentis with all its versions, components, modules, services, updates, and add-ons.','User: Any natural or legal person who uses the Software or any related service.','Services: All electronic, technical, or future services provided by the Company related to Mentis.','Website: The official website of Pandara Tech and any affiliated websites or electronic pages.']},
+      {t:'Article 2: Scope of Application',i:['These Terms apply to: Mentis, the Website, technical support services, update services, electronic services, and future services developed by the Company.','These Terms are complementary to the End User License Agreement (EULA) and the Privacy Policy.']},
+      {t:'Article 3: Legal Capacity',i:['The User acknowledges that they:','Have full legal capacity.','Have the legal authority to use the Software if representing an institution or company.','Will comply with all applicable laws and regulations.','The User bears full responsibility for any use made through their account or license.']},
+      {t:'Article 4: Acceptance of Terms',i:['The User is deemed to have agreed to these Terms upon:','Installing the Software.','Running the Software.','Using any service.','Creating an account (if applicable).','Entering an Activation Key.','Continuing to use the Software after these Terms are updated.','Such acceptance is legally binding.']},
+      {t:'Article 5: Use of Software',i:['The User may only use the Software for the lawful purposes for which it was designed.','The User undertakes not to use the Software in a way that leads to: violation of laws, harm to the Company, harm to other users, disruption of the Software, or misuse of services.']},
+      {t:'Article 6: Acceptable Use',i:['The Software grants the User the right to use it in accordance with its intended purpose and in compliance with these Terms, the EULA, and applicable laws and regulations.','The User may use the Software to: create and manage official correspondence and documents, prepare forms and documents, manage data and records, organize administrative work, and any other use permitted by the Company.','Nothing in these Terms shall be interpreted as granting the User ownership of the Software or any of its components or intellectual property rights.']},
+      {t:'Article 7: Restrictions on Use',i:['The User undertakes not to do any of the following:','Use the Software in a way that violates laws or regulations.','Use the Software for any fraudulent or unlawful activity.','Attempt to disrupt the Software, its servers, or services.','Attempt unauthorized access to the Company\'s systems or services.','Use the Software to harm the Company or other users.','Distribute any malware, viruses, or destructive tools through the Software.','Use the Software in a way that may affect its stability, performance, or security.','The User bears full responsibility for any use that violates these Terms.']},
+      {t:'Article 8: Accounts (if applicable)',i:['Some services may require the User to create an account.','In this case, the User undertakes to:','Provide accurate and up-to-date information.','Maintain the confidentiality of login credentials.','Not share the account with any other person.','Update their data when it changes.','The User bears full responsibility for all activities conducted through their account.','They must immediately notify the Company of any suspected unauthorized use.']},
+      {t:'Article 9: Subscriptions and Payments',i:['If the Company provides paid services or subscriptions in the future, they shall be subject to the following terms:','The User must pay applicable fees when due.','Prices may vary depending on the license or service type.','The Company reserves the right to change prices in the future, provided this does not affect current subscriptions except upon renewal.','Paid fees are not refundable unless otherwise stated by the Company or required by law.']},
+      {t:'Article 10: Updates and Development',i:['The Company continuously develops and improves the Software.','Accordingly, it may:','Release updates.','Add new features.','Modify or remove certain functions.','Improve the user interface.','Fix bugs.','Enhance security.','The User acknowledges that continued use of the Software may require installing certain essential updates.']},
+      {t:'Article 11: Electronic Services',i:['The Software may provide certain services that require an internet connection, including:','License verification.','Downloading updates.','Technical support services.','Cloud services (if any).','Future services added by the Company.','The Company does not guarantee the permanent availability of all services and may modify, suspend, or replace them according to operational or development requirements.']},
+      {t:'Article 12: Technical Support',i:['The Company may provide technical support services in accordance with its internal policy.','Technical support does not cover cases resulting from: modifying the Software, using a non-original version, jailbreaking, using the Software in violation of these Terms, or hardware or operating system failures.','The Company reserves the right to modify, suspend, or terminate technical support services at any time.']},
+      {t:'Article 13: User-Generated Content',i:['The User remains the sole owner of the content, data, and documents they create using the Software.','They bear full responsibility for: the accuracy of information, the legality of content, the integrity of documents, and any legal, administrative, or financial consequences arising from their use.','The Company does not review, approve, or guarantee the validity of any content created by the User.']},
+      {t:'Article 14: Intellectual Property',i:['All intellectual property rights in Mentis, including source code, design, interfaces, accompanying templates, logos, trade names, documentation, graphics, and updates, are exclusively owned by Pandara Tech.','The User may not copy, modify, redistribute, or exploit them in any form without prior written consent from the Company.']},
+      {t:'Article 15: Service Availability',i:['The Company makes reasonable efforts to ensure the Software and related services are available in a stable and reliable manner.','However, the Company does not guarantee that the Software or services will be available without interruption or free from defects or errors at all times.','The Company may temporarily or permanently suspend the Software or services for maintenance, updates, development, or for security or operational reasons without incurring any liability.']},
+      {t:'Article 16: Modifications to the Software',i:['The Company reserves the right, at its discretion, to:','Develop the Software.','Modify its features.','Add or remove features.','Improve performance.','Modify the user interface.','Discontinue certain functions.','Integrate new services.','These modifications do not obligate the Company to maintain all previous features or characteristics.']},
+      {t:'Article 17: Suspension or Termination of Services',i:['The Company may suspend, restrict, or terminate the User\'s access to the Software or any of its services if it determines, in its reasonable discretion, that the User:','Violated these Terms.','Violated the EULA.','Used the Software unlawfully.','Attempted to bypass the protection or activation system.','Used the Software to harm the Company or its users.','Provided misleading or false information.','Termination of service does not prevent the Company from claiming any rights or compensation permitted by law.']},
+      {t:'Article 18: Disclaimer of Warranties',i:['Mentis and all related services are provided "as is" and "as available."','Despite the Company\'s commitment to continuously develop and improve the Software, it does not guarantee:','That the Software is free from all errors.','That the Software will operate without interruption.','That the Software is compatible with all devices or operating systems.','That specific results or purposes will be achieved.','That the Software meets all specific requirements of each organization.','The User is responsible for evaluating the suitability of the Software for their needs before using it.']},
+      {t:'Article 19: Limitation of Liability',i:['To the maximum extent permitted by law, neither the Company, its employees, directors, partners, nor agents shall be liable for:','Data loss.','Business interruption.','Loss of profits.','Loss of business opportunities.','Indirect damages.','Incidental damages.','Special damages.','Consequential damages.','Any losses resulting from the use or inability to use the Software.','In all cases, the Company\'s total liability, if established by law, shall not exceed the value of the license or subscription paid by the User for the Software in dispute.']},
+      {t:'Article 20: Indemnification',i:['The User undertakes to indemnify, defend, and hold harmless Pandara Tech, its officers, employees, agents, and partners from any claims, damages, losses, liabilities, expenses, fees, or attorney\'s fees arising as a result of:','Their violation of these Terms.','Their violation of applicable laws.','Misuse of the Software.','Their infringement of third-party rights.','Their infringement of intellectual property rights.','This obligation shall remain in effect even after termination of use of the Software.']},
+      {t:'Article 21: Force Majeure',i:['The Company shall not be liable for any delay or failure in performing its obligations if arising from circumstances beyond its control, including but not limited to:','Natural disasters.','Wars.','Security disturbances.','Government decisions.','Cyber attacks.','Internet outages.','Power outages.','Service provider failures.','Pandemics.','Any similar unforeseeable or uncontrollable circumstances.']},
+      {t:'Article 22: External Links and Services',i:['The Software or website may contain links to or services or products from third parties.','The Company is not responsible for: the content of those sites, their privacy policies, the services they provide, or any dealings between the User and those entities.','Use of such services is at the User\'s own risk.']},
+      {t:'Article 23: Modifications to Terms of Use',i:['The Company may modify or update these Terms at any time if legal, technical, or operational needs arise.','The Company will notify the User of material changes through one of the following means: within the Software, the website, email (if available), the updates page, or any other electronic means adopted by the Company.','The User\'s continued use of the Software after the changes take effect constitutes acceptance thereof.']},
+      {t:'Article 24: Governing Law',i:['These Terms are governed by and construed in accordance with the laws of the Republic of Iraq, including laws regulating electronic contracts, intellectual property, electronic transactions, and any other relevant legislation.','Differences in the place of use or the User\'s residence shall not affect the applicability of Iraqi law, unless mandatory law provides otherwise.']},
+      {t:'Article 25: Dispute Resolution',i:['In the event of any dispute relating to these Terms or the use of Mentis, the parties shall first seek to settle it amicably through direct communication.','If a resolution cannot be reached within thirty (30) days of one party notifying the other of the dispute, either party may refer the matter to the competent courts of the Republic of Iraq.']},
+      {t:'Article 26: Jurisdiction',i:['The courts of the Republic of Iraq shall have exclusive jurisdiction to hear and adjudicate any dispute arising out of or relating to these Terms or the use of the Software or related services.','Unless otherwise provided by law, the competent court shall be the court in the governorate where Pandara Tech\'s principal place of business is located.']},
+      {t:'Article 27: Severability',i:['If any court or competent judicial authority holds any provision of these Terms to be invalid or unenforceable, the remaining provisions shall remain in full force and effect to the maximum extent permitted by law.','The unenforceable provision shall be replaced with a legal provision that achieves the intended purpose as closely as possible.']},
+      {t:'Article 28: No Waiver of Rights',i:['The Company\'s failure to exercise any right or delay in doing so, or its failure to take any action regarding any violation of these Terms, shall not constitute a waiver of that right and shall not prevent its exercise at any later time.','No waiver of any right shall be effective unless made in writing by the Company.']},
+      {t:'Article 29: Assignment',i:['The User may not assign any of their rights or obligations under these Terms or transfer them to any person or entity without the prior written consent of the Company.','The Company may transfer, assign, merge, sell, or novate its rights and obligations, the Software, or any of its assets or trademarks to any natural or legal person or legal successor without the User\'s consent, provided this does not affect the fundamental rights granted to the User under these Terms.']},
+      {t:'Article 30: Relationship Between Legal Documents',i:['These Terms form part of the legal framework governing the use of Mentis and shall be read and interpreted together with: the End User License Agreement (EULA) and the Privacy Policy.','In the event of any conflict between these documents, the order of priority shall be: (1) EULA, (2) Privacy Policy, (3) Terms of Use.','Each document applies within the scope of the subject matter it governs.']},
+      {t:'Article 31: Contacting the Company',i:['The User may contact Pandara Tech regarding any inquiry, comment, or complaint about the Software or these Terms through the official communication channels announced by the Company on its website or within the Software.','The Company will make reasonable efforts to respond to requests within a reasonable period, without this constituting an obligation to respond within a specific time unless required by law.']},
+      {t:'Article 32: Official Language',i:['The Company may provide translations of these Terms in other languages for convenience.','In the event of any difference or conflict between the Arabic version and any translated version, the Arabic version shall be the official and approved version for interpretation and application, unless mandatory law provides otherwise.']},
+      {t:'Article 33: Effective Date',i:['These Terms take effect on the date of their publication or made available within the Software or on the website.','The User\'s continued use of Mentis or any of its services after that date constitutes acceptance of all provisions hereof.','Provisions relating to intellectual property, confidentiality, limitation of liability, indemnification, dispute resolution, and any provisions by their nature intended to survive termination shall remain in effect even after the relationship between the User and the Company ends.']},
+      {t:'Article 34: General Provisions',i:['These Terms constitute the entire agreement between the User and Pandara Tech regarding the use of Mentis and supersede all prior understandings, communications, or agreements relating to the same subject matter.','If any provision of these Terms conflicts with applicable law, it shall be interpreted to the extent necessary to make it compliant with that law without affecting the validity of the remaining provisions.','All rights not expressly granted to the User under these Terms remain fully reserved to Pandara Tech.']},
+      {t:'Article 35: All Rights Reserved',i:['All intellectual property rights, copyrights, trademarks, trade names, designs, documentation, templates, software code, content, and materials related to Mentis are exclusively owned by Pandara Tech.','No part of the Software, its content, documentation, or materials may be copied, reproduced, distributed, modified, or exploited by any means without the prior written consent of the Company, except as permitted by applicable laws or the license agreement.']}
+    ],
+    footer: 'End of Terms of Use<br>Software: Mentis &middot; Company: <a href="https://pandaratech.online" style="color:var(--accent);text-decoration:none;">Pandara Tech</a> &middot; Version: 1.0.6<br>&copy; All rights reserved to <a href="https://pandaratech.online" style="color:var(--accent);text-decoration:none;">Pandara Tech</a>.',
+    back: 'Back to Pandara Tech',
+    btn: 'AR'
+  }
+};
+let lang = 'ar'; // always start in Arabic
+let theme = 'light'; // always start in light
+function applyLang(l, morph) {
+  lang = l; localStorage.setItem('pandara-lang', l);
+  if (morph) {
+    document.documentElement.classList.add('lang-morph');
+    setTimeout(() => {
+      render(l);
+      requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.remove('lang-morph')));
+    }, 320);
+  } else { render(l); }
+}
+function applyTheme(th) {
+  theme = th; localStorage.setItem('pandara-theme', th);
+  document.documentElement.classList.toggle('theme-light', th === 'light');
+  const logo = th === 'light' ? 'logo black.png' : 'logo white.png';
+  ['brandLogo','brandLogoMobile'].forEach(id => { const el = document.getElementById(id); if (el) el.src = logo; });
+}
+function render(l) {
+  const d = fullText[l];
+  document.getElementById('labelEl').textContent = d.label;
+  document.getElementById('titleEl').textContent = d.title;
+  document.getElementById('metaEl').innerHTML = d.meta;
+  let html = '<div style="background:var(--accent-soft);border-left:3px solid var(--accent);padding:16px 20px;border-radius:10px;font-size:15px;color:var(--ink-soft);margin-bottom:32px;line-height:1.8;">';
+  d.preamble.forEach(p => { html += '<p style="margin-bottom:10px;">' + p + '</p>'; });
+  html += '</div>';
+  d.chapters.forEach(ch => {
+    html += '<div class="clause"><h3>' + ch.t + '</h3>';
+    if (ch.i.length === 1) { html += '<p>' + ch.i[0] + '</p>'; }
+    else { html += '<p>' + ch.i[0] + '</p><ul>'; for (let j = 1; j < ch.i.length; j++) { html += '<li>' + ch.i[j] + '</li>'; } html += '</ul>'; }
+    html += '</div>';
+  });
+  document.getElementById('docContainer').innerHTML = html;
+  document.getElementById('footerEl').innerHTML = d.footer;
+  const backEl = document.querySelector('[data-i18n="back"]');
+  if (backEl) backEl.textContent = d.back;
+  document.getElementById('langToggle').textContent = d.btn;
+  document.documentElement.lang = l === 'ar' ? 'ar' : 'en';
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.classList.toggle('rtl', l === 'ar');
+}
+function wire(id, fn){ const el=document.getElementById(id); if(el) el.addEventListener('click', fn); }
+wire('langToggle', () => applyLang(lang === 'en' ? 'ar' : 'en', true));
+wire('langToggleMobile', () => applyLang(lang === 'en' ? 'ar' : 'en', true));
+wire('themeToggle', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
+wire('themeToggleMobile', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
+applyLang(lang, false);
+applyTheme(theme);
+</script>
+</body>
+</html>
