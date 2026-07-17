@@ -12,165 +12,194 @@
 </head>
 <body>
 
-<button class="lang-toggle" id="langToggle">AR</button>
+<!-- Vertical side rail -->
+<aside class="rail" id="siteNav">
+  <a href="#splash" class="rail-brand" aria-label="Pandara Tech home">
+    <img src="logo white.png" alt="Pandara Tech">
+  </a>
+  <nav class="rail-links">
+    <a href="#about" data-i18n="nav-about" data-num="01">About</a>
+    <a href="#products" data-i18n="nav-products" data-num="02">Products</a>
+    <a href="#why" data-i18n="nav-why" data-num="03">Why</a>
+    <a href="#contact" data-i18n="nav-contact" data-num="04">Contact</a>
+  </nav>
+  <button class="rail-lang" id="langToggle" aria-label="Switch language">AR</button>
+</aside>
 
-<section class="splash" id="splash">
-  <div class="splash-bg"></div>
-  <div class="splash-inner">
-    <img src="logo white.png" alt="Pandara Tech" class="splash-logo">
-    <h1 class="splash-title">Pandara Tech</h1>
-    <p class="splash-sub" data-i18n="splash-sub">Smart solutions for smart applications</p>
-    <a href="#about" class="splash-btn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
-  </div>
-</section>
+<!-- Mobile top bar -->
+<header class="topbar">
+  <a href="#splash" class="topbar-brand">
+    <img src="logo white.png" alt="Pandara Tech">
+    <span>Pandara Tech</span>
+  </a>
+  <button class="topbar-lang" id="langToggleMobile">AR</button>
+</header>
 
-<section class="sec" id="about">
-  <div class="sec-inner">
-    <span class="sec-label" data-i18n="about-eyebrow">About</span>
-    <h2 class="sec-title" data-i18n="about-title">Pandara Tech</h2>
-    <p class="sec-quote" data-i18n="about-quote">At Pandara Tech, we don't ask "how do we build an app?" We ask: "how do we make life and work simpler and smarter?"</p>
-    <p class="sec-text" data-i18n="about-p1">A technology company specialized in delivering smart solutions and developing innovative applications. We believe technology should be a tool to simplify life and enhance productivity, which is why we build products that combine high performance with elegant design to deliver an exceptional experience to our users.</p>
-    <p class="sec-text" data-i18n="about-p2">Our engineering philosophy centers on building fast, lightweight applications that respect your privacy. All data stays on your device, and we never share it with third parties. We continuously update and improve our applications to meet the evolving needs of our users.</p>
-    <a href="#products" class="sec-arrow">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
-  </div>
-</section>
+<main class="stage">
 
-<section class="sec" id="products">
-  <div class="sec-inner">
-    <span class="sec-label" data-i18n="products-eyebrow">Products</span>
-    <h2 class="sec-title" data-i18n="products-title">What we've built</h2>
-    <div class="app-explorer" id="appExplorer">
-      <div class="app-list">
-        <div class="app-list-item" data-app="pandaraword" tabindex="0" role="button" aria-label="View PandaraWord details">
-          <img src="pandaraword.png" alt="" class="app-list-icon">
-          <div class="app-list-info">
-            <span class="app-list-name">PandaraWord</span>
-            <span class="app-list-cat">Desktop App</span>
-          </div>
-          <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </div>
-        <div class="app-list-item" data-app="pandaraexcel" tabindex="0" role="button" aria-label="View PandaraExcel details">
-          <img src="pandaraexcel.png" alt="" class="app-list-icon">
-          <div class="app-list-info">
-            <span class="app-list-name">PandaraExcel</span>
-            <span class="app-list-cat">Data & Analytics</span>
-          </div>
-          <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </div>
-        <div class="app-list-item" data-app="mentis" tabindex="0" role="button" aria-label="View Mentis details">
-          <img src="mentis.png" alt="" class="app-list-icon">
-          <div class="app-list-info">
-            <span class="app-list-name">Mentis</span>
-            <span class="app-list-cat">Productivity</span>
-          </div>
-          <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </div>
-        <div class="app-list-item" data-app="file2img" tabindex="0" role="button" aria-label="View File2Img details">
-          <img src="file2img.png" alt="" class="app-list-icon">
-          <div class="app-list-info">
-            <span class="app-list-name">File2Img</span>
-            <span class="app-list-cat">Utility</span>
-          </div>
-          <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </div>
-      </div>
+  <section class="hero" id="splash">
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Pandara Tech</span>
+      <h1 class="hero-title">
+        <span class="line">Smart solutions</span>
+        <span class="line accent">for smart</span>
+        <span class="line">applications</span>
+      </h1>
+      <p class="hero-sub" data-i18n="splash-sub">Smart solutions for smart applications</p>
+      <a href="#about" class="hero-cta">
+        Explore
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="hero-foot">
+      <span class="dot"></span> Build · Simplify · Empower
+    </div>
+  </section>
 
-      <div class="app-preview" id="appPreview">
-        <div class="app-preview-inner" id="appPreviewInner">
-          <div class="app-preview-left">
-            <img src="pandaraword.png" alt="" class="app-preview-img" id="previewImg">
+  <section class="sec sec--about" id="about">
+    <div class="sec-inner reveal">
+      <span class="sec-label" data-i18n="about-eyebrow">About</span>
+      <h2 class="sec-title" data-i18n="about-title">Pandara Tech</h2>
+      <p class="sec-quote" data-i18n="about-quote">At Pandara Tech, we don't ask "how do we build an app?" We ask: "how do we make life and work simpler and smarter?"</p>
+      <p class="sec-text" data-i18n="about-p1">A technology company specialized in delivering smart solutions and developing innovative applications. We believe technology should be a tool to simplify life and enhance productivity, which is why we build products that combine high performance with elegant design to deliver an exceptional experience to our users.</p>
+      <p class="sec-text" data-i18n="about-p2">Our engineering philosophy centers on building fast, lightweight applications that respect your privacy. All data stays on your device, and we never share it with third parties. We continuously update and improve our applications to meet the evolving needs of our users.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--products" id="products">
+    <div class="sec-inner reveal">
+      <span class="sec-label" data-i18n="products-eyebrow">Products</span>
+      <h2 class="sec-title" data-i18n="products-title">What we've built</h2>
+      <div class="app-explorer" id="appExplorer">
+        <div class="app-list">
+          <div class="app-list-item" data-app="pandaraword" tabindex="0" role="button" aria-label="View PandaraWord details">
+            <img src="pandaraword.png" alt="" class="app-list-icon">
+            <div class="app-list-info">
+              <span class="app-list-name">PandaraWord</span>
+              <span class="app-list-cat">Desktop App</span>
+            </div>
+            <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </div>
-          <div class="app-preview-right">
-            <div class="app-preview-header">
-              <span class="app-preview-title" id="previewTitle">PandaraWord</span>
-              <span class="app-preview-badge" id="previewBadge">Desktop App</span>
+          <div class="app-list-item" data-app="pandaraexcel" tabindex="0" role="button" aria-label="View PandaraExcel details">
+            <img src="pandaraexcel.png" alt="" class="app-list-icon">
+            <div class="app-list-info">
+              <span class="app-list-name">PandaraExcel</span>
+              <span class="app-list-cat">Data & Analytics</span>
             </div>
-            <div class="app-preview-meta" id="previewMeta">
-              <span><strong id="pvLabelVersion">Version:</strong> <span id="pvVersion">1.0.6</span></span>
-              <span><strong id="pvLabelDeveloper">Developer:</strong> Pandara Tech</span>
-              <span><strong id="pvLabelUpdated">Updated:</strong> <span id="pvUpdated">2026</span></span>
-              <span><strong id="pvLabelOs">OS:</strong> Windows</span>
-              <span><strong id="pvLabelLicense">License:</strong> Proprietary</span>
-              <span><strong id="pvLabelSize">Size:</strong> <span id="pvSize">85 MB</span></span>
+            <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="app-list-item" data-app="mentis" tabindex="0" role="button" aria-label="View Mentis details">
+            <img src="mentis.png" alt="" class="app-list-icon">
+            <div class="app-list-info">
+              <span class="app-list-name">Mentis</span>
+              <span class="app-list-cat">Productivity</span>
             </div>
-            <p class="app-preview-desc" id="previewDesc">Integrated word processor that lets you edit, create, and format text documents with ease. Supports multiple formats and integrates with your favorite office tools. Built for speed, reliability, and modern document workflows.</p>
-            <div class="app-preview-features" id="previewFeatures">
-              <span class="pf"><span class="pf-c">✓</span> Fast</span>
-              <span class="pf"><span class="pf-c">✓</span> Offline</span>
-              <span class="pf"><span class="pf-c">✓</span> Windows</span>
-              <span class="pf"><span class="pf-c">✓</span> Secure</span>
-              <span class="pf"><span class="pf-c">✓</span> Modern UI</span>
-              <span class="pf"><span class="pf-c">✓</span> Multi-language</span>
+            <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="app-list-item" data-app="file2img" tabindex="0" role="button" aria-label="View File2Img details">
+            <img src="file2img.png" alt="" class="app-list-icon">
+            <div class="app-list-info">
+              <span class="app-list-name">File2Img</span>
+              <span class="app-list-cat">Utility</span>
             </div>
-            <div class="app-preview-rating" id="previewRating">
-              <span class="pr-stars">★★★★★</span>
-              <span class="pr-num" id="pvRatingNum">5.0</span>
-              <span class="pr-count" id="pvRatingCount">—</span>
+            <svg class="app-list-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+
+        <div class="app-preview" id="appPreview">
+          <div class="app-preview-inner" id="appPreviewInner">
+            <div class="app-preview-left">
+              <img src="pandaraword.png" alt="" class="app-preview-img" id="previewImg">
             </div>
-            <div class="app-preview-footer" id="previewFooter">
-              <a href="https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe" class="pv-cta primary" id="pvCtaPrimary">Download</a>
-              <a href="#" class="pv-cta secondary" id="pvCtaSecondary">Learn more</a>
+            <div class="app-preview-right">
+              <div class="app-preview-header">
+                <span class="app-preview-title" id="previewTitle">PandaraWord</span>
+                <span class="app-preview-badge" id="previewBadge">Desktop App</span>
+              </div>
+              <div class="app-preview-meta" id="previewMeta">
+                <span><strong id="pvLabelVersion">Version:</strong> <span id="pvVersion">1.0.6</span></span>
+                <span><strong id="pvLabelDeveloper">Developer:</strong> Pandara Tech</span>
+                <span><strong id="pvLabelUpdated">Updated:</strong> <span id="pvUpdated">2026</span></span>
+                <span><strong id="pvLabelOs">OS:</strong> Windows</span>
+                <span><strong id="pvLabelLicense">License:</strong> Proprietary</span>
+                <span><strong id="pvLabelSize">Size:</strong> <span id="pvSize">85 MB</span></span>
+              </div>
+              <p class="app-preview-desc" id="previewDesc">Integrated word processor that lets you edit, create, and format text documents with ease. Supports multiple formats and integrates with your favorite office tools. Built for speed, reliability, and modern document workflows.</p>
+              <div class="app-preview-features" id="previewFeatures">
+                <span class="pf"><span class="pf-c">✓</span> Fast</span>
+                <span class="pf"><span class="pf-c">✓</span> Offline</span>
+                <span class="pf"><span class="pf-c">✓</span> Windows</span>
+                <span class="pf"><span class="pf-c">✓</span> Secure</span>
+                <span class="pf"><span class="pf-c">✓</span> Modern UI</span>
+                <span class="pf"><span class="pf-c">✓</span> Multi-language</span>
+              </div>
+              <div class="app-preview-rating" id="previewRating">
+                <span class="pr-stars">★★★★★</span>
+                <span class="pr-num" id="pvRatingNum">5.0</span>
+                <span class="pr-count" id="pvRatingCount">—</span>
+              </div>
+              <div class="app-preview-footer" id="previewFooter">
+                <a href="https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe" class="pv-cta primary" id="pvCtaPrimary">Download</a>
+                <a href="#" class="pv-cta secondary" id="pvCtaSecondary">Learn more</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <a href="#why" class="sec-arrow">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
-  </div>
-</section>
+  </section>
 
-<section class="sec" id="why">
-  <div class="sec-inner">
-    <span class="sec-label" data-i18n="why-eyebrow">Why</span>
-    <h2 class="sec-title" data-i18n="why-title">What sets us apart</h2>
-    <div class="why-grid">
-      <div class="why-card outlined">
-        <h3 data-i18n="why-1-title">High performance</h3>
-        <p data-i18n="why-1-desc">Fast, lightweight applications that work efficiently across all devices and operating environments.</p>
-      </div>
-      <div class="why-card outlined">
-        <h3 data-i18n="why-2-title">Security &amp; privacy</h3>
-        <p data-i18n="why-2-desc">Your data is stored locally on your device, and we do not share it with any third party.</p>
-      </div>
-      <div class="why-card outlined">
-        <h3 data-i18n="why-3-title">Elegant design</h3>
-        <p data-i18n="why-3-desc">Modern, easy-to-use interfaces carefully crafted for an exceptional user experience.</p>
-      </div>
-      <div class="why-card outlined">
-        <h3 data-i18n="why-4-title">Continuous development</h3>
-        <p data-i18n="why-4-desc">We continuously update and improve our applications to meet the evolving needs of our users.</p>
+  <section class="sec sec--why" id="why">
+    <div class="sec-inner reveal">
+      <span class="sec-label" data-i18n="why-eyebrow">Why</span>
+      <h2 class="sec-title" data-i18n="why-title">What sets us apart</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-num">01</span>
+          <h3 data-i18n="why-1-title">High performance</h3>
+          <p data-i18n="why-1-desc">Fast, lightweight applications that work efficiently across all devices and operating environments.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">02</span>
+          <h3 data-i18n="why-2-title">Security &amp; privacy</h3>
+          <p data-i18n="why-2-desc">Your data is stored locally on your device, and we do not share it with any third party.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">03</span>
+          <h3 data-i18n="why-3-title">Elegant design</h3>
+          <p data-i18n="why-3-desc">Modern, easy-to-use interfaces carefully crafted for an exceptional user experience.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">04</span>
+          <h3 data-i18n="why-4-title">Continuous development</h3>
+          <p data-i18n="why-4-desc">We continuously update and improve our applications to meet the evolving needs of our users.</p>
+        </div>
       </div>
     </div>
-    <a href="#contact" class="sec-arrow">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
-  </div>
-</section>
+  </section>
 
-<section class="sec sec--last" id="contact">
-  <div class="sec-inner">
-    <span class="sec-label" data-i18n="cta-eyebrow">Contact</span>
-    <h2 class="sec-title" data-i18n="cta-title">Let's talk</h2>
-    <p class="sec-text" data-i18n="cta-desc">Have a question about any of our products? Reach out and we'll get back to you.</p>
-    <form class="contact-form" id="contactForm">
-      <input type="text" class="form-input" name="name" placeholder="Your name" data-i18n="form-name" data-i18n-placeholder="form-name" required>
-      <input type="text" class="form-input" name="contact" placeholder="Email or phone" data-i18n="form-contact" data-i18n-placeholder="form-contact" required>
-      <textarea class="form-input form-textarea" name="message" placeholder="Your message" data-i18n-placeholder="form-message" required></textarea>
-      <button type="submit" class="cta-btn form-submit" data-i18n="form-send">Send</button>
-      <div class="form-status" id="formStatus"></div>
-    </form>
-  </div>
-  <div class="footer-bar">
-    <span data-i18n="footer-copyright">&copy; 2026 Pandara Tech</span>
-    <a href="https://instagram.com/pandaratech" target="_blank" rel="noopener">@pandaratech</a>
-  </div>
-</section>
+  <section class="sec sec--contact" id="contact">
+    <div class="sec-inner reveal">
+      <span class="sec-label" data-i18n="cta-eyebrow">Contact</span>
+      <h2 class="sec-title" data-i18n="cta-title">Let's talk</h2>
+      <p class="sec-text" data-i18n="cta-desc">Have a question about any of our products? Reach out and we'll get back to you.</p>
+      <form class="contact-form" id="contactForm">
+        <input type="text" class="form-input" name="name" placeholder="Your name" data-i18n="form-name" data-i18n-placeholder="form-name" required>
+        <input type="text" class="form-input" name="contact" placeholder="Email or phone" data-i18n="form-contact" data-i18n-placeholder="form-contact" required>
+        <textarea class="form-input form-textarea" name="message" placeholder="Your message" data-i18n-placeholder="form-message" required></textarea>
+        <button type="submit" class="cta-btn form-submit" data-i18n="form-send">Send</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+    </div>
+    <div class="footer-bar">
+      <span data-i18n="footer-copyright">&copy; 2026 Pandara Tech</span>
+      <a href="https://instagram.com/pandaratech" target="_blank" rel="noopener">@pandaratech</a>
+    </div>
+  </section>
+
+</main>
 
 <script src="script.js"></script>
 </body>

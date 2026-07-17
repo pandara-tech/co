@@ -72,15 +72,44 @@ function applyLang(l) {
   document.documentElement.lang = l === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
   document.documentElement.classList.toggle('rtl', l === 'ar');
-  const btn = document.getElementById('langToggle');
-  if (btn) btn.textContent = t['lang-btn'];
+  ['langToggle', 'langToggleMobile'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.textContent = t['lang-btn'];
+  });
 }
 
-document.getElementById('langToggle')?.addEventListener('click', () => {
-  applyLang(currentLang === 'en' ? 'ar' : 'en');
+['langToggle', 'langToggleMobile'].forEach(id => {
+  document.getElementById(id)?.addEventListener('click', () => {
+    applyLang(currentLang === 'en' ? 'ar' : 'en');
+  });
 });
 
 applyLang(currentLang);
+
+// Sticky nav state on scroll
+const siteNav = document.getElementById('siteNav');
+if (siteNav) {
+  const onScroll = () => siteNav.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+// Scroll-spy: highlight active rail link
+const railLinks = Array.from(document.querySelectorAll('.rail-links a'));
+const spyTargets = railLinks
+  .map(a => document.querySelector(a.getAttribute('href')))
+  .filter(Boolean);
+if ('IntersectionObserver' in window && spyTargets.length) {
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        railLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  spyTargets.forEach(t => spy.observe(t));
+}
 
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && revealEls.length) {
@@ -314,4 +343,7 @@ var appData = {
       if (currentApp && preview.classList.contains('open')) showApp(currentApp);
     };
   }
+
+  // Pre-select the first app so the preview panel is never empty on load
+  if (listItems.length) showApp(listItems[0].dataset.app);
 })();
