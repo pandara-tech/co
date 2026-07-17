@@ -66,6 +66,16 @@
   html.rtl .prod-brand, html.rtl .prod-top { font-family: 'Cairo', sans-serif; }
   html.rtl .prod-hero, html.rtl .prod-feature { font-family: 'Cairo', 'Inter', sans-serif; text-align: center; }
   html.rtl .prod-feature { text-align: right; }
+  .prod-legal { position: relative; z-index: 2; max-width: 980px; margin: 0 auto; padding: 0 24px 40px; display: flex; flex-direction: column; gap: 12px; }
+  .prod-legal-card { display: flex; align-items: center; gap: 16px; padding: 18px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); text-decoration: none; color: var(--paper); transition: all 0.25s var(--ease); }
+  .prod-legal-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 14px 34px rgba(47,182,166,0.18); }
+  .prod-legal-card .pl-ic { width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--accent); color: var(--accent); }
+  .prod-legal-card .pl-text { flex: 1; min-width: 0; }
+  .prod-legal-card .pl-text h4 { font-family: 'Raleway', sans-serif; font-size: 16px; font-weight: 800; margin: 0 0 4px; }
+  .prod-legal-card .pl-text p { font-size: 13px; line-height: 1.6; color: var(--paper); opacity: 0.7; margin: 0; }
+  .prod-legal-card .pl-arrow { color: var(--muted); flex-shrink: 0; transition: transform 0.25s var(--ease), color 0.25s var(--ease); }
+  .prod-legal-card:hover .pl-arrow { color: var(--accent); transform: translateX(4px); }
+  html.rtl .prod-legal-card:hover .pl-arrow { transform: translateX(-4px); }
   @media (max-width: 760px) { .prod-features { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -117,6 +127,33 @@
     </div>
   </section>
 
+  <section class="prod-legal">
+    <a class="prod-legal-card" href="https://pandaratech.online/privacy-policy.html">
+      <div class="pl-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="pl-text">
+        <h4 data-i18n="leg1-t">Privacy Policy</h4>
+        <p data-i18n="leg1-d">How we collect, protect, and handle your data.</p>
+      </div>
+      <svg class="pl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a class="prod-legal-card" href="https://pandaratech.online/terms-of-use.html">
+      <div class="pl-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></div>
+      <div class="pl-text">
+        <h4 data-i18n="leg2-t">Terms of Use</h4>
+        <p data-i18n="leg2-d">The rules and conditions for using our products.</p>
+      </div>
+      <svg class="pl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a class="prod-legal-card" href="https://pandaratech.online/eula.html">
+      <div class="pl-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-9 9-5.5-1.5-9-4-9-9V5l9-3 9 3z"/></svg></div>
+      <div class="pl-text">
+        <h4 data-i18n="leg3-t">End User License (EULA)</h4>
+        <p data-i18n="leg3-d">The license agreement that governs the software.</p>
+      </div>
+      <svg class="pl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+
   <div class="prod-back">
     <a class="prod-btn ghost" href="https://pandaratech.online" data-i18n="cta-home">Back to site</a>
   </div>
@@ -133,6 +170,9 @@
       'f1-t': 'Correspondence', 'f1-d': 'Create official letters and documents quickly and professionally.',
       'f2-t': 'Unified database', 'f2-d': 'Manage students, employees, and faculty in one secure place.',
       'f3-t': 'Archiving & backup', 'f3-d': 'Save outgoing documents with full history and automatic backup.',
+      'leg1-t': 'Privacy Policy', 'leg1-d': 'How we collect, protect, and handle your data.',
+      'leg2-t': 'Terms of Use', 'leg2-d': 'The rules and conditions for using our products.',
+      'leg3-t': 'End User License (EULA)', 'leg3-d': 'The license agreement that governs the software.',
       btn: 'AR'
     },
     ar: {
@@ -144,6 +184,9 @@
       'f1-t': 'المراسلات', 'f1-d': 'أنشئ الخطابات والمستندات الرسمية بسرعة واحترافية.',
       'f2-t': 'قاعدة بيانات موحّدة', 'f2-d': 'أدر الطلاب والموظفين والهيئة التدريسية في مكان واحد آمن.',
       'f3-t': 'الأرشفة والنسخ الاحتياطي', 'f3-d': 'احفظ المستندات الصادرة بسجل كامل ونسخ احتياطي تلقائي.',
+      'leg1-t': 'سياسة الخصوصية', 'leg1-d': 'كيفية جمع بياناتك وحمايتها ومعالجتها.',
+      'leg2-t': 'شروط الاستخدام', 'leg2-d': 'القواعد والشروط الخاصة باستخدام منتجاتنا.',
+      'leg3-t': 'اتفاقية الترخيص (EULA)', 'leg3-d': 'اتفاقية الترخيص التي تحكم استخدام البرنامج.',
       btn: 'EN'
     }
   };
