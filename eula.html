@@ -9,56 +9,70 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  .legal-lang { position: fixed; top: 20px; right: 24px; z-index: 200; width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 800; color: var(--ink-soft); transition: all 0.25s var(--ease); display: flex; align-items: center; justify-content: center; }
-  .legal-lang:hover { border-color: var(--ink); color: var(--ink); }
-  html.rtl .legal-lang { right: auto; left: 24px; font-family: 'BoutrosDinkum', 'Cairo', sans-serif; }  .legal-top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px,6vw,80px) 0; max-width: 860px; margin: 0 auto; }
-  .legal-brand { display: flex; align-items: center; gap: 10px; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 15px; color: var(--ink); text-decoration: none; }
-  .legal-brand span { color: var(--accent); }
-  .legal-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 13px; text-decoration: none; transition: all 0.25s var(--ease); }
-  .legal-back:hover { border-color: var(--accent); color: var(--accent); }
+  .legal-doc { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+  .clause { padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+  .clause h3 { font-family: var(--font-display); font-size: 16px; font-weight: 800; margin-bottom: 10px; color: var(--paper); }
+  .clause p, .clause li { font-size: 14px; color: var(--ink-soft); line-height: 1.85; }
+  .clause ul, .clause ol { padding-left: 20px; margin-top: 6px; }
+  .clause ul li, .clause ol li { margin-bottom: 4px; }
+  .legal-footer { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .legal-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 13px 26px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: transparent; color: var(--paper); font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; transition: all 0.3s var(--ease); }
   .legal-back:hover { border-color: var(--accent); color: var(--accent); }
   html.rtl .legal-back svg { transform: scaleX(-1); }
-  .legal-lang.legal-theme { position: fixed; top: 20px; right: 72px; }
-  html.rtl .legal-lang.legal-theme { right: auto; left: 72px; }
   .sec { animation: legalFade 0.7s var(--ease) both; }
   @keyframes legalFade { from { opacity: 0; } to { opacity: 1; } }
   html.lang-morph .sec-inner > * { filter: blur(6px); opacity: 0.25; transform: translateY(8px); transition: none; }
   html:not(.lang-morph) .sec-inner > * { transition: filter 0.4s var(--ease), opacity 0.4s var(--ease), transform 0.4s var(--ease); }
-  html.rtl body { font-family: 'BoutrosDinkum', 'Cairo', 'Inter', sans-serif; font-weight: 400; }
-  html.rtl h1, html.rtl h2, html.rtl h3 { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif !important; font-weight: 700; letter-spacing: 0; }
-  html.rtl .sec-inner > div[style*="text-align:left"] { text-align: right !important; }
-  html.rtl .sec-inner > div[style*="text-align:left"] > div[style*="border-left"] { border-left: none !important; border-right: 3px solid var(--accent) !important; }
-  .clause { margin-bottom: 20px; }
-  .clause h3 { font-family: var(--font-display); font-size: 15.5px; font-weight: 800; margin-bottom: 6px; color: var(--ink); }
-  .clause p, .clause li { font-size: 14px; color: var(--ink-soft); line-height: 1.8; }
-  .clause ul, .clause ol { padding-left: 20px; margin-top: 4px; }
-  .clause ul li, .clause ol li { margin-bottom: 3px; }
-  html.rtl .clause ul, html.rtl .clause ol { padding-left: 0; padding-right: 20px; }
+  @media (max-width: 760px) { .legal-back { width: 100%; justify-content: center; } }
 </style>
 </head>
 <body>
-
-<button class="legal-lang legal-theme" id="themeToggle" aria-label="Switch theme">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4 1.4"/></svg>
-  </button>
-  <button class="legal-lang" id="langToggle">EN</button>
-
-<div class="sec" style="min-height:100vh;padding:100px 24px 60px;align-items:flex-start;">
-  <div class="sec-inner" style="max-width:860px;">
-    <span class="sec-label" id="labelEl">Legal</span>
-    <h2 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.4rem);" id="titleEl">End User License Agreement</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:40px;" id="metaEl">Mentis &middot; Version 1.0</p>
-
-    <div style="background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,4vw,48px);text-align:left;" id="docContainer"></div>
-
-    <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--muted);line-height:1.8;" id="footerEl"></div>
-    <a href="https://pandaratech.online" class="legal-back">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-      <span data-i18n="back">Back to Pandara Tech</span>
-    </a>
+<aside class="rail">
+  <a href="https://pandaratech.online" class="rail-brand" aria-label="Pandara Tech home">
+    <img src="logo white.png" alt="Pandara Tech" class="brand-logo" id="brandLogo">
+  </a>
+  <nav class="rail-links">
+    <a href="https://pandaratech.online#about" data-i18n="nav-about" data-num="01">About</a>
+    <a href="https://pandaratech.online#products" data-i18n="nav-products" data-num="02">Products</a>
+    <a href="https://pandaratech.online#why" data-i18n="nav-why" data-num="03">Why</a>
+    <a href="https://pandaratech.online#contact" data-i18n="nav-contact" data-num="04">Contact</a>
+  </nav>
+  <div class="rail-actions">
+    <button class="rail-theme" id="themeToggle" aria-label="Switch theme">
+      <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4 1.4"/></svg>
+      <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+    </button>
+    <button class="rail-lang" id="langToggle" aria-label="Switch language">EN</button>
   </div>
-</div>
-
+</aside>
+<header class="topbar">
+  <a href="https://pandaratech.online" class="topbar-brand">
+    <img src="logo white.png" alt="Pandara Tech" class="brand-logo" id="brandLogoMobile">
+    <span>Pandara Tech</span>
+  </a>
+  <div class="topbar-actions">
+    <button class="topbar-theme" id="themeToggleMobile" aria-label="Switch theme">
+      <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4 1.4"/></svg>
+      <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+    </button>
+    <button class="topbar-lang" id="langToggleMobile">EN</button>
+  </div>
+</header>
+<main class="stage">
+  <section class="sec" id="legal">
+    <div class="sec-inner">
+      <span class="sec-label" id="labelEl">Legal</span>
+      <h2 class="sec-title" id="titleEl">Privacy Policy</h2>
+      <p class="sec-text" style="margin-bottom:40px;" id="metaEl">Mentis &middot; Version 1.0.6</p>
+      <div class="legal-doc" id="docContainer"></div>
+      <div class="legal-footer" id="footerEl"></div>
+      <a href="https://pandaratech.online" class="legal-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        <span data-i18n="back">Back to Pandara Tech</span>
+      </a>
+    </div>
+  </section>
+</main>
 <script>
 const fullText = {
   ar: {
@@ -668,6 +682,8 @@ function applyLang(l, morph) {
 function applyTheme(th) {
   theme = th; localStorage.setItem('pandara-theme', th);
   document.documentElement.classList.toggle('theme-light', th === 'light');
+  const logo = th === 'light' ? 'logo black.png' : 'logo white.png';
+  ['brandLogo','brandLogoMobile'].forEach(id => { const el = document.getElementById(id); if (el) el.src = logo; });
 }
 
 function render(l) {
@@ -705,11 +721,11 @@ function render(l) {
   document.documentElement.classList.toggle('rtl', l === 'ar');
 }
 
-document.getElementById('langToggle').addEventListener('click', () => {
-  lang = lang === 'en' ? 'ar' : 'en';
-  localStorage.setItem('pandara-lang', lang);
-  render(lang);
-});
+function wire(id, fn){ const el=document.getElementById(id); if(el) el.addEventListener('click', fn); }
+wire('langToggle', () => applyLang(lang === 'en' ? 'ar' : 'en', true));
+wire('langToggleMobile', () => applyLang(lang === 'en' ? 'ar' : 'en', true));
+wire('themeToggle', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
+wire('themeToggleMobile', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
 
 applyLang(lang, false);
 applyTheme(theme);
