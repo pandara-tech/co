@@ -237,7 +237,7 @@ var appData = {
   function startAutoClose() {
     clearAutoClose();
     autoCloseTimer = setTimeout(function() {
-      if (preview.classList.contains('open') && !preview.matches(':hover')) {
+      if (preview.classList.contains('open') && !explorer.matches(':hover')) {
         hideApp();
       }
     }, 1500);
@@ -278,16 +278,8 @@ var appData = {
     document.getElementById('pvLabelOs').textContent = isAr ? 'نظام التشغيل:' : 'OS:';
     document.getElementById('pvLabelLicense').textContent = isAr ? 'الترخيص:' : 'License:';
     document.getElementById('pvLabelSize').textContent = isAr ? 'الحجم:' : 'Size:';
-  }
-    var primary = document.getElementById('pvCtaPrimary');
-    if (data.cta === 'soon') { primary.className = 'pv-cta primary disabled'; primary.href = '#'; primary.textContent = data.ctaLabel; }
-    else { primary.className = 'pv-cta primary'; primary.href = data.ctaLink || '#'; primary.textContent = data.ctaLabel; }
-    var secondary = document.getElementById('pvCtaSecondary');
-    if (data.cta2) { secondary.style.display = 'inline-flex'; secondary.href = data.cta2; }
-    else { secondary.style.display = 'none'; }
     listItems.forEach(function(el) { el.classList.toggle('active', el.dataset.app === appId); });
     preview.classList.add('open');
-    startAutoClose();
   }
 
   function hideApp() {
@@ -297,9 +289,6 @@ var appData = {
     currentApp = null;
   }
 
-  preview.addEventListener('mouseenter', clearAutoClose);
-  preview.addEventListener('mouseleave', startAutoClose);
-
   listItems.forEach(function(item) {
     item.addEventListener('mouseenter', function() { showApp(item.dataset.app); });
     item.addEventListener('click', function() {
@@ -308,8 +297,10 @@ var appData = {
     });
   });
 
-  preview.addEventListener('mouseenter', clearAutoClose);
-  preview.addEventListener('mouseleave', startAutoClose);
+  // Keep open while the pointer is anywhere inside the explorer (list + preview).
+  // Start the 1.5s countdown only once the pointer leaves the whole explorer.
+  explorer.addEventListener('mouseenter', clearAutoClose);
+  explorer.addEventListener('mouseleave', startAutoClose);
 
   document.addEventListener('click', function(e) {
     if (preview.classList.contains('open') && !explorer.contains(e.target)) hideApp();
