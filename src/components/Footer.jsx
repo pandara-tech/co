@@ -1,5 +1,6 @@
 import React from 'react';
 import { useI18n } from '../i18n/I18nContext.jsx';
+import { useTheme } from '../i18n/ThemeContext.jsx';
 
 const socials = [
   {
@@ -16,13 +17,14 @@ const socials = [
 
 export default function Footer() {
   const { lang, t } = useI18n();
+  const { dark } = useTheme();
   const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src="./logo white.png" alt="Pandara Tech" className="footer-logo" />
+          <img src={dark ? './logo white.png' : './logo black.png'} alt="Pandara Tech" className="footer-logo" />
           <span>Pandara Tech</span>
         </div>
 
