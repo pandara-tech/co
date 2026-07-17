@@ -103,7 +103,7 @@ function switchLang() {
   const root = document.documentElement;
   root.classList.add('lang-morph');
   setTimeout(() => {
-    applyLang(next);
+    window.applyLang(next);
     requestAnimationFrame(() => {
       requestAnimationFrame(() => root.classList.remove('lang-morph'));
     });
@@ -387,7 +387,7 @@ var appData = {
   explorer.addEventListener('mouseleave', startAutoClose);
 
   document.addEventListener('click', function(e) {
-    if (preview.classList.contains('open') && !explorer.contains(e.target)) hideApp();
+    if (preview.classList.contains('open') && !explorer.contains(e.target) && !e.target.closest('.rail') && !e.target.closest('.topbar')) hideApp();
   });
 
   // Re-show current app on language change
