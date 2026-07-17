@@ -3,10 +3,11 @@ import { useI18n } from '../i18n/I18nContext.jsx';
 import { submitContact } from '../api/contact.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[\d\s\-+()]{7,20}$/;
 
 export default function ContactForm() {
   const { lang, t } = useI18n();
-  const [form, setForm] = useState({ fullName: '', email: '', subject: '', message: '' });
+  const [form, setForm] = useState({ fullName: '', contact: '', subject: '', message: '' });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle');
 
@@ -15,7 +16,7 @@ export default function ContactForm() {
   const validate = () => {
     const e = {};
     if (!form.fullName.trim()) e.fullName = true;
-    if (!EMAIL_RE.test(form.email)) e.email = true;
+    if (!form.contact.trim() || !(EMAIL_RE.test(form.contact) || PHONE_RE.test(form.contact))) e.contact = true;
     if (!form.subject.trim()) e.subject = true;
     if (!form.message.trim()) e.message = true;
     setErrors(e);
@@ -29,7 +30,7 @@ export default function ContactForm() {
     try {
       await submitContact(form);
       setStatus('done');
-      setForm({ fullName: '', email: '', subject: '', message: '' });
+      setForm({ fullName: '', contact: '', subject: '', message: '' });
     } catch {
       setStatus('error');
     }
@@ -39,8 +40,8 @@ export default function ContactForm() {
   const L = {
     fullName: { en: 'Full Name', ar: 'الاسم الكامل' },
     fullNamePh: { en: 'Your full name', ar: 'اسمك الكامل' },
-    email: { en: 'Email', ar: 'البريد الإلكتروني' },
-    emailPh: { en: 'you@example.com', ar: 'you@example.com' },
+    email: { en: 'Email or Phone', ar: 'البريد أو الهاتف' },
+    emailPh: { en: 'you@example.com or +1 555 555 5555', ar: 'you@example.com أو رقم هاتف' },
     subject: { en: 'Subject', ar: 'الموضوع' },
     subjectPh: { en: 'How can we help?', ar: 'كيف يمكننا المساعدة؟' },
     message: { en: 'Message', ar: 'الرسالة' },
@@ -58,8 +59,8 @@ export default function ContactForm() {
 
         <label className="form-label">
           {t(L.email)}
-          <input className={fieldCls(errors.email)} type="email" value={form.email} onChange={set('email')} placeholder={t(L.emailPh)} dir="ltr" />
-          {errors.email && <span className="form-error">{t({ en: 'Enter a valid email', ar: 'أدخل بريداً صالحاً' })}</span>}
+          <input className={fieldCls(errors.contact)} type="text" value={form.contact} onChange={set('contact')} placeholder={t(L.emailPh)} dir="ltr" />
+          {errors.contact && <span className="form-error">{t({ en: 'Enter a valid email or phone number', ar: 'أدخل بريداً صالحاً أو رقم هاتف' })}</span>}
         </label>
       </div>
 

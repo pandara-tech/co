@@ -15,6 +15,7 @@ export default function ProductDetails() {
 
   const [reviews, setReviews] = useState([]);
   const [avg, setAvg] = useState(0);
+  const [slideIdx, setSlideIdx] = useState(0);
 
   useEffect(() => {
     let alive = true;
@@ -91,12 +92,24 @@ export default function ProductDetails() {
         </div>
       </section>
 
+      {product.screenshots && product.screenshots.length > 0 && (
       <section className="pd-section">
         <h2 className="pd-h2">{t({ en: 'Screenshots', ar: 'لقطات الشاشة' })}</h2>
-        <div className="pd-shots">
-          <div className="pd-shot-empty">{t({ en: 'Screenshots coming soon', ar: 'لقطات الشاشة قريباً' })}</div>
+        <div className="pd-slideshow">
+          <button className="pd-slide-arrow pd-slide-prev" onClick={() => setSlideIdx(i => (i - 1 + product.screenshots.length) % product.screenshots.length)} aria-label="Previous">‹</button>
+          <div className="pd-slide-viewport">
+            <img key={slideIdx} src={product.screenshots[slideIdx]} alt={`${product.name} screenshot ${slideIdx + 1}`} className="pd-slide-img" />
+            <img src={product.logo} alt="" className="pd-slide-logo" />
+          </div>
+          <button className="pd-slide-arrow pd-slide-next" onClick={() => setSlideIdx(i => (i + 1) % product.screenshots.length)} aria-label="Next">›</button>
+        </div>
+        <div className="pd-slide-dots">
+          {product.screenshots.map((_, i) => (
+            <button key={i} className={`pd-slide-dot${i === slideIdx ? ' active' : ''}`} onClick={() => setSlideIdx(i)} aria-label={`Go to slide ${i + 1}`} />
+          ))}
         </div>
       </section>
+      )}
 
       <section className="pd-section">
         <div className="pd-meta">

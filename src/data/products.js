@@ -2,7 +2,7 @@ export const products = [
   {
     id: 'pandaraword',
     name: 'PandaraWord',
-    logo: './pandaraword.png',
+    logo: '/pandaraword.png',
     badge: { en: 'Desktop App', ar: 'تطبيق مكتبي' },
     version: '1.0.6',
     updated: '2026',
@@ -17,12 +17,13 @@ export const products = [
       en: ['Fast', 'Offline', 'Windows', 'Batch Ops', 'PDF Convert', 'Multi-language'],
       ar: ['سريع', 'بدون إنترنت', 'ويندوز', 'عمليات جماعية', 'تحويل PDF', 'متعدد اللغات']
     },
+    screenshots: ['/screenshots/pandaraword/1.png', '/screenshots/pandaraword/2.png', '/screenshots/pandaraword/3.png'],
     cta: { type: 'download', label: { en: 'Download', ar: 'تحميل' }, link: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe' }
   },
   {
     id: 'pandaraexcel',
     name: 'PandaraExcel',
-    logo: './pandaraexcel.png',
+    logo: '/pandaraexcel.png',
     badge: { en: 'Data & Analytics', ar: 'بيانات وتحليلات' },
     version: '1.0.0',
     updated: 'soon',
@@ -42,7 +43,7 @@ export const products = [
   {
     id: 'mentis',
     name: 'Mentis',
-    logo: './mentis.png',
+    logo: '/mentis.png',
     badge: { en: 'Productivity', ar: 'نظام إداري' },
     version: '1.0.6',
     updated: '2026',
@@ -62,7 +63,7 @@ export const products = [
   {
     id: 'file2img',
     name: 'File2Img',
-    logo: './file2img.png',
+    logo: '/file2img.png',
     badge: { en: 'Utility', ar: 'أداة مساعدة' },
     version: '1.0.0',
     updated: 'soon',

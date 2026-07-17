@@ -127,13 +127,44 @@ html[dir='rtl'] .product-card:hover .product-card-arrow { transform: translateX(
 .pd-feature { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--paper); background: var(--surface-2); padding: 9px 16px; border-radius: 999px; }
 .pd-feature-check { color: var(--accent); font-weight: 800; }
 
-.pd-shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.pd-shot-empty {
-  grid-column: 1 / -1;
-  border: 1px dashed var(--line-strong); border-radius: var(--radius);
-  padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px;
-  background: var(--surface);
+.pd-slideshow {
+  display: flex; align-items: center; gap: 12px;
 }
+.pd-slide-arrow {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--paper); font-size: 24px; line-height: 1;
+  cursor: pointer; transition: 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.pd-slide-arrow:hover { border-color: var(--accent); color: var(--accent); }
+@keyframes morphIn {
+  0% { opacity: 0; transform: scale(0.96); filter: blur(4px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+.pd-slide-viewport {
+  flex: 1; overflow: hidden; border-radius: var(--radius);
+  border: 1px solid var(--line); background: var(--surface-2);
+  aspect-ratio: 1920 / 1019; display: flex; position: relative;
+}
+.pd-slide-img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+  animation: morphIn 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both;
+}
+.pd-slide-logo {
+  position: absolute; bottom: 16px; right: 16px;
+  width: 48px; height: 48px; object-fit: contain;
+  opacity: 0.35; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  pointer-events: none;
+}
+.pd-slide-dots {
+  display: flex; justify-content: center; gap: 8px; margin-top: 14px;
+}
+.pd-slide-dot {
+  width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--surface); cursor: pointer; transition: 0.2s; padding: 0;
+}
+.pd-slide-dot.active { background: var(--accent); border-color: var(--accent); }
 
 .pd-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .pd-meta-item { padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); display: flex; flex-direction: column; gap: 6px; }
@@ -198,7 +229,7 @@ textarea.form-input { resize: vertical; min-height: 110px; line-height: 1.6; }
 @media (max-width: 860px) {
   .why-grid, .products-grid, .pd-reviews-layout { grid-template-columns: 1fr; }
   .pd-meta { grid-template-columns: repeat(2, 1fr); }
-  .pd-shots { grid-template-columns: 1fr; }
+  .pd-slide-viewport { aspect-ratio: 16 / 10; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
