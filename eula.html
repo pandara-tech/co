@@ -11,7 +11,12 @@
 <style>
   .legal-lang { position: fixed; top: 20px; right: 24px; z-index: 200; width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 800; color: var(--ink-soft); transition: all 0.25s var(--ease); display: flex; align-items: center; justify-content: center; }
   .legal-lang:hover { border-color: var(--ink); color: var(--ink); }
-  html.rtl .legal-lang { right: auto; left: 24px; font-family: 'BoutrosDinkum', 'Cairo', sans-serif; }
+  html.rtl .legal-lang { right: auto; left: 24px; font-family: 'BoutrosDinkum', 'Cairo', sans-serif; }  .legal-top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px,6vw,80px) 0; max-width: 860px; margin: 0 auto; }
+  .legal-brand { display: flex; align-items: center; gap: 10px; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 15px; color: var(--ink); text-decoration: none; }
+  .legal-brand span { color: var(--accent); }
+  .legal-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 13px; text-decoration: none; transition: all 0.25s var(--ease); }
+  .legal-back:hover { border-color: var(--accent); color: var(--accent); }
+  html.rtl .legal-back svg { transform: scaleX(-1); }
   html.rtl body { font-family: 'BoutrosDinkum', 'Cairo', 'Inter', sans-serif; font-weight: 400; }
   html.rtl h1, html.rtl h2, html.rtl h3 { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif !important; font-weight: 700; letter-spacing: 0; }
   html.rtl .sec-inner > div[style*="text-align:left"] { text-align: right !important; }
@@ -37,6 +42,10 @@
     <div style="background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,4vw,48px);text-align:left;" id="docContainer"></div>
 
     <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--muted);line-height:1.8;" id="footerEl"></div>
+    <a href="https://pandaratech.online" class="legal-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      <span data-i18n="back">Back to Pandara Tech</span>
+    </a>
   </div>
 </div>
 
@@ -334,6 +343,7 @@ const fullText = {
       ]}
     ],
     footer: 'انتهت اتفاقية ترخيص المستخدم النهائي (EULA)<br>الإصدار: 1.0 &middot; اللغة الرسمية: العربية &middot; البرنامج: Mentis &middot; المالك القانوني لحقوق الملكية الفكرية: جلال أمانج عبد العزيز &middot; الاسم التجاري: Pandara Tech<br>جميع الحقوق محفوظة &copy; Pandara Tech.',
+    back: 'العودة إلى Pandara Tech',
     btn: 'EN'
   },
   en: {
@@ -628,6 +638,7 @@ const fullText = {
       ]}
     ],
     footer: 'End of End User License Agreement (EULA)<br>Version: 1.0 &middot; Official language: Arabic &middot; Software: Mentis &middot; Legal IP Owner: Jalal Amanj Abdul Aziz &middot; Trading Name: Pandara Tech<br>All rights reserved &copy; Pandara Tech.',
+    back: 'Back to Pandara Tech',
     btn: 'AR'
   }
 };
@@ -661,6 +672,8 @@ function render(l) {
 
   document.getElementById('docContainer').innerHTML = html;
   document.getElementById('footerEl').innerHTML = d.footer;
+  const backEl = document.querySelector('[data-i18n="back"]');
+  if (backEl) backEl.textContent = d.back;
   document.getElementById('langToggle').textContent = d.btn;
   document.documentElement.lang = l === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';

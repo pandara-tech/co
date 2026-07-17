@@ -12,6 +12,12 @@
   .legal-lang { position: fixed; top: 20px; right: 24px; z-index: 200; width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 800; color: var(--ink-soft); transition: all 0.25s var(--ease); display: flex; align-items: center; justify-content: center; }
   .legal-lang:hover { border-color: var(--ink); color: var(--ink); }
   html.rtl .legal-lang { right: auto; left: 24px; font-family: 'BoutrosDinkum', 'Cairo', sans-serif; }
+  .legal-top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px,6vw,80px) 0; max-width: 860px; margin: 0 auto; }
+  .legal-brand { display: flex; align-items: center; gap: 10px; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 15px; color: var(--ink); text-decoration: none; }
+  .legal-brand span { color: var(--accent); }
+  .legal-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 13px; text-decoration: none; transition: all 0.25s var(--ease); }
+  .legal-back:hover { border-color: var(--accent); color: var(--accent); }
+  html.rtl .legal-back svg { transform: scaleX(-1); }
   html.rtl body { font-family: 'BoutrosDinkum', 'Cairo', 'Inter', sans-serif; font-weight: 400; }
   html.rtl h1, html.rtl h2, html.rtl h3 { font-family: 'BoutrosDinkum', 'Cairo', 'Raleway', sans-serif !important; font-weight: 700; letter-spacing: 0; }
   html.rtl .sec-inner > div[style*="text-align:left"] { text-align: right !important; }
@@ -28,11 +34,18 @@
 <button class="legal-lang" id="langToggle">AR</button>
 <div class="sec" style="min-height:100vh;padding:100px 24px 60px;align-items:flex-start;">
   <div class="sec-inner" style="max-width:860px;">
+    <div class="legal-top">
+      <a href="https://pandaratech.online" class="legal-brand">Pandara Tech <span>©</span></a>
+    </div>
     <span class="sec-label" id="labelEl">Legal</span>
     <h2 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.4rem);" id="titleEl">Privacy Policy</h2>
     <p style="font-size:13px;color:var(--muted);margin-bottom:40px;" id="metaEl">Mentis &middot; Version 1.0.6</p>
     <div style="background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,4vw,48px);text-align:left;" id="docContainer"></div>
     <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--muted);line-height:1.8;" id="footerEl"></div>
+    <a href="https://pandaratech.online" class="legal-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      <span data-i18n="back">Back to Pandara Tech</span>
+    </a>
   </div>
 </div>
 <script>
@@ -68,6 +81,7 @@ const fullText = {
       {t:'المادة الخامسة والعشرون: أحكام عامة',i:['تشكل هذه السياسة جزءاً لا يتجزأ من الوثائق القانونية المنظمة لاستخدام برنامج Mentis، وتُقرأ وتُفسر بالاقتران مع: اتفاقية ترخيص المستخدم النهائي (EULA)، شروط الاستخدام (Terms of Use).','وفي حال وجود تعارض بين هذه السياسة وأي وثيقة أخرى فيما يتعلق بمعالجة البيانات الشخصية، تُطبق أحكام سياسة الخصوصية بالقدر المتعلق بحماية البيانات.']}
     ],
     footer: 'انتهت سياسة الخصوصية<br>البرنامج: Mentis &middot; الشركة: Pandara Tech &middot; الإصدار: 1.0.6<br>&copy; جميع الحقوق محفوظة لشركة Pandara Tech.',
+    back: 'العودة إلى Pandara Tech',
     btn: 'EN'
   },
   en: {
@@ -100,7 +114,8 @@ const fullText = {
       {t:'Article 24: Effective Date',i:['This policy takes effect on the date of its publication or made available to the User within the Software or on the website.','The User\'s continued use of Mentis or any of its services after this date constitutes acceptance of this policy.']},
       {t:'Article 25: General Provisions',i:['This policy forms an integral part of the legal documents governing the use of Mentis and shall be read and interpreted in conjunction with: the End User License Agreement (EULA) and the Terms of Use.','In the event of any conflict between this policy and any other document regarding the processing of personal data, the provisions of the Privacy Policy shall apply to the extent related to data protection.']}
     ],
-    footer: 'End of Privacy Policy<br>Software: Mentis &middot; Company: Pandara Tech &middot; Version: 1.0.6<br>&copy; All rights reserved to Pandara Tech.',
+    footer: 'End of Privacy Policy<br>Software: Mentis &middot; Company: <a href="https://pandaratech.online" style="color:var(--accent);text-decoration:none;">Pandara Tech</a> &middot; Version: 1.0.6<br>&copy; All rights reserved to <a href="https://pandaratech.online" style="color:var(--accent);text-decoration:none;">Pandara Tech</a>.',
+    back: 'Back to Pandara Tech',
     btn: 'AR'
   }
 };
@@ -121,6 +136,8 @@ function render(l) {
   });
   document.getElementById('docContainer').innerHTML = html;
   document.getElementById('footerEl').innerHTML = d.footer;
+  const backEl = document.querySelector('[data-i18n="back"]');
+  if (backEl) backEl.textContent = d.back;
   document.getElementById('langToggle').textContent = d.btn;
   document.documentElement.lang = l === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';

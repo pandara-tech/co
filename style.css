@@ -20,6 +20,8 @@
   --ink-2: #111719;
   --paper: #EDEFEA;
   --muted: #8B9794;
+  --ink-soft: rgba(237, 239, 234, 0.72);
+  --accent-soft: rgba(47, 182, 166, 0.12);
   --line: rgba(237, 239, 234, 0.10);
   --line-strong: rgba(237, 239, 234, 0.20);
   --accent: #2FB6A6;
@@ -41,6 +43,8 @@ html.theme-light {
   --ink-2: #ECEFEE;
   --paper: #10201F;
   --muted: #5A6764;
+  --ink-soft: rgba(16, 32, 30, 0.72);
+  --accent-soft: rgba(21, 122, 110, 0.12);
   --line: rgba(16, 32, 30, 0.10);
   --line-strong: rgba(16, 32, 30, 0.20);
   --surface: rgba(16, 32, 30, 0.03);
