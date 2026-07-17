@@ -1,5 +1,5 @@
-const BOT_TOKEN = 'YOUR_BOT_TOKEN';
-const CHAT_ID = 'YOUR_CHAT_ID';
+const BOT_TOKEN = '8895001344:AAEkTAWPLbqAeYA2xRYkpdJr0dgQQWY__L0';
+const CHAT_ID = '8285149338';
 
 const lang = {
   en: {
@@ -149,7 +149,7 @@ var appData = {
     pandaraword: {
       img: 'pandaraword.png', title: 'PandaraWord', badge: 'Desktop App',
       version: '1.0.6', updated: '2026', size: '85 MB',
-      desc: 'Integrated word processor that lets you edit, create, and format text documents with ease. Supports multiple formats and integrates with your favorite office tools. Built for speed, reliability, and modern document workflows.',
+      desc: 'PandaraWord is the ideal solution for managing Microsoft Word documents with high efficiency. It provides powerful tools for batch processing thousands of files, including smart scanning, organization, bulk formatting, copying, moving, renaming, deleting, and converting documents to PDF while fully preserving layout and formatting. With its modern interface built on latest Windows technologies, full Arabic and English support, and automatic updates, it delivers a professional experience combining speed, simplicity, and productivity.',
       features: ['Fast', 'Offline', 'Windows', 'Secure', 'Modern UI', 'Multi-language'],
       rating: true, ratingNum: '5.0', ratingCount: '\u2014',
       cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'Download',
@@ -187,7 +187,7 @@ var appData = {
     pandaraword: {
       img: 'pandaraword.png', title: 'PandaraWord', badge: 'تطبيق مكتبي',
       version: '1.0.6', updated: '2026', size: '85 ميغابايت',
-      desc: 'معالج نصوص متكامل يتيح لك تحرير وإنشاء وتنسيق المستندات النصية بسهولة. يدعم تنسيقات متعددة ويتكامل مع أدواتك المكتبية المفضلة. صمم للسرعة والموثوقية وسير العمل الحديث.',
+      desc: 'PandaraWord هو الحل الأمثل لإدارة مستندات Microsoft Word بكفاءة عالية. يوفر أدوات قوية لمعالجة آلاف الملفات دفعةً واحدة، بما في ذلك المسح الذكي، والتنظيم، والتنسيق الجماعي، والنسخ، والنقل، وإعادة التسمية، والحذف، وتحويل المستندات إلى PDF مع الحفاظ الكامل على التصميم والتنسيق. وبفضل واجهته الحديثة المبنية على تقنيات Windows الحديثة، ودعمه الكامل للعربية والإنجليزية، والتحديثات التلقائية، يمنح المستخدمين تجربة احترافية تجمع بين السرعة والبساطة والإنتاجية.',
       features: ['سريع', 'بدون إنترنت', 'ويندوز', 'آمن', 'واجهة حديثة', 'متعدد اللغات'],
       rating: true, ratingNum: '5.0', ratingCount: '\u2014',
       cta: 'download', ctaLink: 'https://github.com/pandara-tech/pandaraword/releases/download/v1.0.6/PandaraWord-Setup-1.0.6.exe', ctaLabel: 'تحميل',
@@ -264,6 +264,21 @@ var appData = {
     } else {
       ratingEl.style.display = 'none';
     }
+    var primary = document.getElementById('pvCtaPrimary');
+    if (data.cta === 'soon') { primary.className = 'pv-cta primary disabled'; primary.href = '#'; primary.textContent = data.ctaLabel; }
+    else { primary.className = 'pv-cta primary'; primary.href = data.ctaLink || '#'; primary.textContent = data.ctaLabel; }
+    var secondary = document.getElementById('pvCtaSecondary');
+    if (data.cta2) { secondary.style.display = 'inline-flex'; secondary.href = data.cta2; }
+    else { secondary.style.display = 'none'; }
+    // Update labels for current language
+    var isAr = currentLang === 'ar';
+    document.getElementById('pvLabelVersion').textContent = isAr ? 'الإصدار:' : 'Version:';
+    document.getElementById('pvLabelDeveloper').textContent = isAr ? 'المطور:' : 'Developer:';
+    document.getElementById('pvLabelUpdated').textContent = isAr ? 'آخر تحديث:' : 'Updated:';
+    document.getElementById('pvLabelOs').textContent = isAr ? 'نظام التشغيل:' : 'OS:';
+    document.getElementById('pvLabelLicense').textContent = isAr ? 'الترخيص:' : 'License:';
+    document.getElementById('pvLabelSize').textContent = isAr ? 'الحجم:' : 'Size:';
+  }
     var primary = document.getElementById('pvCtaPrimary');
     if (data.cta === 'soon') { primary.className = 'pv-cta primary disabled'; primary.href = '#'; primary.textContent = data.ctaLabel; }
     else { primary.className = 'pv-cta primary'; primary.href = data.ctaLink || '#'; primary.textContent = data.ctaLabel; }

@@ -301,35 +301,20 @@ html.rtl .lang-toggle { right: auto; left: 24px; font-family: 'BoutrosDinkum', '
 }
 .app-preview-inner {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 28px;
+  grid-template-columns: 1fr;
+  gap: 0;
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
   border: 1px solid rgba(255,255,255,0.4);
   border-radius: 24px;
-  padding: 28px;
+  padding: 24px 32px;
   box-shadow: 0 32px 80px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.6) inset;
-  min-height: 360px;
+  min-height: 300px;
 }
-
-/* Preview left */
-.app-preview-left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--paper);
-  min-height: 200px;
-}
-.app-preview-img {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
-}
+/* Preview left - hidden */
+.app-preview-left,
+.app-preview-img { display: none; }
 
 /* Preview right */
 .app-preview-right {
@@ -461,7 +446,7 @@ html.rtl .app-preview-meta { text-align: right; }
   .app-preview { width: 100%; position: static; transform: translateY(-10px); }
   .app-preview.open { transform: translateY(0); }
   .app-preview-inner { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
-  .app-preview-left { display: none; }
+.app-preview-left { display: none !important; }
   .app-preview-title { font-size: 20px; }
   .app-preview-meta { grid-template-columns: 1fr; }
   .pv-cta { padding: 10px 20px; font-size: 12px; }
