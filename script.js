@@ -250,9 +250,9 @@ var appData = {
     },
     mentis: {
       img: 'mentis.png', title: 'Mentis', badge: 'Productivity',
-      version: '1.0.7', updated: '2026', size: '\u2014',
-      desc: 'Mentis is an integrated administrative system for educational institutions, enabling the creation of official correspondence, documents, and administrative records quickly and professionally, with management and organization of student, employee, and faculty data in a unified database. It also provides saving and archiving of outgoing documents with a complete record, along with automatic backup and continuous updates to ensure data security and business continuity.',
-      features: ['Smart', 'Offline', 'Windows', 'Multi-language'],
+      version: '1.0.6', updated: '2026', size: '\u2014',
+      desc: 'Mentis is an integrated administrative system for schools and educational institutions, built on .NET Framework 4.7.2 (WinForms). It generates official correspondence and administrative documents from dynamic Word templates in Arabic, English, and Kurdish, and manages student, employee, and faculty data in a unified local database. It archives every outgoing document with a full history, converts and prints to PDF, and keeps your data secure with encryption and local storage. Built-in auto-update (GitHub) and optional Google Drive sync/backup keep everything current and safe.',
+      features: ['Templates', 'Offline', 'Windows', 'Multi-language', 'Encrypted', 'Auto-update'],
       rating: false,
       cta: 'request', ctaLink: '#contact', ctaLabel: 'Request app',
       cta2: null
@@ -288,9 +288,9 @@ var appData = {
     },
     mentis: {
       img: 'mentis.png', title: 'Mentis', badge: 'نظام إداري',
-      version: '1.0.7', updated: '2026', size: '\u2014',
-      desc: 'Mentis هو نظام إداري متكامل للمؤسسات التعليمية، يتيح إنشاء المخاطبات والوثائق الرسمية والسجلات الإدارية بسرعة واحترافية، مع إدارة وتنظيم بيانات الطلبة والموظفين وأعضاء الهيئة التدريسية في قاعدة بيانات موحدة. كما يوفر حفظًا وأرشفةً للمستندات الصادرة، وسجلًا متكاملًا لها، إلى جانب النسخ الاحتياطي التلقائي والتحديثات المستمرة لضمان أمان البيانات واستمرارية العمل.',
-      features: ['ذكي', 'بدون إنترنت', 'ويندوز', 'متعدد اللغات'],
+      version: '1.0.6', updated: '2026', size: '\u2014',
+      desc: 'Mentis نظام إداري متكامل للمدارس والمؤسسات التعليمية، مبني على .NET Framework 4.7.2 (WinForms). يولّد المراسلات والوثائق الإدارية من قوالب Word ديناميكية بالعربية والإنجليزية والكردية، ويدير بيانات الطلبة والموظفين وأعضاء الهيئة التدريسية في قاعدة بيانات محلية موحدة. يُرشف كل مستند صادر بسجل كامل، ويحوّله ويطبعه إلى PDF، ويحفظ بياناتك آمنة عبر التشفير والتخزين المحلي. يتضمن تحديثًا تلقائيًا (عبر GitHub) ومزامنة ونسخًا احتياطيًا اختياريًا على Google Drive لإبقاء كل شيء محدّثًا وآمنًا.',
+      features: ['قوالب', 'بدون إنترنت', 'ويندوز', 'متعدد اللغات', 'مشفّر', 'تحديث تلقائي'],
       rating: false,
       cta: 'request', ctaLink: '#contact', ctaLabel: 'طلب التطبيق',
       cta2: null
