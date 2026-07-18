@@ -3,464 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Murshid — Task Manager</title>
+<title>HTML Playground</title>
 <link rel="icon" type="image/png" href="/logo white.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:15px;scroll-behavior:smooth}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f0f2f5;color:#1c1e21;
-  min-height:100vh;display:flex;flex-direction:column;
-  -webkit-font-smoothing:antialiased
+html,body{height:100%;font-family:Arial,Helvetica,sans-serif;background:#1a1d23;color:#e4e7ec}
+.split{display:flex;height:100vh;gap:0}
+.pane{flex:1;display:flex;flex-direction:column;min-width:0}
+.pane-header{
+  padding:8px 14px;font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.5px;background:#0f1115;color:#667085;border-bottom:1px solid #2a2d35;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;height:34px;
 }
-input,textarea,button,select{font-family:inherit;font-size:inherit}
-/* === HEADER === */
-.header{
-  background:#fff;border-bottom:1px solid #d0d5dd;
-  padding:14px 24px;display:flex;
-  align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:100
+.pane-header .run-btn{
+  background:#2563eb;color:#fff;border:none;border-radius:5px;
+  padding:3px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:background .15s;
 }
-.header-left{display:flex;align-items:center;gap:14px}
-.header-logo{width:36px;height:36px;border-radius:8px;object-fit:contain}
-.header h1{font-size:20px;font-weight:700;color:#111}
-.header-right{display:flex;align-items:center;gap:12px}
-.theme-btn{
-  background:none;border:1px solid #d0d5dd;border-radius:8px;
-  width:36px;height:36px;cursor:pointer;font-size:18px;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .2s;color:#555
+.pane-header .run-btn:hover{background:#1d4ed8}
+textarea{
+  flex:1;border:none;outline:none;resize:none;padding:16px;
+  font-family:'Consolas','Courier New',monospace;font-size:13px;line-height:1.6;
+  background:#0f1115;color:#e4e7ec;tab-size:2;
 }
-.theme-btn:hover{background:#f0f2f5}
-/* === MAIN === */
-.main{flex:1;max-width:720px;width:100%;margin:0 auto;padding:28px 20px 80px}
-/* === STATS === */
-.stats{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
-.stat-card{
-  flex:1;min-width:100px;background:#fff;border-radius:12px;
-  padding:14px 16px;border:1px solid #e4e7ec;text-align:center
+textarea::placeholder{color:#4a4d55}
+iframe{
+  flex:1;border:none;background:#fff;display:block;width:100%;
 }
-.stat-card .num{font-size:26px;font-weight:700;color:#111}
-.stat-card .lbl{font-size:12px;color:#667085;margin-top:2px}
-/* === ADD TASK === */
-.add-wrap{background:#fff;border-radius:12px;border:1px solid #e4e7ec;padding:16px;margin-bottom:20px}
-.add-wrap h2{font-size:14px;font-weight:600;color:#667085;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
-.add-row{display:flex;gap:10px}
-.add-row input[type=text]{flex:1;height:42px;border:1.5px solid #d0d5dd;border-radius:8px;padding:0 12px;outline:none;transition:border-color .2s;background:#fff;color:#1c1e21}
-.add-row input[type=text]:focus{border-color:#2563eb}
-.add-row select{height:42px;border:1.5px solid #d0d5dd;border-radius:8px;padding:0 10px;background:#fff;color:#1c1e21;outline:none;cursor:pointer;min-width:110px}
-.add-row select:focus{border-color:#2563eb}
-.add-btn{
-  height:42px;min-width:42px;border:none;border-radius:8px;
-  background:#2563eb;color:#fff;cursor:pointer;font-weight:600;
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  padding:0 18px;transition:background .2s,transform .1s;white-space:nowrap
+.divider{
+  width:4px;cursor:col-resize;background:#2a2d35;flex-shrink:0;
+  transition:background .15s;position:relative;
 }
-.add-btn:hover{background:#1d4ed8}
-.add-btn:active{transform:scale(.96)}
-/* === FILTERS === */
-.filters{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
-.filter-btn{
-  height:34px;border:1.5px solid #d0d5dd;border-radius:8px;
-  background:#fff;padding:0 14px;cursor:pointer;font-size:13px;font-weight:500;
-  color:#555;transition:all .2s;white-space:nowrap
-}
-.filter-btn:hover{border-color:#2563eb;color:#2563eb}
-.filter-btn.active{background:#2563eb;border-color:#2563eb;color:#fff}
-.search-wrap{position:relative;flex:1;min-width:140px}
-.search-wrap input{
-  width:100%;height:34px;border:1.5px solid #d0d5dd;border-radius:8px;
-  padding:0 12px 0 32px;outline:none;background:#fff;color:#1c1e21;font-size:13px
-}
-.search-wrap input:focus{border-color:#2563eb}
-.search-wrap .ico{
-  position:absolute;left:10px;top:50%;transform:translateY(-50%);
-  color:#999;font-size:14px;pointer-events:none
-}
-/* === TASKS === */
-.task-list{display:flex;flex-direction:column;gap:8px}
-.task-empty{
-  text-align:center;padding:40px 20px;color:#999;font-size:14px
-}
-.task-card{
-  background:#fff;border-radius:10px;border:1px solid #e4e7ec;
-  padding:12px 14px;display:flex;align-items:flex-start;gap:10px;
-  transition:box-shadow .2s,opacity .2s;position:relative
-}
-.task-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.task-card.done{opacity:.55}
-.task-card.done .task-title{text-decoration:line-through;color:#999}
-.task-cb{
-  flex-shrink:0;margin-top:3px;width:18px;height:18px;
-  border:2px solid #d0d5dd;border-radius:5px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .2s;background:#fff
-}
-.task-cb.checked{background:#2563eb;border-color:#2563eb}
-.task-cb.checked::after{content:'✓';color:#fff;font-size:12px;font-weight:700;line-height:1}
-.task-body{flex:1;min-width:0}
-.task-title{font-size:14px;font-weight:500;color:#111;word-break:break-word}
-.task-desc{font-size:12px;color:#667085;margin-top:3px;word-break:break-word;white-space:pre-wrap}
-.task-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;align-items:center}
-.task-badge{
-  font-size:11px;font-weight:600;padding:2px 8px;border-radius:5px;
-  text-transform:capitalize
-}
-.badge-high{background:#fef2f2;color:#dc2625}
-.badge-medium{background:#fffbeb;color:#d97706}
-.badge-low{background:#f0fdf4;color:#16a34a}
-.task-date{font-size:11px;color:#999}
-.task-actions{display:flex;gap:4px;flex-shrink:0}
-.task-btn{
-  width:30px;height:30px;border:none;border-radius:6px;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:background .2s;font-size:14px;background:transparent;color:#999
-}
-.task-btn:hover{background:#f0f2f5;color:#111}
-.task-btn.danger:hover{background:#fef2f2;color:#dc2625}
-/* === EDIT INLINE === */
-.edit-wrap{flex:1;display:flex;flex-direction:column;gap:6px}
-.edit-wrap input,.edit-wrap textarea{
-  border:1.5px solid #2563eb;border-radius:6px;padding:6px 10px;
-  outline:none;font-size:14px;background:#fff;color:#1c1e21;width:100%
-}
-.edit-wrap textarea{resize:vertical;min-height:50px;font-family:inherit}
-.edit-actions{display:flex;gap:6px;margin-top:2px}
-.edit-actions button{
-  height:30px;border:none;border-radius:6px;padding:0 14px;
-  cursor:pointer;font-size:12px;font-weight:600;transition:background .2s
-}
-.edit-save{background:#2563eb;color:#fff}
-.edit-save:hover{background:#1d4ed8}
-.edit-cancel{background:#f0f2f5;color:#555}
-.edit-cancel:hover{background:#e4e7ec}
-/* === TOAST === */
-.toast{
-  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-  background:#111;color:#fff;padding:10px 20px;border-radius:10px;
-  font-size:13px;font-weight:500;z-index:999;
-  opacity:0;transition:opacity .3s,transform .3s;pointer-events:none
-}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* === DARK MODE === */
-body.dark{background:#0f1115;color:#e4e7ec}
-body.dark .header{background:#1a1d23;border-color:#2a2d35}
-body.dark .header h1{color:#e4e7ec}
-body.dark .theme-btn{border-color:#2a2d35;color:#999}
-body.dark .theme-btn:hover{background:#2a2d35}
-body.dark .stat-card{background:#1a1d23;border-color:#2a2d35}
-body.dark .stat-card .num{color:#e4e7ec}
-body.dark .stat-card .lbl{color:#889}
-body.dark .add-wrap{background:#1a1d23;border-color:#2a2d35}
-body.dark .add-wrap h2{color:#889}
-body.dark .add-row input[type=text],body.dark .add-row select,
-body.dark .search-wrap input{background:#0f1115;border-color:#2a2d35;color:#e4e7ec}
-body.dark .add-row input[type=text]:focus,body.dark .add-row select:focus,
-body.dark .search-wrap input:focus{border-color:#3b82f6}
-body.dark .filter-btn{background:#1a1d23;border-color:#2a2d35;color:#999}
-body.dark .filter-btn:hover{border-color:#3b82f6;color:#3b82f6}
-body.dark .filter-btn.active{background:#3b82f6;border-color:#3b82f6;color:#fff}
-body.dark .task-card{background:#1a1d23;border-color:#2a2d35}
-body.dark .task-card.done .task-title{color:#667085}
-body.dark .task-title{color:#e4e7ec}
-body.dark .task-cb{border-color:#2a2d35;background:#0f1115}
-body.dark .task-cb.checked{background:#3b82f6;border-color:#3b82f6}
-body.dark .task-btn:hover{background:#2a2d35;color:#e4e7ec}
-body.dark .task-btn.danger:hover{background:#3b1a1a;color:#ef4444}
-body.dark .edit-wrap input,body.dark .edit-wrap textarea{background:#0f1115;border-color:#3b82f6;color:#e4e7ec}
-body.dark .edit-cancel{background:#2a2d35;color:#999}
-body.dark .edit-cancel:hover{background:#353840}
-body.dark .badge-high{background:#3b1a1a;color:#fca5a5}
-body.dark .badge-medium{background:#3b2f0a;color:#fcd34d}
-body.dark .badge-low{background:#0a3b1a;color:#86efac}
-body.dark .toast{background:#1a1d23;border:1px solid #2a2d35}
-/* === RESPONSIVE === */
-@media(max-width:560px){
-  .header{padding:10px 16px}
-  .header h1{font-size:17px}
-  .main{padding:20px 14px 80px}
-  .add-row{flex-wrap:wrap}
-  .add-row input[type=text]{width:100%;flex:none}
-  .add-row select{flex:1;min-width:0}
-  .add-btn{flex-shrink:0}
-  .stats{gap:8px}
-  .stat-card{padding:10px 12px}
-  .stat-card .num{font-size:22px}
-  .task-card{padding:10px 12px}
-  .filters .search-wrap{width:100%}
+.divider:hover,.divider.active{background:#3b82f6}
+body.dragging{user-select:none;cursor:col-resize}
+body.dragging iframe{pointer-events:none}
+@media(max-width:640px){
+  .split{flex-direction:column}
+  .divider{height:4px;width:auto;cursor:row-resize}
 }
 </style>
 </head>
 <body>
-<header class="header">
-  <div class="header-left">
-    <img class="header-logo" src="/logo white.png" alt="Pandara Tech" onerror="this.style.display='none'">
-    <h1>Murshid</h1>
-  </div>
-  <div class="header-right">
-    <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
-  </div>
-</header>
-
-<main class="main">
-  <div class="stats" id="stats">
-    <div class="stat-card"><div class="num" id="statTotal">0</div><div class="lbl">Total</div></div>
-    <div class="stat-card"><div class="num" id="statDone">0</div><div class="lbl">Done</div></div>
-    <div class="stat-card"><div class="num" id="statPending">0</div><div class="lbl">Pending</div></div>
-  </div>
-
-  <div class="add-wrap">
-    <h2>Add Task</h2>
-    <div class="add-row">
-      <input type="text" id="taskInput" placeholder="Task title…" maxlength="200">
-      <select id="taskPriority">
-        <option value="low">Low</option>
-        <option value="medium" selected>Medium</option>
-        <option value="high">High</option>
-      </select>
-      <button class="add-btn" id="addBtn">+ Add</button>
+<div class="split" id="split">
+  <div class="pane" id="editorPane">
+    <div class="pane-header">
+      HTML
+      <button class="run-btn" id="runBtn">▶ Run</button>
     </div>
+    <textarea id="code" placeholder="Paste your HTML here and click Run…"></textarea>
   </div>
-
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="pending">Pending</button>
-    <button class="filter-btn" data-filter="done">Done</button>
-    <button class="filter-btn" data-filter="high">High</button>
-    <button class="filter-btn" data-filter="medium">Medium</button>
-    <button class="filter-btn" data-filter="low">Low</button>
-    <div class="search-wrap">
-      <span class="ico">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search…">
-    </div>
+  <div class="divider" id="divider"></div>
+  <div class="pane" id="previewPane">
+    <div class="pane-header">Preview</div>
+    <iframe id="preview" sandbox="allow-scripts allow-same-origin" title="Preview"></iframe>
   </div>
-
-  <div class="task-list" id="taskList"></div>
-</main>
-
-<div class="toast" id="toast"></div>
-
+</div>
 <script>
 (function(){
-  const STORAGE_KEY = 'murshid_tasks';
-  let tasks = [];
-  let filter = 'all';
-  let searchTerm = '';
-  let editingId = null;
-
-  const $ = id => document.getElementById(id);
-  const taskList = $('taskList');
-  const taskInput = $('taskInput');
-  const taskPriority = $('taskPriority');
-  const addBtn = $('addBtn');
-  const searchInput = $('searchInput');
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const statTotal = $('statTotal');
-  const statDone = $('statDone');
-  const statPending = $('statPending');
-  const themeBtn = $('themeBtn');
-  const toast = $('toast');
-
-  function loadTasks(){
-    try{
-      const d = localStorage.getItem(STORAGE_KEY);
-      tasks = d ? JSON.parse(d) : [];
-    }catch{e}
-    if(!Array.isArray(tasks)) tasks=[];
-  }
-  function saveTasks(){
-    try{localStorage.setItem(STORAGE_KEY,JSON.stringify(tasks))}catch(e){}
-  }
-
-  function genId(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
-
-  function getFiltered(){
-    let list = [...tasks];
-    if(filter==='pending') list=list.filter(t=>!t.done);
-    else if(filter==='done') list=list.filter(t=>t.done);
-    else if(filter==='high') list=list.filter(t=>t.priority==='high');
-    else if(filter==='medium') list=list.filter(t=>t.priority==='medium');
-    else if(filter==='low') list=list.filter(t=>t.priority==='low');
-    if(searchTerm.trim()){
-      const s=searchTerm.trim().toLowerCase();
-      list=list.filter(t=>t.title.toLowerCase().includes(s)||(t.desc||'').toLowerCase().includes(s));
-    }
-    list.sort((a,b)=>a.done-b.done||(b.priority==='high'?1:0)-(a.priority==='high'?1:0)||(b.priority==='medium'?1:0)-(a.priority==='medium'?1:0)||a.created-b.created);
-    return list;
-  }
-
-  function updateStats(){
-    const total=tasks.length;
-    const done=tasks.filter(t=>t.done).length;
-    const pending=total-done;
-    statTotal.textContent=total;
-    statDone.textContent=done;
-    statPending.textContent=pending;
-  }
-
-  function showToast(msg){
-    toast.textContent=msg;
-    toast.classList.add('show');
-    clearTimeout(toast._t);
-    toast._t=setTimeout(()=>toast.classList.remove('show'),2000);
-  }
+  const code=$('code'), preview=$('preview'), runBtn=$('runBtn'), divider=$('divider'), split=$('split');
+  function $(id){return document.getElementById(id)}
 
   function render(){
-    const list=getFiltered();
-    updateStats();
-    if(list.length===0){
-      taskList.innerHTML=`<div class="task-empty">${searchTerm.trim()?'No tasks match your search.':'No tasks yet. Add one above!'}</div>`;
-      return;
-    }
-    taskList.innerHTML=list.map(t=>{
-      const isEditing=editingId===t.id;
-      if(isEditing){
-        return `
-          <div class="task-card" style="padding:12px 14px">
-            <div class="edit-wrap">
-              <input type="text" id="editTitle" value="${esc(t.title)}" maxlength="200" placeholder="Title">
-              <textarea id="editDesc" rows="2" placeholder="Description (optional)">${esc(t.desc||'')}</textarea>
-              <div style="display:flex;gap:8px;align-items:center">
-                <select id="editPriority" style="height:30px;border:1.5px solid #2563eb;border-radius:6px;padding:0 8px;outline:none;background:var(--bg,#fff);color:var(--fg,#1c1e21);font-size:12px">
-                  <option value="low" ${t.priority==='low'?'selected':''}>Low</option>
-                  <option value="medium" ${t.priority==='medium'?'selected':''}>Medium</option>
-                  <option value="high" ${t.priority==='high'?'selected':''}>High</option>
-                </select>
-              </div>
-              <div class="edit-actions">
-                <button class="edit-save" onclick="window._saveEdit('${t.id}')">Save</button>
-                <button class="edit-cancel" onclick="window._cancelEdit()">Cancel</button>
-              </div>
-            </div>
-          </div>`;
-      }
-      const priClass='badge-'+t.priority;
-      const priLabel=t.priority.charAt(0).toUpperCase()+t.priority.slice(1);
-      const dateStr=t.created?new Date(t.created).toLocaleDateString():'';
-      return `
-        <div class="task-card${t.done?' done':''}">
-          <div class="task-cb${t.done?' checked':''}" onclick="window._toggle('${t.id}')"></div>
-          <div class="task-body">
-            <div class="task-title">${esc(t.title)}</div>
-            ${t.desc?`<div class="task-desc">${esc(t.desc)}</div>`:''}
-            <div class="task-meta">
-              <span class="task-badge ${priClass}">${priLabel}</span>
-              ${dateStr?`<span class="task-date">${dateStr}</span>`:''}
-            </div>
-          </div>
-          <div class="task-actions">
-            <button class="task-btn" onclick="window._edit('${t.id}')" title="Edit">✏️</button>
-            <button class="task-btn danger" onclick="window._delete('${t.id}')" title="Delete">🗑️</button>
-          </div>
-        </div>`;
-    }).join('');
+    const html=code.value;
+    const doc=preview.contentDocument||preview.contentWindow.document;
+    doc.open();
+    doc.write(html);
+    doc.close();
   }
 
-  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+  runBtn.addEventListener('click',render);
 
-  window._toggle=function(id){
-    const t=tasks.find(x=>x.id===id);
-    if(!t)return;
-    t.done=!t.done;
-    saveTasks();render();
-    showToast(t.done?'Task completed':'Task reopened');
-  };
-
-  window._delete=function(id){
-    if(!confirm('Delete this task?'))return;
-    tasks=tasks.filter(x=>x.id!==id);
-    if(editingId===id)editingId=null;
-    saveTasks();render();
-    showToast('Task deleted');
-  };
-
-  window._edit=function(id){
-    editingId=id;
-    render();
-    setTimeout(()=>{
-      const ee=document.getElementById('editTitle');
-      if(ee){ee.focus();ee.select()}
-    },50);
-  };
-
-  window._saveEdit=function(id){
-    const title=document.getElementById('editTitle');
-    const desc=document.getElementById('editDesc');
-    const pri=document.getElementById('editPriority');
-    if(!title||!title.value.trim()){showToast('Title is required');return;}
-    const t=tasks.find(x=>x.id===id);
-    if(!t)return;
-    t.title=title.value.trim();
-    t.desc=desc?desc.value.trim():'';
-    t.priority=pri?pri.value:'medium';
-    editingId=null;
-    saveTasks();render();
-    showToast('Task updated');
-  };
-
-  window._cancelEdit=function(){
-    editingId=null;
-    render();
-  };
-
-  function addTask(){
-    const title=taskInput.value.trim();
-    if(!title){showToast('Enter a task title');taskInput.focus();return;}
-    const priority=taskPriority.value;
-    tasks.unshift({
-      id:genId(),
-      title,
-      desc:'',
-      priority,
-      done:false,
-      created:Date.now()
-    });
-    taskInput.value='';
-    taskInput.focus();
-    saveTasks();render();
-    showToast('Task added');
-  }
-
-  function setFilter(f){
-    filter=f;
-    filterBtns.forEach(b=>b.classList.toggle('active',b.dataset.filter===f));
-    render();
-  }
-
-  function initTheme(){
-    const d=localStorage.getItem('murshid_theme');
-    if(d==='dark'||(!d&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
-      document.body.classList.add('dark');
-      themeBtn.textContent='☀️';
-    }else{
-      themeBtn.textContent='🌙';
-    }
-  }
-
-  themeBtn.addEventListener('click',()=>{
-    document.body.classList.toggle('dark');
-    const isDark=document.body.classList.contains('dark');
-    themeBtn.textContent=isDark?'☀️':'🌙';
-    localStorage.setItem('murshid_theme',isDark?'dark':'light');
+  // Auto-run on Ctrl+Enter
+  code.addEventListener('keydown',e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();render()}
   });
 
-  addBtn.addEventListener('click',addTask);
-  taskInput.addEventListener('keydown',e=>{if(e.key==='Enter')addTask()});
-
-  filterBtns.forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
-
-  searchInput.addEventListener('input',()=>{
-    searchTerm=searchInput.value;
-    render();
-  });
-
-  loadTasks();
-  initTheme();
+  // Run on page load if there's content
   render();
 
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'&&editingId){editingId=null;render()}
+  // Resizable divider
+  let dragging=false;
+  divider.addEventListener('mousedown',e=>{
+    dragging=true;
+    document.body.classList.add('dragging');
+    divider.classList.add('active');
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove',e=>{
+    if(!dragging)return;
+    const rect=split.getBoundingClientRect();
+    let pct=((e.clientX-rect.left)/rect.width)*100;
+    pct=Math.max(20,Math.min(80,pct));
+    editorPane.style.flex=pct+'%';
+    previewPane.style.flex=(100-pct)+'%';
+  });
+  document.addEventListener('mouseup',()=>{
+    if(dragging){
+      dragging=false;
+      document.body.classList.remove('dragging');
+      divider.classList.remove('active');
+    }
   });
 })();
 </script>
