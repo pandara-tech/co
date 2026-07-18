@@ -16,7 +16,6 @@ export default function ProductDetails() {
   const [reviews, setReviews] = useState([]);
   const [avg, setAvg] = useState(0);
   const [slideIdx, setSlideIdx] = useState(0);
-  const [reviewOpen, setReviewOpen] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -143,13 +142,9 @@ export default function ProductDetails() {
               reviews.map((r) => <ReviewCard key={r.id} review={r} />)
             )}
           </div>
-          <div className="pd-review-form-wrap glass">
-            <button className="review-trigger" onClick={() => setReviewOpen(true)}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-              {t({ en: 'Write a Review', ar: 'اكتب تقييماً' })}
-            </button>
+          <div className="pd-review-form-wrap">
+            <ReviewForm productId={product.id} onSubmitted={onSubmitted} />
           </div>
-          <ReviewForm productId={product.id} onSubmitted={onSubmitted} isOpen={reviewOpen} onClose={() => setReviewOpen(false)} />
         </div>
       </section>
     </div>
