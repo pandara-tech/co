@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <header className="navbar glass">
       <Link to="/" className="navbar-brand" aria-label="Pandara Tech home">
-        <img src={dark ? './logo white.png' : './logo black.png'} alt="Pandara Tech" className="navbar-logo" />
+        <img src={dark ? '/logo white.png' : '/logo black.png'} alt="Pandara Tech" className="navbar-logo" />
         <span>Pandara Tech</span>
       </Link>
 
