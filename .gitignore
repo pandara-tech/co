@@ -1,8 +1,13 @@
 node_modules/
 dist/
-assets/
-404.html
 preview-avatar.png
+preview-light.png
+preview-matrix.png
+preview-pandora.png
+preview-rocket.png
+verify.js
+verify2.js
+*.local
 preview-light.png
 preview-matrix.png
 preview-pandora.png

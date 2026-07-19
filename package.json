@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node -e \"require('fs').rmSync('assets',{recursive:true,force:true})\" 2>nul && vite build",
     "postbuild": "node scripts/deploy.js",
     "preview": "vite preview"
   },
