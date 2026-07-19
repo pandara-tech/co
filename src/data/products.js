@@ -79,6 +79,26 @@ export const products = [
       ar: ['سريع', 'بدون إنترنت', 'ويندوز', 'متعدد الصيغ']
     },
     cta: { type: 'soon', label: { en: 'Coming soon', ar: 'قريباً' }, link: null }
+  },
+  {
+    id: 'murshid',
+    name: 'Murshid',
+    logo: '/murshid.png',
+    badge: { en: 'Desktop App', ar: 'تطبيق مكتبي' },
+    version: '1.0.0',
+    updated: '2026',
+    size: { en: '—', ar: '—' },
+    rating: 0,
+    reviews: 0,
+    desc: {
+      en: 'Murshid is a desktop application for Iraqi educational counselors, built with Electron, React, and TypeScript. It helps counselors manage student data, create counseling records and sessions, document daily activities, and issue official documents in DOCX format compliant with Ministry of Education guidelines. Data can be backed up locally or to Google Drive. The app works fully offline with a tab-based interface for easy navigation between students, records, templates, and settings.',
+      ar: 'مرشد هو تطبيق مكتبي عراقي مخصص لإدارة أعمال المرشد التربوي، تم تطويره باستخدام Electron وReact وTypeScript. يساعد التطبيق المرشدين التربويين على إدارة بيانات الطلبة، وإنشاء سجلات وجلسات الإرشاد، وتوثيق الأنشطة اليومية، وإصدار المستندات الرسمية المطابقة لتعليمات وزارة التربية بصيغة DOCX، بالإضافة إلى إنشاء نسخ احتياطية للبيانات محليًا أو على Google Drive. يعمل التطبيق بشكل كامل دون الحاجة إلى الاتصال بالإنترنت، ويعتمد على واجهة تحتوي على تبويبات (Tabs) للتنقل بسهولة بين أقسام الطلبة، والسجلات، والقوالب، والإعدادات.'
+    },
+    features: {
+      en: ['Offline', 'Windows', 'DOCX Export', 'Google Drive Backup', 'Student Records', 'Tab Interface'],
+      ar: ['بدون إنترنت', 'ويندوز', 'تصدير DOCX', 'نسخ احتياطي Drive', 'سجلات طلبة', 'واجهة تبويبات']
+    },
+    cta: { type: 'request', label: { en: 'Request app', ar: 'طلب التطبيق' }, link: '/contact' }
   }
 ];
 
