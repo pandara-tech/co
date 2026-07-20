@@ -74,7 +74,7 @@
 <div class="prod-page">
   <div class="prod-top">
     <a href="https://pandaratech.online" class="prod-brand">
-      <img src="logo white.png" alt="Pandara Tech" id="brandLogo">
+      <img src="logo-white.png" alt="Pandara Tech" id="brandLogo">
       <span>Pandara Tech</span>
     </a>
     <div class="prod-actions">
@@ -183,7 +183,7 @@
     theme = th; localStorage.setItem('pandara-theme', th);
     document.documentElement.classList.toggle('theme-light', th === 'light');
     const logo = document.getElementById('brandLogo');
-    if (logo) logo.src = th === 'light' ? 'logo black.png' : 'logo white.png';
+    if (logo) logo.src = th === 'light' ? 'logo-black.png' : 'logo-white.png';
   }
   document.getElementById('langToggle').addEventListener('click', () => applyLang(lang === 'en' ? 'ar' : 'en', true));
   document.getElementById('themeToggle').addEventListener('click', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));

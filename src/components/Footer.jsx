@@ -24,7 +24,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src={dark ? '/logo white.png' : '/logo black.png'} alt="Pandara Tech" className="footer-logo" />
+          <img src={dark ? '/logo-white.png' : '/logo-black.png'} alt="Pandara Tech" className="footer-logo" />
           <span>Pandara Tech</span>
         </div>
 

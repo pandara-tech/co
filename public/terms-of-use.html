@@ -29,7 +29,7 @@
 <body>
 <aside class="rail">
   <a href="https://pandaratech.online" class="rail-brand" aria-label="Pandara Tech home">
-    <img src="logo white.png" alt="Pandara Tech" class="brand-logo" id="brandLogo">
+    <img src="logo-white.png" alt="Pandara Tech" class="brand-logo" id="brandLogo">
   </a>
   <nav class="rail-links">
     <a href="https://pandaratech.online#about" data-i18n="nav-about" data-num="01">About</a>
@@ -47,7 +47,7 @@
 </aside>
 <header class="topbar">
   <a href="https://pandaratech.online" class="topbar-brand">
-    <img src="logo white.png" alt="Pandara Tech" class="brand-logo" id="brandLogoMobile">
+    <img src="logo-white.png" alt="Pandara Tech" class="brand-logo" id="brandLogoMobile">
     <span>Pandara Tech</span>
   </a>
   <div class="topbar-actions">
@@ -179,7 +179,7 @@ function applyLang(l, morph) {
 function applyTheme(th) {
   theme = th; localStorage.setItem('pandara-theme', th);
   document.documentElement.classList.toggle('theme-light', th === 'light');
-  const logo = th === 'light' ? 'logo black.png' : 'logo white.png';
+  const logo = th === 'light' ? 'logo-black.png' : 'logo-white.png';
   ['brandLogo','brandLogoMobile'].forEach(id => { const el = document.getElementById(id); if (el) el.src = logo; });
 }
 function render(l) {

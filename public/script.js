@@ -124,7 +124,7 @@ function applyTheme(theme) {
     const btn = document.getElementById(id);
     if (btn) btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
   });
-  const logoSrc = isLight ? 'logo black.png' : 'logo white.png';
+  const logoSrc = isLight ? 'logo-black.png' : 'logo-white.png';
   ['brandLogo', 'brandLogoMobile'].forEach(id => {
     const img = document.getElementById(id);
     if (img) img.src = logoSrc;
