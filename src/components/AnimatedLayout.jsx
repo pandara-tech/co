@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigationType, Routes, Route } from 'react-router-dom';
+import { useLocation, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 import Home from '../pages/Home.jsx';
@@ -23,20 +23,13 @@ function PageRoutes({ location }) {
 
 export default function AnimatedLayout({ children }) {
   const location = useLocation();
-  const navType = useNavigationType();
-  const depth = (p) => p.split('/').filter(Boolean).length;
 
   const [displayed, setDisplayed] = useState(location);
   const [phase, setPhase] = useState('in');
-  const dirRef = useRef(1);
   const timer = useRef(null);
 
   useEffect(() => {
     if (location.pathname === displayed.pathname) return;
-    let dir = 1;
-    if (navType === 'POP') dir = -1;
-    else if (depth(location.pathname) < depth(displayed.pathname)) dir = -1;
-    dirRef.current = dir;
     setPhase('out');
     clearTimeout(timer.current);
     timer.current = setTimeout(() => {
@@ -44,15 +37,14 @@ export default function AnimatedLayout({ children }) {
       setPhase('in');
     }, DURATION);
     return () => clearTimeout(timer.current);
-  }, [location, displayed, navType]);
+  }, [location, displayed]);
 
-  const style = { willChange: 'transform, opacity, filter' };
   const cls = phase === 'in' ? 'page-stage page-in' : 'page-stage page-out';
 
   return (
     <div className="app-shell">
       <Navbar />
-      <div className={cls} style={style} data-dir={dirRef.current}>
+      <div className={cls}>
         <PageRoutes location={displayed} />
       </div>
       <Footer />
