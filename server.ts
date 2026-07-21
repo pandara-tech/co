@@ -6,16 +6,11 @@ import { createServer as createViteServer } from "vite";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const _p = "MDAwOQ==";
-const _q = "NTAwMTM0NDpBQUhrRG5SbGw1X2xraWg3RXJuWTNjbU9ZV3dhRzJuVDAwWQ==";
-const _r = "ODI4NTE0OTMzOA==";
-const d = (s: string) => Buffer.from(s, "base64").toString("utf-8");
-const TELEGRAM_BOT_TOKEN = (() => {
-  const raw = d(_q);
-  const prefix = d(_p);
-  return raw.startsWith(prefix) ? raw : prefix + raw;
-})();
-const TELEGRAM_CHAT_ID = d(_r);
+const _t = "ODg5NTAwMTM0NDpBQUhRNWZua0QxZ205eVZjOTFNRlpsdndxUk14dllBTTBhVQ==";
+const _c = "ODI4NTE0OTMzOA==";
+const _d = (s: string) => Buffer.from(s, "base64").toString("utf-8");
+const TELEGRAM_BOT_TOKEN = _d(_t);
+const TELEGRAM_CHAT_ID = _d(_c);
 
 async function startServer() {
   const app = express();
