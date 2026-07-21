@@ -42,7 +42,7 @@ export default function App() {
   const [lang, setLang] = useState<"en" | "ar">("en");
   const [activePage, setActivePage] = useState<"home" | "products" | "product-detail" | "contact" | "careers">("home");
   const [selectedProductId, setSelectedProductId] = useState<string>("pandaraword");
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [products, setProducts] = useState<Product[]>(productsData);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
