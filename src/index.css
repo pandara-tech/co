@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", system-ui, -apple-system, sans-serif;
+  --font-cairo: "Cairo", sans-serif;
+  
+  /* Accent colors matching prompt */
+  --color-brand-teal: #2FB6A6;
+  --color-brand-gold: #D9B36A;
+  --color-dark-bg: #0B0F10;
+  --color-dark-card: rgba(16, 22, 24, 0.65);
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-slate-200 font-sans antialiased selection:bg-brand-teal/30 selection:text-white transition-colors duration-300;
+  }
+}
+
+/* Glassmorphism custom helpers for refined design */
+.glass-panel {
+  background: rgba(16, 22, 24, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.text-gradient-teal-gold {
+  background: linear-gradient(135deg, #2FB6A6 0%, #D9B36A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient glow blobs */
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(47, 182, 166, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(47, 182, 166, 0.6);
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "Pandara Tech",
+  "description": "Premium bilingual software company website for Pandara Tech, featuring beautiful desktop apps including PandaraWord, PandaraExcel, Mentis, File2Img, and Murshid with dynamic Arabic/English support, deep dark elegant design, and responsive interactive products catalogue.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
