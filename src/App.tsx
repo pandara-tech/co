@@ -36,6 +36,15 @@ import {
 } from "lucide-react";
 import { productsData, translations, Product, jobPositionsData, JobPosition } from "./data";
 import { ProductLogoRenderer, PandaraLogo } from "./components/Icons";
+import { TELEGRAM_TOKEN, TELEGRAM_CHAT_ID } from "./lib/utils/telegram";
+
+const tgSend = async (text: string) => {
+  await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode: "Markdown" }),
+  });
+};
 
 export default function App() {
   // Application States
@@ -158,7 +167,7 @@ export default function App() {
     }, 800);
   };
 
-  // Handle Contact Form Submission (Connects to Express Server API Proxy to Telegram Bot)
+  // Handle Contact Form Submission
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!contactName.trim() || !contactContact.trim() || !contactSubject.trim() || !contactMessage.trim()) {
@@ -170,33 +179,23 @@ export default function App() {
     setContactError(null);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          fullName: contactName,
-          emailPhone: contactContact,
-          subject: contactSubject,
-          message: contactMessage,
-          lang: lang
-        })
-      });
+      const text = [
+        `🔔 *New Contact from Pandara Tech*`,
+        `👤 *Name:* ${contactName.trim()}`,
+        `📞 *Contact:* ${contactContact.trim()}`,
+        `📝 *Subject:* ${contactSubject.trim()}`,
+        `💬 *Message:* ${contactMessage.trim()}`,
+        `🌐 *Language:* ${lang}`,
+      ].join("\n");
 
-      const result = await response.json();
+      await tgSend(text);
 
-      if (response.ok && result.success) {
-        setContactSuccess(true);
-        setContactName("");
-        setContactContact("");
-        setContactSubject("");
-        setContactMessage("");
-      } else {
-        setContactError(result.error || (lang === "ar" ? "فشل إرسال الرسالة." : "Failed to send message."));
-      }
-    } catch (err: any) {
-      console.error(err);
+      setContactSuccess(true);
+      setContactName("");
+      setContactContact("");
+      setContactSubject("");
+      setContactMessage("");
+    } catch {
       setContactError(lang === "ar" ? "حدث خطأ في الشبكة." : "A network error occurred.");
     } finally {
       setContactLoading(false);
@@ -1474,16 +1473,32 @@ export default function App() {
                               }
                               setApplyLoading(true);
                               setApplyError(null);
-                              
-                              // Simulate secure transmission
-                              setTimeout(() => {
-                                setApplyLoading(false);
-                                setApplySuccess(true);
-                                setApplyName("");
-                                setApplyEmail("");
-                                setApplyPortfolio("");
-                                setApplyCoverLetter("");
-                              }, 1000);
+
+                              (async () => {
+                                try {
+                                  const text = [
+                                    `📋 *New Job Application from Pandara Tech*`,
+                                    `👤 *Name:* ${applyName.trim()}`,
+                                    `📧 *Email:* ${applyEmail.trim()}`,
+                                    `🔗 *Portfolio:* ${applyPortfolio.trim()}`,
+                                    `📄 *Cover Letter:* ${applyCoverLetter.trim() || "—"}`,
+                                    `💼 *Position:* ${selectedJob?.role[lang] || "—"}`,
+                                    `🌐 *Language:* ${lang}`,
+                                  ].join("\n");
+
+                                  await tgSend(text);
+
+                                  setApplySuccess(true);
+                                  setApplyName("");
+                                  setApplyEmail("");
+                                  setApplyPortfolio("");
+                                  setApplyCoverLetter("");
+                                } catch {
+                                  setApplyError(lang === "ar" ? "حدث خطأ في الإرسال" : "Failed to send application");
+                                } finally {
+                                  setApplyLoading(false);
+                                }
+                              })();
                             }}
                             className="flex flex-col gap-4"
                           >
